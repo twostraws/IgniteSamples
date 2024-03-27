@@ -16,7 +16,7 @@ struct GridExamples: StaticPage {
             .font(.title1)
 
         Text("""
-        All layout in Ignite is handle using an invisible 12-column grid layout. \
+        All layout in Ignite is handled using an invisible 12-column grid layout. \
         You can subdivide those columns however you want, or let Ignite do it for you.
         """)
             .font(.lead)
