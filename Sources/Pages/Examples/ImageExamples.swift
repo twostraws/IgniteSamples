@@ -105,7 +105,7 @@ struct ImageExamples: StaticPage {
             .margin(.bottom, .extraLarge)
 
         Alert {
-            Text("In case you hadn't noticed, this page uses a custom theme that plces some random content on the right-hand side,")
+            Text("In case you hadn't noticed, this page uses a custom theme that places some random content on the right-hand side.")
         }
         .role(.info)
     }
