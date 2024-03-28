@@ -11,10 +11,8 @@ import Ignite
 struct CustomStory: ContentPage {
     func body(content: Content, context: PublishingContext) -> [any BlockElement] {
         if let image = content.image {
-            Text {
-                Image(image, description: content.imageDescription)
-                    .resizable()
-            }
+            Image(image, description: content.imageDescription)
+                .resizable()
         }
 
         Text(content.title)

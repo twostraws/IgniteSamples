@@ -24,20 +24,16 @@ struct StylingExamples: StaticPage {
                 Text("Here's an image with a fixed width and 50% opacity:")
 
                 CodeBlock(language: "swift", """
-                Text {
-                    Image("/images/photos/dishwasher.jpg", description: "A dishwasher, and not a dog.")
-                        .resizable()
-                        .frame(width: 300)
-                }
+                Image("/images/photos/dishwasher.jpg", description: "A dishwasher, and not a dog.")
+                    .resizable()
+                    .frame(width: 300)
                 """)
 
-                Text {
-                    Image("/images/photos/dishwasher.jpg", description: "A dishwasher, and not a dog.")
-                        .resizable()
-                        .frame(width: 300)
-                        .opacity(0.5)
-                }
-                .margin(.bottom, .extraLarge)
+                Image("/images/photos/dishwasher.jpg", description: "A dishwasher, and not a dog.")
+                    .resizable()
+                    .frame(width: 300)
+                    .opacity(0.5)
+                    .margin(.bottom, .extraLarge)
 
                 Text("The following heading has a background color, foreground style, and inner shadow:")
 

@@ -27,38 +27,27 @@ struct GridExamples: StaticPage {
 
         CodeBlock(language: "swift", """
         Section {
-            Text {
-                Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
-                    .resizable()
-            }
+            Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
+                .resizable()
 
-            Text {
-                Image("/images/photos/stack.jpg", description: "A door partly open.")
-                    .resizable()
-            }
+            Image("/images/photos/stack.jpg", description: "A door partly open.")
+                .resizable()
 
-            Text {
-                Image("/images/photos/wind.jpg", description: "A windy day.")
-                    .resizable()
-            }
+
+            Image("/images/photos/wind.jpg", description: "A windy day.")
+                .resizable()
         }
         """)
 
         Section {
-            Text {
-                Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
-                    .resizable()
-            }
+            Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
+                .resizable()
 
-            Text {
-                Image("/images/photos/stack.jpg", description: "A door partly open.")
-                    .resizable()
-            }
+            Image("/images/photos/stack.jpg", description: "A door partly open.")
+                .resizable()
 
-            Text {
-                Image("/images/photos/wind.jpg", description: "A windy day.")
+            Image("/images/photos/wind.jpg", description: "A windy day.")
                     .resizable()
-            }
         }
         .margin(.bottom, .extraLarge)
 
@@ -71,44 +60,32 @@ struct GridExamples: StaticPage {
 
         CodeBlock(language: "swift", """
         Section {
-            Text {
-                Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
-                    .resizable()
-            }
-            .width(4)
+            Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
+                .resizable()
+                .width(4)
 
-            Text {
-                Image("/images/photos/stack.jpg", description: "A door partly open.")
-                    .resizable()
-            }
-            .width(4)
+            Image("/images/photos/stack.jpg", description: "A door partly open.")
+                .resizable()
+                .width(4)
 
-            Text {
-                Image("/images/photos/wind.jpg", description: "A windy day.")
-                    .resizable()
-            }
-            .width(4)
+            Image("/images/photos/wind.jpg", description: "A windy day.")
+                .resizable()
+                .width(4)
         }
         """)
 
         Section {
-            Text {
-                Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
-                    .resizable()
-            }
-            .width(4)
+            Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
+                .resizable()
+                .width(4)
 
-            Text {
-                Image("/images/photos/stack.jpg", description: "A door partly open.")
-                    .resizable()
-            }
-            .width(4)
+            Image("/images/photos/stack.jpg", description: "A door partly open.")
+                .resizable()
+                .width(4)
 
-            Text {
-                Image("/images/photos/wind.jpg", description: "A windy day.")
-                    .resizable()
-            }
-            .width(4)
+            Image("/images/photos/wind.jpg", description: "A windy day.")
+                .resizable()
+                .width(4)
         }
         .margin(.bottom, .extraLarge)
 
@@ -122,56 +99,40 @@ struct GridExamples: StaticPage {
 
         CodeBlock(language: "swift", """
         Section {
-            Text {
-                Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
-                    .resizable()
-            }
-            .width(4)
+            Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
+                .resizable()
+                .width(4)
 
-            Text {
-                Image("/images/photos/stack.jpg", description: "A door partly open.")
-                    .resizable()
-            }
-            .width(4)
+            Image("/images/photos/stack.jpg", description: "A door partly open.")
+                .resizable()
+                .width(4)
 
-            Text {
-                Image("/images/photos/rug.jpg", description: "A nice rug.")
-                    .resizable()
-            }
-            .width(4)
+            Image("/images/photos/rug.jpg", description: "A nice rug.")
+                .resizable()
+                .width(4)
 
-            Text {
-                Image("/images/photos/car.jpg", description: "The window of a car.")
-                    .resizable()
-            }
-            .width(4)
+            Image("/images/photos/car.jpg", description: "The window of a car.")
+                .resizable()
+                .width(4)
         }
         """)
 
         Section {
-            Text {
-                Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
-                    .resizable()
-            }
-            .width(4)
+            Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
+                .resizable()
+                .width(4)
 
-            Text {
-                Image("/images/photos/stack.jpg", description: "A door partly open.")
-                    .resizable()
-            }
-            .width(4)
+            Image("/images/photos/stack.jpg", description: "A door partly open.")
+                .resizable()
+                .width(4)
 
-            Text {
-                Image("/images/photos/rug.jpg", description: "A nice rug.")
-                    .resizable()
-            }
-            .width(4)
+            Image("/images/photos/rug.jpg", description: "A nice rug.")
+                .resizable()
+                .width(4)
 
-            Text {
-                Image("/images/photos/car.jpg", description: "The window of a car.")
-                    .resizable()
-            }
-            .width(4)
+            Image("/images/photos/car.jpg", description: "The window of a car.")
+                .resizable()
+                .width(4)
         }
         .margin(.bottom, .extraLarge)
 
@@ -179,49 +140,33 @@ struct GridExamples: StaticPage {
 
         CodeBlock(language: "swift", """
         Section {
-            Text {
-                Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
-                    .resizable()
-            }
+            Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
+                .resizable()
 
-            Text {
-                Image("/images/photos/stack.jpg", description: "A door partly open.")
-                    .resizable()
-            }
+            Image("/images/photos/stack.jpg", description: "A door partly open.")
+                .resizable()
 
-            Text {
-                Image("/images/photos/rug.jpg", description: "A nice rug.")
-                    .resizable()
-            }
+            Image("/images/photos/rug.jpg", description: "A nice rug.")
+                .resizable()
 
-            Text {
-                Image("/images/photos/car.jpg", description: "The window of a car.")
-                    .resizable()
-            }
+            Image("/images/photos/car.jpg", description: "The window of a car.")
+                .resizable()
         }
         .columns(2)
         """)
 
         Section {
-            Text {
-                Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
-                    .resizable()
-            }
+            Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
+                .resizable()
 
-            Text {
-                Image("/images/photos/stack.jpg", description: "A door partly open.")
-                    .resizable()
-            }
+            Image("/images/photos/stack.jpg", description: "A door partly open.")
+                .resizable()
 
-            Text {
-                Image("/images/photos/rug.jpg", description: "A nice rug.")
-                    .resizable()
-            }
+            Image("/images/photos/rug.jpg", description: "A nice rug.")
+                .resizable()
 
-            Text {
-                Image("/images/photos/car.jpg", description: "The window of a car.")
-                    .resizable()
-            }
+            Image("/images/photos/car.jpg", description: "The window of a car.")
+                .resizable()
         }
         .columns(2)
     }

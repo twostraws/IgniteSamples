@@ -14,13 +14,11 @@ struct Story: ContentPage {
             .font(.title1)
 
         if let image = content.image {
-            Text {
-                Image(image, description: content.imageDescription)
-                    .resizable()
-                    .cornerRadius(20)
-                    .frame(maxHeight: 300)
-            }
-            .horizontalAlignment(.center)
+            Image(image, description: content.imageDescription)
+                .resizable()
+                .cornerRadius(20)
+                .frame(maxHeight: 300)
+                .horizontalAlignment(.center)
         }
 
         if content.hasTags {
