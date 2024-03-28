@@ -38,6 +38,7 @@ struct ExampleSite: Site {
         AccordionExamples()
         AlertExamples()
         BadgeExamples()
+        ButtonExamples()
         CardExamples()
         CarouselExamples()
         CodeExamples()
