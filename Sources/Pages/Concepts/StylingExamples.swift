@@ -27,6 +27,7 @@ struct StylingExamples: StaticPage {
                 Image("/images/photos/dishwasher.jpg", description: "A dishwasher, and not a dog.")
                     .resizable()
                     .frame(width: 300)
+                    .opacity(0.5)
                 """)
 
                 Image("/images/photos/dishwasher.jpg", description: "A dishwasher, and not a dog.")
