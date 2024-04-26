@@ -3,11 +3,11 @@ import Ignite
 
 @main
 struct IgniteWebsite {
-    static func main() {
+    static func main() async {
         let site = ExampleSite()
 
         do {
-            try site.publish()
+            try await site.publish()
         } catch {
             print(error.localizedDescription)
         }
