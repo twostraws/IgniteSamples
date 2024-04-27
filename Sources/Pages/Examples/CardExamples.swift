@@ -38,7 +38,41 @@ struct CardExamples: StaticPage {
             Link("Back to the homepage", target: "/")
                 .linkStyle(.button)
         }
-        .frame(maxWidth: 300)
+        .frame(maxWidth: 500)
+
+
+        Text("Overlaying text")
+            .font(.title2)
+            .margin(.top, .extraLarge)
+
+        Text(markdown: """
+        By default the contents of your card are positioned below any image, but you can change that using \
+        `.contentPosition(.overlay)` and optionally also the `imageOpacity()` modifier.
+        """)
+
+        CodeBlock(language: "swift", """
+        Card(imageName: "/images/photos/dishwasher.jpg") {
+            Text("Before putting your dishes into the dishwasher, make sure and give them a quick pre-clean.")
+                .foregroundStyle(.white)
+
+            Link("Back to the homepage", target: "/")
+                .linkStyle(.button)
+        }
+        .frame(maxWidth: 500)
+        .contentPosition(.overlay)
+        .imageOpacity(0.5)
+        """)
+
+        Card(imageName: "/images/photos/dishwasher.jpg") {
+            Text("Before putting your dishes into the dishwasher, make sure and give them a quick pre-clean.")
+                .foregroundStyle(.white)
+
+            Link("Back to the homepage", target: "/")
+                .linkStyle(.button)
+        }
+        .frame(maxWidth: 500)
+        .contentPosition(.overlay)
+        .imageOpacity(0.5)
 
 
         Text("Headers and footers")
