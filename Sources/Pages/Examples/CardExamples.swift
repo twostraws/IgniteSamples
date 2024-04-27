@@ -29,7 +29,7 @@ struct CardExamples: StaticPage {
             Link("Back to the homepage", target: "/")
                 .linkStyle(.button)
         }
-        .frame(maxWidth: 300)
+        .frame(maxWidth: 500)
         """)
 
         Card(imageName: "/images/photos/dishwasher.jpg") {
