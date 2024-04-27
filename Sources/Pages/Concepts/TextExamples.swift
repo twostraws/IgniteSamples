@@ -74,6 +74,96 @@ struct TextExamples: StaticPage {
             .font(.title2)
             .margin(.top, .extraLarge)
 
+        Text(markdown: "You can adjust the weight of text using the `fontWeight()` modifier, like this:")
+
+        CodeBlock(language: "swift", """
+        Text("Hello, world!")
+            .font(.title3)
+            .fontWeight(.black)
+        """)
+
+        Text("Hello, world!")
+            .font(.title3)
+            .fontWeight(.black)
+            .margin(.bottom, .extraLarge)
+
+        Text(markdown: "There are a variety of available weights available, from `.black` down to `.ultraThin`:")
+
+        CodeBlock(language: "swift", """
+        Text("Hello, world: Black")
+            .font(.title3)
+            .fontWeight(.black)
+
+        Text("Hello, world: Heavy")
+            .font(.title3)
+            .fontWeight(.heavy)
+
+        Text("Hello, world: Bold")
+            .font(.title3)
+            .fontWeight(.bold)
+
+        Text("Hello, world: Semibold")
+            .font(.title3)
+            .fontWeight(.semibold)
+
+        Text("Hello, world: Medium")
+            .font(.title3)
+            .fontWeight(.medium)
+
+        Text("Hello, world: Regular")
+            .font(.title3)
+            .fontWeight(.regular)
+
+        Text("Hello, world: Light")
+            .font(.title3)
+            .fontWeight(.light)
+
+        Text("Hello, world: Thin")
+            .font(.title3)
+            .fontWeight(.thin)
+
+        Text("Hello, world: Ultra Light")
+            .font(.title3)
+            .fontWeight(.ultraLight)
+        """)
+
+        Text("Hello, world: Black")
+            .font(.title3)
+            .fontWeight(.black)
+
+        Text("Hello, world: Heavy")
+            .font(.title3)
+            .fontWeight(.heavy)
+
+        Text("Hello, world: Bold")
+            .font(.title3)
+            .fontWeight(.bold)
+
+        Text("Hello, world: Semibold")
+            .font(.title3)
+            .fontWeight(.semibold)
+
+        Text("Hello, world: Medium")
+            .font(.title3)
+            .fontWeight(.medium)
+
+        Text("Hello, world: Regular")
+            .font(.title3)
+            .fontWeight(.regular)
+
+        Text("Hello, world: Light")
+            .font(.title3)
+            .fontWeight(.light)
+
+        Text("Hello, world: Thin")
+            .font(.title3)
+            .fontWeight(.thin)
+
+        Text("Hello, world: Ultra Light")
+            .font(.title3)
+            .fontWeight(.ultraLight)
+            .margin(.bottom, .extraLarge)
+
         Text(markdown: "Use the `horizontalAlignment()` modifier to adjust how your text is aligned:")
 
         CodeBlock(language: "swift", """
@@ -95,6 +185,7 @@ struct TextExamples: StaticPage {
 
         Text("This is right-aligned text.")
             .horizontalAlignment(.trailing)
+            .margin(.bottom, .extraLarge)
 
         Text(markdown: "Change your text's color using the `foregroundStyle()` modifier. This can be one of the standard roles, e.g. `.danger`, or can be a regular color.")
 
