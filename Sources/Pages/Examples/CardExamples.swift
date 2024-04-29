@@ -63,8 +63,8 @@ struct CardExamples: StaticPage {
             .font(.lead)
 
         Text(markdown: """
-        By default the contents of your card are positioned below any image, but you can change that using \
-        `.contentPosition(alignment)` with a value of `ContentPosition.top` or `ContentPosition.bottom`.
+        By default the contents of your card are positioned below any image, but you can change that using
+        `.contentPosition()` with a value of `ContentPosition.top` or `ContentPosition.bottom`.
         """)
 
         CodeBlock(language: "swift", """
