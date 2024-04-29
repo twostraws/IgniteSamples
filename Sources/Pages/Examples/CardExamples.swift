@@ -41,6 +41,52 @@ struct CardExamples: StaticPage {
         .frame(maxWidth: 500)
 
 
+        Text(markdown: "It's also possible to omit the `imageName` parameter and simply place a image in the content:")
+            .margin(.top, .extraLarge)
+
+        CodeBlock(language: "swift", """
+        Card {
+            Text("An image embedded")
+            Image(decorative: "/images/photos/rug.jpg")
+            Text("as part of the card")
+        }
+        .frame(maxWidth: 500)
+        """)
+        Card {
+            Text("An image embedded")
+            Image(decorative: "/images/photos/rug.jpg")
+            Text("as part of the card")
+        }
+        .frame(maxWidth: 500)
+
+        Text("Content position")
+            .font(.lead)
+
+        Text(markdown: """
+        By default the contents of your card are positioned below any image, but you can change that using \
+        `.contentPosition(alignment)` with a value of `ContentPosition.top` or `ContentPosition.bottom`.
+        """)
+
+        CodeBlock(language: "swift", """
+        Card(imageName: "/images/photos/rug.jpg") {
+            Text(markdown: "Content below image: `.top`")
+        }
+        .contentPosition(.top)
+        """)
+
+        Section {
+            Card(imageName: "/images/photos/rug.jpg") {
+                Text(markdown: "Content below image: use `.top`")
+            }
+            .contentPosition(.top)
+
+            Card(imageName: "/images/photos/rug.jpg") {
+                Text(markdown: "Content below image: use `.bottom`")
+            }
+            .contentPosition(.bottom)
+        }
+        .columns(2)
+
         Text("Overlaying text")
             .font(.title2)
             .margin(.top, .extraLarge)
