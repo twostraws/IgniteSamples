@@ -121,6 +121,30 @@ struct CardExamples: StaticPage {
         .imageOpacity(0.5)
 
 
+        Text(markdown: """
+        To control the position of the overlay you can specify an alignment using `.overlay(alignment:)`
+        with one of the following options:
+        """)
+        .margin(.top, .large)
+
+        Section {
+            for alignment in Card.ContentAlignment.allCases {
+                let alignmentName = String(describing: alignment)
+                Card(imageName: "/images/photos/dishwasher.jpg") {
+                    Text(markdown: "`.\(alignmentName)`")
+                        .foregroundStyle(.white)
+                        .backgroundColor(.lightGray)
+
+                    Link("Back to the homepage", target: "/")
+                        .linkStyle(.button)
+                }
+                .contentPosition(.overlay(alignment: alignment))
+                .imageOpacity(0.5)
+            }
+        }
+        .margin(.top, .large)
+        .columns(3)
+
         Text("Headers and footers")
             .font(.title2)
             .margin(.top, .extraLarge)
