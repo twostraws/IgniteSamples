@@ -11,7 +11,7 @@ import Ignite
 struct ButtonExamples: StaticPage {
     var title = "Buttons"
 
-    func body(context: PublishingContext) -> [BlockElement] {
+    func body(context: PublishingContext) async -> [BlockElement] {
         Text("Buttons")
             .font(.title1)
 

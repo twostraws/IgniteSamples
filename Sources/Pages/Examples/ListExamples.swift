@@ -11,7 +11,7 @@ import Ignite
 struct ListExamples: StaticPage {
     var title = "Lists"
 
-    func body(context: PublishingContext) -> [BlockElement] {
+    func body(context: PublishingContext) async -> [BlockElement] {
         Text("Lists")
             .font(.title1)
 

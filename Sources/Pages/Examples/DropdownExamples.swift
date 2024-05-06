@@ -11,7 +11,7 @@ import Ignite
 struct DropdownExamples: StaticPage {
     var title = "Dropdowns"
 
-    func body(context: PublishingContext) -> [BlockElement] {
+    func body(context: PublishingContext) async -> [BlockElement] {
         Text("Dropdowns")
             .font(.title1)
 

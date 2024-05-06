@@ -15,7 +15,7 @@ struct ImageExamples: StaticPage {
     // theme, as shown below.
     var theme = SuggestedArticleTheme()
 
-    func body(context: PublishingContext) -> [BlockElement] {
+    func body(context: PublishingContext) async -> [BlockElement] {
         Text("Images")
             .font(.title1)
 

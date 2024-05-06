@@ -11,7 +11,7 @@ import Ignite
 struct TableExamples: StaticPage {
     var title = "Tables"
 
-    func body(context: PublishingContext) -> [BlockElement] {
+    func body(context: PublishingContext) async -> [BlockElement] {
         Text("Tables")
             .font(.title1)
 

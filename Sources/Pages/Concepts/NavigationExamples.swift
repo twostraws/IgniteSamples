@@ -11,7 +11,7 @@ import Ignite
 struct NavigationExamples: StaticPage {
     var title = "Navigation"
 
-    func body(context: PublishingContext) -> [BlockElement] {
+    func body(context: PublishingContext) async -> [BlockElement] {
         Text("Navigation")
             .font(.title1)
 

@@ -11,7 +11,7 @@ import Ignite
 struct QuoteExamples: StaticPage {
     var title = "Quotes"
 
-    func body(context: PublishingContext) -> [BlockElement] {
+    func body(context: PublishingContext) async -> [BlockElement] {
         Text("Quotes")
             .font(.title1)
 

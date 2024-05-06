@@ -11,7 +11,7 @@ import Ignite
 struct GridExamples: StaticPage {
     var title = "Grid Layout"
 
-    func body(context: PublishingContext) -> [BlockElement] {
+    func body(context: PublishingContext) async -> [BlockElement] {
         Text("Grid Layout")
             .font(.title1)
 

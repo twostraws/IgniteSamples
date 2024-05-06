@@ -11,7 +11,7 @@ import Ignite
 struct ContentExamples: StaticPage {
     var title = "Content"
 
-    func body(context: PublishingContext) -> [BlockElement] {
+    func body(context: PublishingContext) async -> [BlockElement] {
         Text("Working with content")
             .font(.title1)
 

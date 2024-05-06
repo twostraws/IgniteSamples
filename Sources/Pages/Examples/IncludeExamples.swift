@@ -11,7 +11,7 @@ import Ignite
 struct IncludeExamples: StaticPage {
     var title = "Includes"
 
-    func body(context: PublishingContext) -> [BlockElement] {
+    func body(context: PublishingContext) async -> [BlockElement] {
         Text("Includes")
             .font(.title1)
 

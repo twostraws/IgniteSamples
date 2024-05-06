@@ -11,7 +11,7 @@ import Ignite
 struct CardExamples: StaticPage {
     var title = "Cards"
 
-    func body(context: PublishingContext) -> [BlockElement] {
+    func body(context: PublishingContext) async -> [BlockElement] {
         Text("Cards")
             .font(.title1)
 

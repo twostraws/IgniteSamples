@@ -11,7 +11,7 @@ import Ignite
 struct BadgeExamples: StaticPage {
     var title = "Badges"
 
-    func body(context: PublishingContext) -> [BlockElement] {
+    func body(context: PublishingContext) async -> [BlockElement] {
         Text("Badges")
             .font(.title1)
 

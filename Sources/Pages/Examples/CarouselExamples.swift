@@ -11,7 +11,7 @@ import Ignite
 struct CarouselExamples: StaticPage {
     var title = "Carousels"
 
-    func body(context: PublishingContext) -> [BlockElement] {
+    func body(context: PublishingContext) async -> [BlockElement] {
         Text("Carousels")
             .font(.title1)
 

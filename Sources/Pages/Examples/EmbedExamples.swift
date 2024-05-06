@@ -11,7 +11,7 @@ import Ignite
 struct EmbedExamples: StaticPage {
     var title = "Embeds"
 
-    func body(context: PublishingContext) -> [BlockElement] {
+    func body(context: PublishingContext) async -> [BlockElement] {
         Text("Embeds")
             .font(.title1)
 

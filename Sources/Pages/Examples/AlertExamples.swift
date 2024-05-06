@@ -11,7 +11,7 @@ import Ignite
 struct AlertExamples: StaticPage {
     var title = "Accordions"
 
-    func body(context: PublishingContext) -> [BlockElement] {
+    func body(context: PublishingContext) async -> [BlockElement] {
         Text("Alerts")
             .font(.title1)
 

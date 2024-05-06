@@ -12,7 +12,7 @@ struct StylingExamples: StaticPage {
     var title = "Styling"
     var path = "/custom/path/to/styling"
 
-    func body(context: PublishingContext) -> [BlockElement] {
+    func body(context: PublishingContext) async -> [BlockElement] {
         Text("Styling")
             .font(.title1)
 
