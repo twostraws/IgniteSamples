@@ -133,7 +133,7 @@ struct CardExamples: StaticPage {
                 Card(imageName: "/images/photos/dishwasher.jpg") {
                     Text(markdown: "`.\(alignmentName)`")
                         .foregroundStyle(.white)
-                        .backgroundColor(.lightGray)
+                        .background(.lightGray)
 
                     Link("Back to the homepage", target: "/")
                         .linkStyle(.button)

@@ -24,7 +24,7 @@ struct NavBar: Component {
         }
         .navigationItemAlignment(.trailing)
         .navigationBarStyle(.dark)
-        .backgroundColor(.firebrick)
+        .background(.firebrick)
         .position(.fixedTop)
     }
 }

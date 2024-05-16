@@ -43,7 +43,7 @@ struct StylingExamples: StaticPage {
                     .font(.title2)
                     .padding(20)
                     .foregroundStyle(.white)
-                    .backgroundColor(.indigo)
+                    .background(.indigo)
                     .innerShadow(.black, radius: 20)
                 """)
 
@@ -51,7 +51,7 @@ struct StylingExamples: StaticPage {
                     .font(.title2)
                     .padding(20)
                     .foregroundStyle(.white)
-                    .backgroundColor(.indigo)
+                    .background(.indigo)
                     .innerShadow(.black, radius: 20)
                     .margin(.bottom, .extraLarge)
 
@@ -127,14 +127,14 @@ struct StylingExamples: StaticPage {
         Text("Zero padding, lots of margin")
             .padding(.none)
             .margin(100)
-            .backgroundColor(.purple)
+            .background(.purple)
             .foregroundStyle(.white)
         """)
 
         Text("Zero padding, lots of margin")
             .padding(.none)
             .margin(100)
-            .backgroundColor(.purple)
+            .background(.purple)
             .foregroundStyle(.white)
 
         Text("Notice how it's set away from surrounding context, but the purple background fits tightly around it.")
@@ -145,14 +145,14 @@ struct StylingExamples: StaticPage {
         Text("Lots of padding, zero margin")
             .padding(100)
             .margin(.none)
-            .backgroundColor(.purple)
+            .background(.purple)
             .foregroundStyle(.white)
         """)
 
         Text("Lots of padding, zero margin")
             .padding(100)
             .margin(.none)
-            .backgroundColor(.purple)
+            .background(.purple)
             .foregroundStyle(.white)
 
         Text(markdown: "This time the heading has lots of purple space around it – the heading has had extra space added *inside it*, which is colored. However, it runs edge to edge otherwise; this text sits directly below it.")

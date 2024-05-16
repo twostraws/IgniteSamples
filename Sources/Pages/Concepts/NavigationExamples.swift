@@ -26,7 +26,7 @@ struct NavigationExamples: StaticPage {
             Link("Carousels", target: CarouselExamples())
             Link("Tables", target: TableExamples())
         }
-        .backgroundColor(.black)
+        .background(.black)
         .navigationBarStyle(.dark)
         """)
 
@@ -35,7 +35,7 @@ struct NavigationExamples: StaticPage {
             Link("Carousels", target: CarouselExamples())
             Link("Tables", target: TableExamples())
         }
-        .backgroundColor(.black)
+        .background(.black)
         .navigationBarStyle(.dark)
         .margin(.bottom, .large)
 
@@ -62,7 +62,7 @@ struct NavigationExamples: StaticPage {
                 Link("Lists", target: ListExamples())
             }
         }
-        .backgroundColor(.steelBlue)
+        .background(.steelBlue)
         .navigationBarStyle(.dark)
         """)
 
@@ -77,7 +77,7 @@ struct NavigationExamples: StaticPage {
                 Link("Lists", target: ListExamples())
             }
         }
-        .backgroundColor(.steelBlue)
+        .background(.steelBlue)
         .navigationBarStyle(.dark)
         .margin(.bottom, .extraLarge)
 
@@ -89,7 +89,7 @@ struct NavigationExamples: StaticPage {
             Link("Carousels", target: CarouselExamples())
             Link("Tables", target: TableExamples())
         }
-        .backgroundColor(.antiqueWhite)
+        .background(.antiqueWhite)
         .navigationItemAlignment(.trailing)
         """)
 
@@ -98,7 +98,7 @@ struct NavigationExamples: StaticPage {
             Link("Carousels", target: CarouselExamples())
             Link("Tables", target: TableExamples())
         }
-        .backgroundColor(.antiqueWhite)
+        .background(.antiqueWhite)
         .navigationItemAlignment(.trailing)
         .margin(.bottom, .extraLarge)
 
@@ -113,7 +113,7 @@ struct NavigationExamples: StaticPage {
             Link("Carousels", target: CarouselExamples())
             Link("Tables", target: TableExamples())
         }
-        .backgroundColor(.steelBlue)
+        .background(.steelBlue)
         .navigationItemAlignment(.trailing)
         .navigationBarStyle(.dark)
         .position(.fixedBottom)
@@ -124,7 +124,7 @@ struct NavigationExamples: StaticPage {
             Link("Carousels", target: CarouselExamples())
             Link("Tables", target: TableExamples())
         }
-        .backgroundColor(.steelBlue)
+        .background(.steelBlue)
         .navigationItemAlignment(.trailing)
         .navigationBarStyle(.dark)
         .position(.fixedBottom)
