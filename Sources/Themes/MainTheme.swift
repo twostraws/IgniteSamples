@@ -21,6 +21,7 @@ struct MyTheme: Theme {
                 IgniteFooter()
             }
             .padding(.vertical, 80)
+            .class("container")
         }
     }
 }
