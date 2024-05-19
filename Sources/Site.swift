@@ -48,6 +48,7 @@ struct ExampleSite: Site {
         IncludeExamples()
         LinkExamples()
         ListExamples()
+        MediaExamples()
         QuoteExamples()
         StylingExamples()
         TableExamples()
