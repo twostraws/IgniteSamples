@@ -118,6 +118,12 @@ struct ContentExamples: StaticPage {
             "tags: A comma-separated list of tags for this article. If you have enabled tag pages, these will be used to list matching content."
         }
 
+        Text(markdown: "As well as the predefined fields, you can use the `metadata` dictionary to access any custom properties you have defined in the front matter. Note that the dictionary values are optionals: your page code must be able to deal with the dictionary item not existing!")
+        
+        CodeBlock(language: "swift", """
+        Text(content.metadata["CustomValue"] ?? "Not defined")
+        """)
+
         Text(markdown: "In addition, you can read properties such as `estimatedWordCount` and `estimatedReadingMinutes` on your content, to provide extra information to users.")
 
         Text("Tag pages")
