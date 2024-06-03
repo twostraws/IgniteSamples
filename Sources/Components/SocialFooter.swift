@@ -8,7 +8,7 @@
 import Foundation
 import Ignite
 
-/// Displays a "Social Footer", with each icon opening an external social site in a new browser tab, demonstrating how to create reusable components with builtIn icons, external links and custom attributes.
+/// Displays a global "Social Footer", with each social icon linking to an external site in a new browser tab, demonstrating how to create reusable components with builtIn icons, external links and custom attributes.
 public struct SocialFooter: Component {
     public func body(context: PublishingContext) -> [any PageElement] {
         
