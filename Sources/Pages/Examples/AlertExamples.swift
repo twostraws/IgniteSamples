@@ -9,7 +9,7 @@ import Foundation
 import Ignite
 
 struct AlertExamples: StaticPage {
-    var title = "Accordions"
+    var title = "Alerts"
 
     func body(context: PublishingContext) async -> [BlockElement] {
         Text("Alerts")
