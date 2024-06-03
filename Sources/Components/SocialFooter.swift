@@ -1,13 +1,14 @@
 //
-//  File.swift
-//
-//
-//  Created by joshua kaunert on 6/2/24.
+// NavBar.swift
+// IgniteSamples
+// https://www.github.com/twostraws/Ignite
+// See LICENSE for license information.
+// Created by joshua kaunert on 6/2/24.
 //
 import Foundation
 import Ignite
 
-/// Displays a "Social Footer", with each icon opening an external social site in a new browser tab, demonstrating how to create reusable components with builtIn icons and custom attributes.
+/// Displays a "Social Footer", with each icon opening an external social site in a new browser tab, demonstrating how to create reusable components with builtIn icons, external links and custom attributes.
 public struct SocialFooter: Component {
     public func body(context: PublishingContext) -> [any PageElement] {
         
@@ -45,4 +46,3 @@ public struct SocialFooter: Component {
         .margin(.top, .extraLarge)
     }
 }
-
