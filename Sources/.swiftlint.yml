@@ -1,0 +1,12 @@
+disabled_rules:
+# Ignore long lines, because it gets confusing when writing lots of text.
+- line_length
+
+# Ignore long functions, because those are our page bodies.
+- function_body_length
+
+# Ignore using `where` in loops, because it complicates sample code
+- for_where
+
+# Ignore long types; these are example pages deliberately full of examples.
+- type_body_length

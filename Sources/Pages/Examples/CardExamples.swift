@@ -40,7 +40,6 @@ struct CardExamples: StaticPage {
         }
         .frame(maxWidth: 500)
 
-
         Text(markdown: "It's also possible to omit the `imageName` parameter and simply place a image in the content:")
             .margin(.top, .extraLarge)
 
@@ -120,7 +119,6 @@ struct CardExamples: StaticPage {
         .contentPosition(.overlay)
         .imageOpacity(0.5)
 
-
         Text(markdown: """
         To control the position of the overlay you can specify an alignment using `.overlay(alignment:)`
         with one of the following options:
@@ -175,7 +173,6 @@ struct CardExamples: StaticPage {
         } footer: {
             "Your footer goes here footer"
         }
-
 
         Text("Card styles")
             .font(.title2)

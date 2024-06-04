@@ -58,7 +58,6 @@ struct IncludeExamples: StaticPage {
             }
         }
 
-
         Alert {
             Text(markdown: "**Tip:** This page uses a custom theme, which is dark")
         }

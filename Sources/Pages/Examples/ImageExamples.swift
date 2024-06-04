@@ -40,7 +40,6 @@ struct ImageExamples: StaticPage {
 
         Text(markdown: "If you're working with large images, consider using the `lazy()` modifier to have them loaded lazily.")
 
-
         Text("Icons")
             .font(.title2)
             .margin(.top, .extraLarge)

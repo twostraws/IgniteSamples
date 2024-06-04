@@ -169,4 +169,3 @@ struct StylingExamples: StaticPage {
         .role(.info)
     }
 }
-

@@ -259,7 +259,6 @@ struct TableExamples: StaticPage {
         .tableStyle(.stripedColumns)
         .margin(.bottom, .extraLarge)
 
-
         Text("Row and column formatting")
             .font(.title2)
 

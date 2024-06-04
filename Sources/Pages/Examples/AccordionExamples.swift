@@ -73,7 +73,6 @@ struct AccordionExamples: StaticPage {
         .openMode(.all)
         """)
 
-
         Accordion {
             Item("First") {
                 Text("This is the first accordion item.")

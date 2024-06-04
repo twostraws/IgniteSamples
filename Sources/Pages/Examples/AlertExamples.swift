@@ -58,4 +58,3 @@ struct AlertExamples: StaticPage {
         }
     }
 }
-

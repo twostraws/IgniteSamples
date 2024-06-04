@@ -83,7 +83,6 @@ struct BadgeExamples: StaticPage {
             .font(font)
         }
 
-
         Text("Badge variants")
             .font(.title2)
             .margin(.top, .extraLarge)

@@ -6,7 +6,7 @@
       "location" : "https://github.com/twostraws/Ignite.git",
       "state" : {
         "branch" : "main",
-        "revision" : "2d2aaca0c52055ec550703ca2e7d83463e2f8a8c"
+        "revision" : "c643e9e76ba8d7dacbc980f724ce1d325faf10e5"
       }
     },
     {
@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-argument-parser.git",
       "state" : {
-        "revision" : "46989693916f56d1186bd59ac15124caef896560",
-        "version" : "1.3.1"
+        "revision" : "0fbc8848e389af3bb55c182bc19ca9d5dc2f255b",
+        "version" : "1.4.0"
       }
     },
     {
@@ -33,7 +33,7 @@
       "location" : "https://github.com/apple/swift-markdown.git",
       "state" : {
         "branch" : "main",
-        "revision" : "49beeeb25500b035049b1003a967305bcd076fdf"
+        "revision" : "365bf2d61d5fbca5cbd3b359b203ef6a69d9381f"
       }
     }
   ],

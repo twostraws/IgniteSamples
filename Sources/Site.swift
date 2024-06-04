@@ -14,7 +14,7 @@ struct IgniteWebsite {
     }
 }
 
-struct ExampleSite: Site {    
+struct ExampleSite: Site {
     var name = "My Awesome Site"
     var titleSuffix = " – My Awesome Site"
     var url = URL("https://www.yoursite.com")
@@ -58,5 +58,3 @@ struct ExampleSite: Site {
         CustomStory()
     }
 }
-
-

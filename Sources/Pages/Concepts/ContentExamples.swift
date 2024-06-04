@@ -119,7 +119,7 @@ struct ContentExamples: StaticPage {
         }
 
         Text(markdown: "As well as the predefined fields, you can use the `metadata` dictionary to access any custom properties you have defined in the front matter. Note that the dictionary values are optionals: your page code must be able to deal with the dictionary item not existing!")
-        
+
         CodeBlock(language: "swift", """
         Text(content.metadata["CustomValue"] ?? "Not defined")
         """)

@@ -32,7 +32,6 @@ struct Home: StaticPage {
         }
         .listStyle(.ordered(.default))
 
-
         Text("Examples")
             .font(.title2)
             .margin(.top, .large)

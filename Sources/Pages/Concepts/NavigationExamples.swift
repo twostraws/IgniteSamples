@@ -70,7 +70,7 @@ struct NavigationExamples: StaticPage {
             Link("Accordions", target: AccordionExamples())
             Link("Carousels", target: CarouselExamples())
             Link("Tables", target: TableExamples())
-            
+
             Dropdown("More") {
                 Link("Cards", target: CardExamples())
                 Link("Images", target: ImageExamples())
