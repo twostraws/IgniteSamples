@@ -146,7 +146,8 @@ struct ButtonExamples: StaticPage {
         for role in Role.allCases {
             for size in ButtonSize.allCases {
                 Text {
-                    Button("\(size.rawValue.capitalized) button with \(role.rawValue) role")
+                    let description = "\(size.rawValue.capitalized) button with \(role.rawValue) role"
+                    Button(role == .close ? "" : description)
                         .buttonSize(size)
                         .role(role)
                 }

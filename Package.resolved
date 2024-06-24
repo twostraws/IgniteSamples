@@ -6,7 +6,7 @@
       "location" : "https://github.com/twostraws/Ignite.git",
       "state" : {
         "branch" : "main",
-        "revision" : "c643e9e76ba8d7dacbc980f724ce1d325faf10e5"
+        "revision" : "a4c72314c2aa6a7a62d3e33ac0574abec562e87f"
       }
     },
     {
@@ -33,7 +33,7 @@
       "location" : "https://github.com/apple/swift-markdown.git",
       "state" : {
         "branch" : "main",
-        "revision" : "365bf2d61d5fbca5cbd3b359b203ef6a69d9381f"
+        "revision" : "4ac777505bf8510563973eca182992108f8b23cd"
       }
     }
   ],

@@ -35,6 +35,7 @@ struct NavBar: Component {
                 Link("Includes", target: IncludeExamples())
                 Link("Links", target: LinkExamples())
                 Link("Lists", target: ListExamples())
+                Link("Modals", target: ModalExamples())
                 Link("Quotes", target: QuoteExamples())
                 Link("Tables", target: TableExamples())
             }
