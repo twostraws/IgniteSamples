@@ -71,7 +71,7 @@ struct ModalExamples: StaticPage {
             .font(.title2)
             .margin(.top, .extraLarge)
 
-        Text(markdown: "Modals can either be dismissed by clicking on the backdrop, unless otherwise configured in the [Presentation Options](#Options), or programmatically by using the `DismissModal(id:)` action.")
+        Text(markdown: "Modals can either be dismissed by clicking on the backdrop, unless otherwise configured in the [Presentation Options](#Options), by pressing the `Esc` key or programmatically by using the `DismissModal(id:)` action.")
 
         Text(markdown: "This modal can be dismissed through a cose button in the top right corner:")
             .margin(.top, .medium)
@@ -473,7 +473,7 @@ struct ModalExamples: StaticPage {
             }
             Row {
                 Text(markdown: "`keyboard(Bool)`")
-                Text("Allows the modal to be dismissed by pressing the ESC key when set to `true`. If `false`, this behavior is disabled. Note: This option may not work properly unless `tabindex=-1` is set.")
+                Text("Allows the modal to be dismissed by pressing the ESC key when set to `true`. If `false`, this behavior is disabled. The default is `true`.")
             }
             Row {
                 Text(markdown: "`focus(Bool)`")
