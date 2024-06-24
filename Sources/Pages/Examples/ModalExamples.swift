@@ -144,6 +144,7 @@ struct ModalExamples: StaticPage {
                 .margin(.extraLarge)
                 .horizontalAlignment(.center)
         }
+        .size(.small)
 
         Modal(id: "\(xLargeModalId)") {
             Text(markdown: "Modal with size `.xLarge`")
@@ -151,13 +152,22 @@ struct ModalExamples: StaticPage {
                 .margin(.extraLarge)
                 .horizontalAlignment(.center)
         }
+        .size(.xlarge)
 
         Modal(id: "\(fullscreenModalId)") {
-            Text(markdown: "Modal with size `.fullscreen`")
+            Group {
+                Button().role(.close).onClick {
+                    DismissModal(id: "\(fullscreenModalId)")
+                }
+            }
+            .horizontalAlignment(.trailing)
+
+            Text(markdown: "Modal with size `.fullscreen`.")
                 .font(.title3)
                 .margin(.extraLarge)
                 .horizontalAlignment(.center)
         }
+        .size(.fullscreen)
         """)
 
         Group {
@@ -191,26 +201,36 @@ struct ModalExamples: StaticPage {
             }
             .role(.light)
 
-            Modal(id: "\(showModalId)") {
+            Modal(id: "\(smallModalId)") {
                 Text(markdown: "Modal with size `.small`")
                     .font(.title3)
                     .margin(.extraLarge)
                     .horizontalAlignment(.center)
             }
+            .size(.small)
 
-            Modal(id: "\(showModalId)") {
+            Modal(id: "\(xLargeModalId)") {
                 Text(markdown: "Modal with size `.xLarge`")
                     .font(.title3)
                     .margin(.extraLarge)
                     .horizontalAlignment(.center)
             }
+            .size(.xLarge)
 
-            Modal(id: "\(showModalId)") {
-                Text(markdown: "Modal with size `.fullscreen`")
+            Modal(id: "\(fullscreenModalId)") {
+                Group {
+                    Button().role(.close).onClick {
+                        DismissModal(id: "\(fullscreenModalId)")
+                    }
+                }
+                .horizontalAlignment(.trailing)
+
+                Text(markdown: "Modal with size `.fullscreen`.")
                     .font(.title3)
                     .margin(.extraLarge)
                     .horizontalAlignment(.center)
             }
+            .size(.fullscreen)
         }
         .padding(.top, .large)
 
