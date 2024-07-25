@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+
+<style>
+#map {
+    height: 600px;
+}
+
+a:link, a:visited {
+    color: #2aaef5;
+    outline: none;
+    text-decoration: none;
+}
+
+.landmark {
+    width: 250px;
+    padding: 7px 0 0 0;
+    background: rgba(247, 247, 247, 0.75);
+    border-radius: 5px;
+    box-shadow: 10px 10px 50px rgba(0, 0, 0, 0.29);
+    font-family: Helvetica, Arial, sans-serif;
+    transform-origin: 0 10px;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
+
+.landmark h1 {
+    margin-top: 0;
+    padding: 5px 15px;
+    background: #2aaef5;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.landmark section {
+    padding: 0 15px 5px;
+    font-size: 14px;
+}
+
+.landmark section p {
+    margin: 5px 0;
+}
+
+.landmark:after {
+    content: "";
+    position: absolute;
+    top: 7px;
+    left: -13px;
+    width: 0;
+    height: 0;
+    margin-bottom: -13px;
+    border-right: 13px solid #2aaef5;
+    border-top: 13px solid rgba(0, 0, 0, 0);
+    border-bottom: 13px solid rgba(0, 0, 0, 0);
+}
+
+@-webkit-keyframes scale-and-fadein {
+    0% {
+        -webkit-transform: scale(0.2);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes scale-and-fadein {
+    0% {
+        transform: scale(0.2);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+</style>
+
+<script src="https://cdn.apple-mapkit.com/mk/5.x.x/mapkit.core.js"
+    crossorigin async
+    data-callback="initMapKit"
+    data-libraries="map,annotations"
+    data-token="eyJraWQiOiJSNzgzRjNIOE05IiwidHlwIjoiSldUIiwiYWxnIjoiRVMyNTYifQ.eyJpc3MiOiIyTVA4UVdLN1I2IiwiaWF0IjoxNzIxODU1OTU0LCJleHAiOjE3MjI0OTU1OTl9.ViD505SG9QW54fv5h3iv9lQsY328OlHF-1mEPdFeNzRmqrRI137IaXlGXr2W5lR9brWG7Luej1SoEyr8beXsjw">
+</script>
+
+<script type="module">
+// Wait for MapKit JS to be ready to use.
+const setupMapKitJs = async() => {
+    // If MapKit JS is not yet loaded...
+    if (!window.mapkit || window.mapkit.loadedLibraries.length === 0) {
+        // ...await <script>'s data-callback (window.initMapKit).
+        await new Promise(resolve => { window.initMapKit = resolve });
+        // Clean up.
+        delete window.initMapKit;
+    }
+};
+
+const main = async() => {
+    await setupMapKitJs();
+
+    // Landmarks data
+    const sanFranciscoLandmarks = [
+        {
+            coordinate: new mapkit.Coordinate(37.7951315, -122.402986),
+            title: "Transamerica Pyramid",
+            phone: "+1-415-983-5420",
+            url: "http://www.transamericapyramidcenter.com/"
+        },
+        {
+            coordinate: new mapkit.Coordinate(37.7954201, -122.39352),
+            title: "Ferry Building",
+            phone: "+1 (415) 983-8030",
+            url: "http://www.ferrybuildingmarketplace.com"
+        },
+        {
+            coordinate: new mapkit.Coordinate(37.8083396, -122.415727),
+            title: "Fisherman's Wharf",
+            phone: "+1 (415) 673-3530", url: "http://visitfishermanswharf.com"
+        },
+        {
+            coordinate: new mapkit.Coordinate(37.8023553, -122.405742),
+            title: "Coit Tower",
+            phone: "+1 (415) 249-0995",
+            url: "http://sfrecpark.org/destination/telegraph-hill-pioneer-park/coit-tower/"
+        },
+        {
+            coordinate: new mapkit.Coordinate(37.7552305, -122.452624),
+            title: "Sutro Tower",
+            phone: "+1 (415) 681-8850",
+            url: "http://www.sutrotower.com"
+        },
+        {
+            coordinate: new mapkit.Coordinate(37.779267, -122.419269),
+            title: "City Hall",
+            phone: "+1 (415) 701-2311",
+            url: "http://sfgsa.org/index.aspx?page=1085"
+        },
+        {
+            coordinate: new mapkit.Coordinate(37.8184493, -122.478409),
+            title: "Golden Gate Bridge",
+            phone: "+1 (415) 921-5858",
+            url: "http://www.goldengatebridge.org"
+        }
+    ];
+
+
+    // Callout and the associated annotation marker offset
+    const offset = new DOMPoint(-148, -58);
+
+    // Annotation (key) to annotation's landmark data (value)
+    const annotationsToLandmark = new Map();
+
+    // Annotations use these functions to present custom callouts.
+    const landmarkAnnotationCallout = {
+
+        calloutElementForAnnotation: annotation => {
+            const landmark = annotationsToLandmark.get(annotation);
+
+            const div = document.createElement("div");
+            div.className = "landmark";
+
+            const title = div.appendChild(document.createElement("h1"));
+            title.textContent = landmark.title;
+
+            const section = div.appendChild(document.createElement("section"));
+
+            const phone = section.appendChild(document.createElement("p"));
+            phone.className = "phone";
+            phone.textContent = landmark.phone;
+
+            const link = section.appendChild(document.createElement("p"));
+            link.className = "homepage";
+
+            return div;
+        },
+
+        calloutAnchorOffsetForAnnotation: (annotation, element) => offset,
+
+        calloutAppearanceAnimationForAnnotation: annotation =>
+            ".4s cubic-bezier(0.4, 0, 0, 1.5) " +
+            "0s 1 normal scale-and-fadein"
+    };
+
+    for (const landmark of sanFranciscoLandmarks) {
+        const annotation = new mapkit.MarkerAnnotation(landmark.coordinate, {
+            callout: landmarkAnnotationCallout,
+            color: "#c969e0"
+        });
+
+        annotationsToLandmark.set(annotation, landmark);
+    }
+
+    const map = new mapkit.Map("map");
+    map.showItems(Array.from(annotationsToLandmark.keys()));
+};
+
+main();
+
+</script>
+
+</head>
+
+<body>
+    <div id="map"></div>
+</body>
+</html>

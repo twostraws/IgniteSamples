@@ -17,7 +17,7 @@ struct IgniteWebsite {
 struct ExampleSite: Site {
     var name = "My Awesome Site"
     var titleSuffix = " – My Awesome Site"
-    var url = URL("https://www.yoursite.com")
+    var url: URL = URL("https://www.example.com")
 
     var builtInIconsEnabled = true
     var syntaxHighlighters = [SyntaxHighlighter.swift, .python, .ruby]
@@ -48,6 +48,7 @@ struct ExampleSite: Site {
         IncludeExamples()
         LinkExamples()
         ListExamples()
+        MapExamples()
         QuoteExamples()
         StylingExamples()
         TableExamples()

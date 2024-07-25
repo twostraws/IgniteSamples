@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Callout Accessory Views</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no">
+<style>
+
+body {
+    font-family: "Helvetica Neue", sans-serif;
+}
+
+#map-container {
+    height: 600px;
+}
+
+.left-accessory-view {
+    background-color: #4B93E0;
+    color: #FFFFFF;
+    font-size: 12px;
+}
+
+.left-accessory-view > :first-child {
+    font-size: 20px;
+}
+
+.right-accessory-view {
+    margin: 0 3px;
+    font-size: 16px;
+    text-decoration: none;
+    color: #888888;
+    outline: 0;
+}
+
+</style>
+
+
+<script src="https://cdn.apple-mapkit.com/mk/5.x.x/mapkit.core.js"
+    crossorigin async
+    data-callback="initMapKit"
+    data-libraries="map,annotations"
+    data-token="eyJraWQiOiJSNzgzRjNIOE05IiwidHlwIjoiSldUIiwiYWxnIjoiRVMyNTYifQ.eyJpc3MiOiIyTVA4UVdLN1I2IiwiaWF0IjoxNzIxODU1OTU0LCJleHAiOjE3MjI0OTU1OTl9.ViD505SG9QW54fv5h3iv9lQsY328OlHF-1mEPdFeNzRmqrRI137IaXlGXr2W5lR9brWG7Luej1SoEyr8beXsjw">
+</script>
+
+<script type="module">
+// Wait for MapKit JS to be ready to use.
+const setupMapKitJs = async() => {
+    // If MapKit JS is not yet loaded...
+    if (!window.mapkit || window.mapkit.loadedLibraries.length === 0) {
+        // ...await <script>'s data-callback (window.initMapKit).
+        await new Promise(resolve => { window.initMapKit = resolve });
+        // Clean up.
+        delete window.initMapKit;
+    }
+};
+
+const main = async() => {
+    await setupMapKitJs();
+
+    const urlWikipedia = "https://en.wikipedia.org/wiki/San_Francisco";
+
+    // Callout delegate
+    const annotationCallout = {
+        calloutLeftAccessoryForAnnotation: () => {
+            const accessoryViewLeft = document.createElement("div");
+            accessoryViewLeft.className = "left-accessory-view";
+
+            const accessoryViewLeftIcon = document.createElement("span");
+            accessoryViewLeftIcon.textContent = "\u{26C5}"; // Sun & Clouds
+            accessoryViewLeft.appendChild(accessoryViewLeftIcon);
+
+            const accessoryViewLeftText = document.createElement("div");
+            accessoryViewLeftText.textContent = "73 \u{00b0}F";
+            accessoryViewLeft.appendChild(accessoryViewLeftText);
+
+            return accessoryViewLeft;
+        },
+        calloutRightAccessoryForAnnotation: () => {
+            const accessoryViewRight = document.createElement("a");
+            accessoryViewRight.className = "right-accessory-view";
+            accessoryViewRight.href = urlWikipedia;
+            accessoryViewRight.target = "_blank";
+            accessoryViewRight.textContent = "\u{24D8}"; // (i) icon
+
+            return accessoryViewRight;
+        }
+    };
+
+    // Create an annotation.
+    const coordinate = new mapkit.Coordinate(37.7749, -122.4194);
+    const annotation = new mapkit.MarkerAnnotation(coordinate, {
+        title: "San Francisco",
+        subtitle: "California",
+        animates: true,
+        selected: true,
+        color: "#4B93E0",
+        callout: annotationCallout
+    });
+
+    // Create a map.
+    const map = new mapkit.Map("map-container", { annotations: [annotation] });
+};
+
+main();
+
+</script>
+
+</head>
+<body>
+    <div id="map-container"></div>
+</body>
+</html>

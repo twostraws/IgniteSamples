@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Animated polyline</title>
+
+<style>
+
+body {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: "-apple-system-font", Futura, "Helvetica Neue", "Helvetica",
+        "Arial", "sans-serif";
+}
+
+#map-container {
+    width: 100%;
+    height: 600px;
+}
+
+</style>
+
+<script src="https://cdn.apple-mapkit.com/mk/5.x.x/mapkit.core.js"
+    crossorigin async
+    data-callback="initMapKit"
+    data-libraries="full-map,geojson"
+    data-token="eyJraWQiOiJSNzgzRjNIOE05IiwidHlwIjoiSldUIiwiYWxnIjoiRVMyNTYifQ.eyJpc3MiOiIyTVA4UVdLN1I2IiwiaWF0IjoxNzIxODU1OTU0LCJleHAiOjE3MjI0OTU1OTl9.ViD505SG9QW54fv5h3iv9lQsY328OlHF-1mEPdFeNzRmqrRI137IaXlGXr2W5lR9brWG7Luej1SoEyr8beXsjw">
+</script>
+
+<script type="module">
+// Wait for MapKit JS to be ready to use.
+const setupMapKitJs = async() => {
+    // If MapKit JS is not yet loaded...
+    if (!window.mapkit || window.mapkit.loadedLibraries.length === 0) {
+        // ...await <script>'s data-callback (window.initMapKit).
+        await new Promise(resolve => { window.initMapKit = resolve });
+        // Clean up.
+        delete window.initMapKit;
+    }
+};
+
+const main = async() => {
+    await setupMapKitJs();
+
+    // Create a new map.
+    const map = new mapkit.Map("map-container");
+
+    const geoJsonUrl = "./sfo-oak.json";
+
+    /**
+     * Starts a request animation frame loop that increases a given `overlay`'s
+     * `strokeEnd` over a given `durationMs` time (in milliseconds).
+     */
+    const animateStroke = (overlay, durationMs) => {
+        const startTime = window.performance.now();
+
+        // Run once per frame until the animation is complete.
+        const animateStrokeEnd = timestamp => {
+            // Animation completion percentage ratio
+            const p = (timestamp - startTime) / durationMs;
+
+            // Set the `strokeEnd` to the ratio, clamped between 0 and 1.
+            overlay.style.strokeEnd = Math.max(0, Math.min(p, 1));
+
+            // If the animation isn't 100% finished, repeat in the next frame.
+            if (p < 1) {
+                window.requestAnimationFrame(animateStrokeEnd);
+            }
+        };
+
+        window.requestAnimationFrame(animateStrokeEnd);
+    };
+
+    /**
+     * Loads the route overlays from a GeoJSON file and begin the animation.
+     */
+    const showRoutes = () => {
+        mapkit.removeEventListener("configuration-change", showRoutes);
+
+        mapkit.importGeoJSON(geoJsonUrl, {
+            /**
+             * Copy the GeoJSON `title` property into the annotations to
+             * properly label the start and end annotations.
+             */
+            itemForFeature: (item, geojson) => {
+                if (geojson.properties && geojson.properties.title) {
+                    item.title = geojson.properties.title
+                }
+                return item;
+            },
+
+            /**
+             * Create a separate `mapkit.Style` for each overlay so that the
+             * animation code can independently modify each style.
+             */
+            styleForOverlay: overlay => {
+                return new mapkit.Style({
+                    lineWidth: 6,
+                    strokeOpacity: 0.5
+                });
+            },
+
+            /**
+             * Once the GeoJSON is loaded, show the loaded items and begin
+             * animating each overlay.
+             */
+            geoJSONDidComplete: function(items) {
+                map.showItems(items, {
+                    padding: new mapkit.Padding(40, 40, 40, 40)
+                });
+
+                for(const [ i, overlay ] of map.overlays.entries()) {
+                    // Initially each overlay should have 0 length.
+                    overlay.style.strokeEnd = 0;
+
+                    // Begin animation after a brief timeout.
+                    window.setTimeout(
+                        () => { animateStroke(overlay, 1700); },
+                        3000 + i * 500
+                    );
+                }
+            }
+        });
+    };
+
+    // Load the routes after the map loads (initial configuration change).
+    mapkit.addEventListener("configuration-change", showRoutes);
+};
+
+main().catch(e => { throw e; });
+
+</script>
+
+</head>
+<body>
+    <div id="map-container"></div>
+</body>
+</html>

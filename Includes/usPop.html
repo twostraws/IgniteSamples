@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<title>US Population By State Overlays</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no">
+
+<style>
+
+body {
+    font-family: "Helvetica Neue", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    position: relative;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+#infoPopup {
+    display: none;
+    top: 7px;
+    left: 67px;
+    background: #FFFFFF;
+    padding: 5px 15px;
+    position: absolute;
+    z-index: 1000;
+    min-width:180px;
+    font: 13px/16px "-apple-system-font" ,"HelveticaNeue-Medium", "Helvetica", "Arial", "sans-serif";
+    color: #212121;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+}
+
+.container .map-legend {
+    position: absolute;
+    z-index: 1000;
+    top: 7px;
+    left: 7px;
+}
+
+.map-legend div {
+    margin-bottom: 5px;
+    width: 40px;
+    font-size: 12px;
+    color: #fff;
+    padding: 4px 7px;
+}
+
+#infoPopup .info {
+    padding: 10px 0;
+    box-sizing: border-box;
+}
+
+#infoPopup .info:first-child {
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+#infoPopup .info-country,  #infoPopup .info-population{
+    margin-left: 5px;
+    color: #464545;
+    font-style: italic;
+}
+
+</style>
+
+<script src="https://cdn.apple-mapkit.com/mk/5.x.x/mapkit.core.js"
+    crossorigin async
+    data-callback="initMapKit"
+    data-libraries="map,overlays"
+    data-token="eyJraWQiOiJSNzgzRjNIOE05IiwidHlwIjoiSldUIiwiYWxnIjoiRVMyNTYifQ.eyJpc3MiOiIyTVA4UVdLN1I2IiwiaWF0IjoxNzIxODU1OTU0LCJleHAiOjE3MjI0OTU1OTl9.ViD505SG9QW54fv5h3iv9lQsY328OlHF-1mEPdFeNzRmqrRI137IaXlGXr2W5lR9brWG7Luej1SoEyr8beXsjw">
+</script>
+
+<script type="module">
+// Wait for MapKit JS to be ready to use.
+const setupMapKitJs = async() => {
+    // If MapKit JS is not yet loaded...
+    if (!window.mapkit || window.mapkit.loadedLibraries.length === 0) {
+        // ...await <script>'s data-callback (window.initMapKit).
+        await new Promise(resolve => { window.initMapKit = resolve });
+        // Clean up.
+        delete window.initMapKit;
+    }
+};
+
+const main = async() => {
+    await setupMapKitJs();
+
+    const LINE_WIDTH_DEFAULT = 0.5;
+    const LINE_WIDTH_SELECTED = 3;
+    const POPULATION_BUCKETS = [
+        {
+            color: "#e4dedb",
+            range: "< 50K",
+            num: 50000
+        },
+        {
+            color: "#fde0dd",
+            range: "50K +",
+            num: 500000
+        },
+        {
+            color: "#fcc5c0",
+            range: "500K +",
+            num: 1000000
+        },
+        {
+            color: "#fa9fb5",
+            range: "1M +",
+            num: 5000000
+        },
+        {
+            color: "#f768a1",
+            range: "5M +",
+            num: 10000000
+        },
+        {
+            color: "#dd3497",
+            range: "10M +",
+            num: 20000000
+        },
+        {
+            color: "#ae017e",
+            range: "20M +",
+            num: 30000000
+        },
+        {
+            color: "#7a0177",
+            range: "> 30M",
+            num: Infinity
+        }
+    ];
+
+    const northAmericaCenter = new mapkit.Coordinate(39.622, -98.606);
+    const map = new mapkit.Map("map", { center: northAmericaCenter });
+
+    // Add the population legend (color-rectangles in the top left).
+    const mapLegend = document.querySelector(".map-legend");
+
+    for (const bucket of POPULATION_BUCKETS) {
+        const el = document.createElement("div");
+        const textNode = document.createTextNode(bucket.range);
+        el.appendChild(textNode);
+        el.style.background = bucket.color;
+        mapLegend.appendChild(el);
+    }
+
+    // Read the GeoJSON, setting the color for each overlay as it is parsed.
+    mapkit.importGeoJSON("states.json", {
+
+        // Convert MultiPolygon states into concatenated PolygonOverlays.
+        itemForMultiPolygon: (collection, geoJSON) => {
+            const points = collection.getFlattenedItemList().reduce(
+                (points, overlay) => points.concat(overlay.points),
+                []
+            );
+            return new mapkit.PolygonOverlay(points);
+        },
+
+        // Add colors to each finalized overlay based on the data.
+        itemForFeature: (overlay, geoJSON) => {
+            const name = geoJSON.properties.name;
+            const population = geoJSON.properties.population;
+
+            // Add data to the overlay to be shown when it is selected.
+            overlay.data = { name, population };
+
+            // Find the right color for the population and the set the style.
+            for (const bucket of POPULATION_BUCKETS) {
+                if (population < bucket.num) {
+                    overlay.style = new mapkit.Style({
+                        fillOpacity: 0.7,
+                        lineWidth: LINE_WIDTH_DEFAULT,
+                        fillColor: bucket.color
+                    });
+                    break;
+                }
+            }
+
+            return overlay;
+        },
+
+        // When all the data has been imported, we can show the results.
+        geoJSONDidComplete: overlays => {
+            map.showItems(overlays);
+        }
+    });
+
+    // Set up user-interaction (show data when an overlay is selected).
+    const infoPopup = document.getElementById("infoPopup");
+    const infoCountry = infoPopup.querySelector(".info-country");
+    const infoPopulation = infoPopup.querySelector(".info-population");
+
+    // Update the informative DOM element to describe the given data.
+    const showInfo = data => {
+        infoCountry.innerText = data.name;
+        infoPopulation.innerText = data.population.toLocaleString();
+        infoPopup.style.display = "block";
+    };
+
+    // Hide the informative DOM element.
+    const closeInfo = () => {
+        infoPopup.style.display = "none";
+    };
+
+    map.addEventListener("select", event => {
+        if (event.overlay && event.overlay.data) {
+            event.overlay.style.lineWidth = LINE_WIDTH_SELECTED;
+            showInfo(event.overlay.data);
+        }
+    });
+
+    map.addEventListener("deselect", event => {
+        if (event.overlay) {
+            event.overlay.style.lineWidth = LINE_WIDTH_DEFAULT;
+            closeInfo();
+        }
+    });
+
+};
+
+main();
+
+</script>
+
+</head>
+<body>
+    <div class="container">
+        <div id="map"></div>
+        <div id="infoPopup">
+            <div class="info">
+                <span>State:</span>
+                <span class="info-country"></span>
+            </div>
+            <div class="info">
+                <span>Population:</span>
+                <span class="info-population"></span>
+            </div>
+        </div>
+        <div class="map-legend"></div>
+    </div>
+</body>
+</html>

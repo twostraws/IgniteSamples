@@ -50,6 +50,7 @@ struct Home: StaticPage {
             Link("Includes", target: IncludeExamples())
             Link("Links", target: LinkExamples())
             Link("Lists", target: ListExamples())
+            Link("Maps", target: MapExamples())
             Link("Quotes", target: QuoteExamples())
             Link("Tables", target: TableExamples())
         }

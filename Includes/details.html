@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="utf-8">
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(255, 255, 255);
+}
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: rgb(0, 0, 0);
+    }
+}
+.container {
+    display: grid;
+    grid-template-rows: max-content 1fr;
+    width: 100%;
+    height: 600px;
+}
+.container > :first-child {
+    margin: 1rem 0;
+    justify-self: center;
+}
+.container :is(#map, #detail) {
+    display: none;
+}
+.container:has(select[value=map]) #map,
+.container:has(select[value=detail]) #detail {
+    display: block;
+    overflow: scroll;
+}
+</style>
+
+<script src="https://cdn.apple-mapkit.com/mk/5.x.x/mapkit.core.js"
+    crossorigin async
+    data-callback="initMapKit"
+    data-libraries="full-map,services"
+    data-token="eyJraWQiOiJSNzgzRjNIOE05IiwidHlwIjoiSldUIiwiYWxnIjoiRVMyNTYifQ.eyJpc3MiOiIyTVA4UVdLN1I2IiwiaWF0IjoxNzIxODU1OTU0LCJleHAiOjE3MjI0OTU1OTl9.ViD505SG9QW54fv5h3iv9lQsY328OlHF-1mEPdFeNzRmqrRI137IaXlGXr2W5lR9brWG7Luej1SoEyr8beXsjw">
+</script>
+
+<script type="module">
+// Wait for MapKit JS to be ready to use.
+const setupMapKitJs = async() => {
+    // If MapKit JS is not yet loaded...
+    if (!window.mapkit || window.mapkit.loadedLibraries.length === 0) {
+        // ...await <script>'s data-callback (window.initMapKit).
+        await new Promise(resolve => { window.initMapKit = resolve });
+        // Clean up.
+        delete window.initMapKit;
+    }
+};
+
+/**
+ * Script Entry Point
+ */
+const main = async() => {
+    await setupMapKitJs();
+
+    // Sync `<select>` `value` attribute with property value.
+    document.addEventListener("change", ev => {
+        if (ev.target?.tagName === "SELECT") {
+            ev.target.setAttribute("value", ev.target.value);
+        }
+    });
+
+    // Look up Place ID, call `annotatePlace` with results.
+    const id = "I63802885C8189B2B";
+    const lookup = new mapkit.PlaceLookup();
+    lookup.getPlace(id, annotatePlace);
+};
+
+const annotatePlace = (error, place) => {
+    // Create map.
+    const center = place.coordinate;
+    const span = new mapkit.CoordinateSpan(0.01, 0.01);
+    const region = new mapkit.CoordinateRegion(center, span);
+    const colorScheme = mapkit.Map.ColorSchemes.Adaptive;
+    const map = new mapkit.Map("map", { region, colorScheme });
+
+    // Add annotation.
+    const annotation = new mapkit.PlaceAnnotation(place);
+    map.addAnnotation(annotation);
+
+    // Tap an annotation to show details on map.
+    const accessory = new mapkit.PlaceSelectionAccessory();
+    annotation.selectionAccessory = accessory;
+
+    // Use the dropdown to view `PlaceDetail` (without map).
+    const detailElement = document.getElementById("detail");
+    const detail = new mapkit.PlaceDetail(detailElement, place, {
+        colorScheme: mapkit.PlaceDetail.ColorSchemes.Adaptive
+    });
+};
+
+main();
+
+</script>
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <select name="display" id="display" value="map">
+                <option value="map">Map</option>
+                <option value="detail">Place Detail</option>
+            </select>
+        </div>
+        <div id="map"></div>
+        <div id="detail"></div>
+    </div>
+</body>
+</html>
