@@ -8,26 +8,28 @@
 import Foundation
 import Ignite
 
-struct DropdownExamples: StaticPage {
+struct DropdownExamples: StaticLayout {
     var title = "Dropdowns"
 
-    func body(context: PublishingContext) async -> [BlockElement] {
+    var body: some HTML {
         Text("Dropdowns")
             .font(.title1)
 
         Text("Dropdowns are buttons with links inside, and optionally also text and dividers to break things up.")
             .font(.lead)
 
-        CodeBlock(language: "swift", """
-        Dropdown("Click Me") {
-            Link("Accordions", target: AccordionExamples())
-            Link("Carousels", target: CarouselExamples())
-            Divider()
-            Text("Or you can just…")
-            Link("Go back home", target: "/")
+        CodeBlock(.swift) {
+            """
+            Dropdown("Click Me") {
+                Link("Accordions", target: AccordionExamples())
+                Link("Carousels", target: CarouselExamples())
+                Divider()
+                Text("Or you can just…")
+                Link("Go back home", target: "/")
+            }
+            .role(.primary)
+            """
         }
-        .role(.primary)
-        """)
 
         Dropdown("Click Me") {
             Link("Accordions", target: AccordionExamples())
@@ -44,23 +46,25 @@ struct DropdownExamples: StaticPage {
 
         Text("Like other buttons, dropdowns can have roles and sizes:")
 
-        CodeBlock(language: "swift", """
-        for role in Role.allCases {
-            for size in ButtonSize.allCases {
-                Dropdown("\\(size.rawValue.capitalized) \\(role.rawValue) dropdown") {
-                    Link("Example Link", target: "#")
+        CodeBlock(.swift) {
+            """
+            ForEach(Role.allCases) { role in
+                ForEach(Button.Size.allCases) { size in
+                    Dropdown("\\(size.rawValue.capitalized) \\(role.rawValue) dropdown") {
+                        Link("Example Link", target: "#")
+                    }
+                    .dropdownSize(size)
+                    .role(role)
+                    .margin(.bottom, .extraSmall)
                 }
-                .dropdownSize(size)
-                .role(role)
-                .margin(.bottom, .extraSmall)
+
+                Spacer(size: .medium)
             }
-
-            Spacer(size: .medium)
+            """
         }
-        """)
 
-        for role in Role.allCases {
-            for size in ButtonSize.allCases {
+        ForEach(Role.allCases) { role in
+            ForEach(Button.Size.allCases) { size in
                 Dropdown("\(size.rawValue.capitalized) \(role.rawValue) dropdown") {
                     Link("Example Link", target: "#")
                 }

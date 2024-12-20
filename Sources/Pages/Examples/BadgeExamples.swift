@@ -8,10 +8,10 @@
 import Foundation
 import Ignite
 
-struct BadgeExamples: StaticPage {
+struct BadgeExamples: StaticLayout {
     var title = "Badges"
 
-    func body(context: PublishingContext) async -> [BlockElement] {
+    var body: some HTML {
         Text("Badges")
             .font(.title1)
 
@@ -20,13 +20,15 @@ struct BadgeExamples: StaticPage {
 
         Text("A simple badge is created like this:")
 
-        CodeBlock(language: "swift", """
-        Text {
-            Badge("Unread: 500")
-                .role(.danger)
+        CodeBlock(.swift) {
+            """
+            Text {
+                Badge("Unread: 500")
+                    .role(.danger)
+            }
+            .font(.title2)
+            """
         }
-        .font(.title2)
-        """)
 
         Text {
             Badge("Unread: 500")
@@ -37,26 +39,24 @@ struct BadgeExamples: StaticPage {
 
         Text("Each role applies different styling to the badge, as you can see in this example:")
 
-        CodeBlock(language: "swift", """
-        for role in Role.allCases {
-            if role != .default {
+        CodeBlock(.swift) {
+            """
+            ForEach(Role.badgeRoles) { role in
                 Text {
                     Badge("This badge has the \\(role.rawValue) role")
                         .role(role)
                 }
                 .font(.lead)
             }
+            """
         }
-        """)
 
-        for role in Role.allCases {
-            if role != .default {
-                Text {
-                    Badge("This badge has the \(role.rawValue) role")
-                        .role(role)
-                }
-                .font(.lead)
+        ForEach(Role.badgeRoles) { role in
+            Text {
+                Badge("This badge has the \(role.rawValue) role")
+                    .role(role)
             }
+            .font(.lead)
         }
 
         Text("Badge sizes")
@@ -65,17 +65,19 @@ struct BadgeExamples: StaticPage {
 
         Text("Badges automatically adapt to the font of the text element they belong to. For example, here are badges in a range of sizes:")
 
-        CodeBlock(language: "swift", """
-        for font in Font.allCases {
-            Text {
-                Badge("This badge uses the \\(font) size")
-                    .role(.primary)
+        CodeBlock(.swift) {
+            """
+            for font in Font.Style.allCases {
+                Text {
+                    Badge("This badge uses the \\(font) size")
+                        .role(.primary)
+                }
+                .font(font)
             }
-            .font(font)
+            """
         }
-        """)
 
-        for font in Font.allCases {
+        ForEach(Font.Style.allCases) { font in
             Text {
                 Badge("This badge uses the \(font) size")
                     .role(.primary)
@@ -83,20 +85,19 @@ struct BadgeExamples: StaticPage {
             .font(font)
         }
 
-
         Text("Badge variants")
             .font(.title2)
             .margin(.top, .extraLarge)
 
         Text(markdown: "Each badge role comes in three variants: `.default`, `.subtle`, and `subtleBordered`. These are shown below:")
 
-        CodeBlock(language: "swift", """
-        for style in Badge.BadgeStyle.allCases {
-            Text(markdown: "`\\(style)` style:")
-                .font(.title3)
+        CodeBlock(.swift) {
+            """
+            ForEach(Badge.Style.allCases) { style in
+                Text(markdown: "`\\(style)` style:")
+                    .font(.title3)
 
-            for role in Role.allCases {
-                if role != .default {
+                ForEach(Role.badgeRoles) { role in
                     Text {
                         Badge("This badge has the \\(style) style and \\(role.rawValue) role")
                             .badgeStyle(style)
@@ -104,26 +105,24 @@ struct BadgeExamples: StaticPage {
                     }
                     .font(.lead)
                 }
+
+                Spacer(size: 40)
             }
-
-            Spacer(size: 40)
+            """
         }
-        """)
 
-        for style in Badge.BadgeStyle.allCases {
+        ForEach(Badge.Style.allCases) { style in
             Text(markdown: "`\(style)` style:")
                 .font(.title3)
                 .margin(.top, .large)
 
-            for role in Role.allCases {
-                if role != .default {
-                    Text {
-                        Badge("This badge has the \(style) style and \(role.rawValue) role")
-                            .badgeStyle(style)
-                            .role(role)
-                    }
-                    .font(.lead)
+            ForEach(Role.badgeRoles) { role in
+                Text {
+                    Badge("This badge has the \(style) style and \(role.rawValue) role")
+                        .badgeStyle(style)
+                        .role(role)
                 }
+                .font(.lead)
             }
         }
     }

@@ -8,87 +8,97 @@
 import Foundation
 import Ignite
 
-struct ListExamples: StaticPage {
+struct ListExamples: StaticLayout {
     var title = "Lists"
 
-    func body(context: PublishingContext) async -> [BlockElement] {
+    var body: some HTML {
         Text("Lists")
             .font(.title1)
 
-        Text("Lists can be ordered or unordered, and you can customize their bullet styles too.")
-            .font(.lead)
+        Group {
+            Text("Lists can be ordered or unordered, and you can customize their bullet styles too.")
+                .font(.lead)
 
-        Text("A simple list can be made up just of strings, like this:")
+            Text("A simple list can be made up just of strings, like this:")
 
-        CodeBlock(language: "swift", """
-        List {
-            "This is a list item"
-            "So is this"
-            "And this"
+            CodeBlock(.swift) {
+                """
+                List {
+                    "This is a list item"
+                    "So is this"
+                    "And this"
+                }
+                """
+            }
+
+            List {
+                "This is a list item"
+                "So is this"
+                "And this"
+            }
+            .margin(.bottom, .extraLarge)
+
+            Text(markdown: "Lists are unordered by default. Use the `listStyle()` modifier to change that:")
+
+            CodeBlock(.swift) {
+                """
+                List {
+                    "This is the first list item"
+                    "This is the second one"
+                    "And here's one more"
+                }
+                .listStyle(.ordered(.default))
+                """
+            }
         }
-        """)
 
-        List {
-            "This is a list item"
-            "So is this"
-            "And this"
-        }
-        .margin(.bottom, .extraLarge)
-
-        Text(markdown: "Lists are unordered by default. Use the `listStyle()` modifier to change that:")
-
-        CodeBlock(language: "swift", """
         List {
             "This is the first list item"
             "This is the second one"
             "And here's one more"
         }
-        .listStyle(.ordered(.default))
-        """)
-
-        List {
-            "This is the first list item"
-            "This is the second one"
-            "And here's one more"
-        }
-        .listStyle(.ordered(.default))
+        .listMarkerStyle(.ordered(.automatic))
         .margin(.bottom, .extraLarge)
 
         Text("You can customize the bullet style by adjusting the list style. For example, here are Roman numerals:")
 
-        CodeBlock(language: "swift", """
-        List {
-            "Veni"
-            "Vidi"
-            "Vici"
+        CodeBlock(.swift) {
+            """
+            List {
+                "Veni"
+                "Vidi"
+                "Vici"
+            }
+            .listStyle(.ordered(.lowerRoman))
+            """
         }
-        .listStyle(.ordered(.lowerRoman))
-        """)
 
         List {
             "Veni"
             "Vidi"
             "Vici"
         }
-        .listStyle(.ordered(.lowerRoman))
+        .listMarkerStyle(.ordered(.lowerRoman))
         .margin(.bottom, .extraLarge)
 
         Text("And here is a custom style using emoji:")
 
-        CodeBlock(language: "swift", """
-        List {
-            "The players gonna play"
-            "Haters gonna hate"
-            "Fakers gonna fake"
+        CodeBlock(.swift) {
+            """
+            List {
+                "The players gonna play"
+                "Haters gonna hate"
+                "Fakers gonna fake"
+            }
+            .listMarkerStyle(.custom("💃"))
+            """
         }
-        .listStyle(.custom("💃"))
-        """)
 
         List {
             "The players gonna play"
             "Haters gonna hate"
             "Fakers gonna fake"
         }
-        .listStyle(.custom("💃"))
+        .listMarkerStyle(.custom("💃"))
     }
 }

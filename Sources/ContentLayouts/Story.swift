@@ -8,8 +8,8 @@
 import Foundation
 import Ignite
 
-struct Story: ContentPage {
-    func body(content: Content, context: PublishingContext) -> [any BlockElement] {
+struct Story: ContentLayout {
+    var body: some HTML {
         Text(content.title)
             .font(.title1)
 
@@ -18,7 +18,6 @@ struct Story: ContentPage {
                 .resizable()
                 .cornerRadius(20)
                 .frame(maxHeight: 300)
-                .horizontalAlignment(.center)
         }
 
         if content.hasTags {

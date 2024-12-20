@@ -8,10 +8,11 @@
 import Foundation
 import Ignite
 
-struct ContentExamples: StaticPage {
+struct ContentExamples: StaticLayout {
+    @Environment(\.content) var content
     var title = "Content"
 
-    func body(context: PublishingContext) async -> [BlockElement] {
+    var body: some HTML {
         Text("Working with content")
             .font(.title1)
 
@@ -29,7 +30,7 @@ struct ContentExamples: StaticPage {
             "You can use YAML front matter to specify the layout to use for your content."
             "You can provide only one layout in your site, and it will be used if nothing else is specified."
         }
-        .listStyle(.ordered(.default))
+        .listMarkerStyle(.ordered(.automatic))
 
         Text(markdown: """
         This example site contains two types of content, articles and stories. Some content requests a specific layout, but others don't.
@@ -43,36 +44,40 @@ struct ContentExamples: StaticPage {
         Text("Listing content")
             .font(.title2)
 
-        Text("All pages of all types are given access to the current publishing context, which lets you read content data by type or tag, and more.")
+        Text(markdown: "You can access Markdown content by adding the property `@Environment(\\.content) var content` to your view, which lets you read all content, or content with a specific type or tag.")
 
-        Text("As a result, we can write code to show a list of all articles right here on this page:")
+        Text("For example, we can write code to show a list of all articles right here on this page:")
 
-        CodeBlock(language: "swift", """
-        List {
-            for content in context.allContent {
-                Link(content)
+        CodeBlock(.swift) {
+            """
+            List {
+                ForEach(content.all) { content in
+                    Link(content)
+                }
             }
+            """
         }
-        """)
 
         List {
-            for content in context.allContent {
+            ForEach(content.all) { content in
                 Link(content)
             }
         }
 
         Text(markdown: "Or we could show only content that matches the type `story`:")
 
-        CodeBlock(language: "swift", """
-        List {
-            for content in context.content(ofType: "story") {
-                Link(content)
+        CodeBlock(.swift) {
+            """
+            List {
+                ForEach(content.typed("story")) { content in
+                    Link(content)
+                }
             }
+            """
         }
-        """)
 
         List {
-            for content in context.content(ofType: "story") {
+            ForEach(content.typed("story")) { content in
                 Link(content)
             }
         }
@@ -81,18 +86,20 @@ struct ContentExamples: StaticPage {
 
         Text(markdown: "First, `ContentPreview` can be used to make a preview for articles. This automatically includes the articles image, title, description, link, and tags, all in one:")
 
-        CodeBlock(language: "swift", """
-        Section {
-            for item in context.allContent {
-                ContentPreview(for: item)
-                    .width(3)
-                    .margin(.bottom)
+        CodeBlock(.swift) {
+            """
+            Section {
+                ForEach(content.all) { item in
+                    ContentPreview(for: item)
+                        .width(3)
+                        .margin(.bottom)
+                }
             }
+            """
         }
-        """)
 
         Section {
-            for item in context.allContent {
+            ForEach(content.all) { item in
                 ContentPreview(for: item)
                     .width(3)
                     .margin(.bottom)
@@ -119,10 +126,12 @@ struct ContentExamples: StaticPage {
         }
 
         Text(markdown: "As well as the predefined fields, you can use the `metadata` dictionary to access any custom properties you have defined in the front matter. Note that the dictionary values are optionals: your page code must be able to deal with the dictionary item not existing!")
-        
-        CodeBlock(language: "swift", """
-        Text(content.metadata["CustomValue"] ?? "Not defined")
-        """)
+
+        CodeBlock(.swift) {
+            """
+            Text(content.metadata["CustomValue"] ?? "Not defined")
+            """
+        }
 
         Text(markdown: "In addition, you can read properties such as `estimatedWordCount` and `estimatedReadingMinutes` on your content, to provide extra information to users.")
 
@@ -130,7 +139,7 @@ struct ContentExamples: StaticPage {
             .font(.title2)
             .margin(.top, .extraLarge)
 
-        Text(markdown: "If you make a type that conforms to the `TagPage` protocol, you can use it to display tag pages on your site.")
+        Text(markdown: "If you make a type that conforms to the `TagLayout` protocol, you can use it to display tag pages on your site.")
 
         Text(markdown: "This protocol passes you an optional tag string: if it has a tag you should use it, but if it's nil you should render an \"all tags\" page.")
 

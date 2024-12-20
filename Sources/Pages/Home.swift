@@ -8,10 +8,10 @@
 import Foundation
 import Ignite
 
-struct Home: StaticPage {
+struct Home: StaticLayout {
     var title = "Home"
 
-    func body(context: PublishingContext) async -> [BlockElement] {
+    var body: some HTML {
         Text("Welcome to ExampleSite!")
             .font(.title1)
 
@@ -30,8 +30,7 @@ struct Home: StaticPage {
             Link("Text", target: TextExamples())
             Link("Styling", target: StylingExamples())
         }
-        .listStyle(.ordered(.default))
-
+        .listMarkerStyle(.ordered(.automatic))
 
         Text("Examples")
             .font(.title2)
@@ -54,6 +53,6 @@ struct Home: StaticPage {
             Link("Quotes", target: QuoteExamples())
             Link("Tables", target: TableExamples())
         }
-        .listStyle(.unordered(.default))
+        .listMarkerStyle(.unordered(.automatic))
     }
 }

@@ -8,8 +8,8 @@
 import Foundation
 import Ignite
 
-struct CustomStory: ContentPage {
-    func body(content: Content, context: PublishingContext) -> [any BlockElement] {
+struct CustomStory: ContentLayout {
+    var body: some HTML {
         if let image = content.image {
             Image(image, description: content.imageDescription)
                 .resizable()
@@ -20,7 +20,7 @@ struct CustomStory: ContentPage {
 
         if content.hasTags {
             Text {
-                content.tagLinks(in: context)
+                content.tagLinks()
             }
             .font(.title3)
         }

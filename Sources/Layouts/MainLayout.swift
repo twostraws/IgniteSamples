@@ -1,5 +1,5 @@
 //
-// MainTheme.swift
+// MainLayout.swift
 // IgniteSamples
 // https://www.github.com/twostraws/Ignite
 // See LICENSE for license information.
@@ -8,15 +8,17 @@
 import Foundation
 import Ignite
 
-struct MyTheme: Theme {
-    func render(page: Page, context: PublishingContext) async -> HTML {
-        HTML {
-            Head(for: page, in: context)
+struct MainLayout: Layout {
+    @Environment(\.siteConfiguration) var siteConfiguration
 
-            Body {
+    var body: some HTML {
+        HTMLDocument {
+            HTMLHead(for: page, with: siteConfiguration)
+
+            HTMLBody {
                 NavBar()
 
-                page.body
+                Group(page.body)
 
                 IgniteFooter()
             }

@@ -8,10 +8,10 @@
 import Foundation
 import Ignite
 
-struct AlertExamples: StaticPage {
+struct AlertExamples: StaticLayout {
     var title = "Accordions"
 
-    func body(context: PublishingContext) async -> [BlockElement] {
+    var body: some HTML {
         Text("Alerts")
             .font(.title1)
 
@@ -20,12 +20,14 @@ struct AlertExamples: StaticPage {
 
         Text("A simple alert is created like this:")
 
-        CodeBlock(language: "swift", """
-        Alert {
-            Text("Something went really wrong.")
+        CodeBlock(.swift) {
+            """
+            Alert {
+                Text("Something went really wrong.")
+            }
+            .role(.danger)
+            """
         }
-        .role(.danger)
-        """)
 
         Alert {
             Text("Something went really wrong.")
@@ -35,19 +37,21 @@ struct AlertExamples: StaticPage {
 
         Text("Each role applies different styling to the alert, as you can see in this example:")
 
-        CodeBlock(language: "swift", """
-        for role in Role.allCases {
-            // The default role isn't interesting for alerts
-            if role != .default {
-                Alert {
-                    Text("This alert has the \\(role.rawValue) role.")
+        CodeBlock(.swift) {
+            """
+            for role in Role.allCases {
+                // The default role isn't interesting for alerts
+                if role != .default {
+                    Alert {
+                        Text("This alert has the \\(role.rawValue) role.")
+                    }
+                    .role(role)
                 }
-                .role(role)
             }
+            """
         }
-        """)
 
-        for role in Role.allCases {
+        ForEach(Role.allCases) { role in
             // The default role isn't interesting for alerts
             if role != .default {
                 Alert {
@@ -58,4 +62,3 @@ struct AlertExamples: StaticPage {
         }
     }
 }
-

@@ -1,5 +1,5 @@
 //
-// TagPage.swift
+// TagLayout.swift
 // IgniteSamples
 // https://www.github.com/twostraws/Ignite
 // See LICENSE for license information.
@@ -8,8 +8,8 @@
 import Foundation
 import Ignite
 
-struct Tags: TagPage {    
-    func body(tag: String?, context: PublishingContext) async -> [any BlockElement] {
+struct Tags: TagLayout {
+    var body: some HTML {
         if let tag {
             Text(tag)
                 .font(.title1)
@@ -18,10 +18,8 @@ struct Tags: TagPage {
                 .font(.title1)
         }
 
-        let articles = context.content(tagged: tag)
-
         List {
-            for article in articles {
+            ForEach(content) { article in
                 Link(article)
             }
         }

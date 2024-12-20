@@ -8,10 +8,10 @@
 import Foundation
 import Ignite
 
-struct CarouselExamples: StaticPage {
+struct CarouselExamples: StaticLayout {
     var title = "Carousels"
 
-    func body(context: PublishingContext) async -> [BlockElement] {
+    var body: some HTML {
         Text("Carousels")
             .font(.title1)
 
@@ -23,13 +23,15 @@ struct CarouselExamples: StaticPage {
 
         Text("At their simplest, a carousel might just be a slideshow of pictures like this one:")
 
-        CodeBlock(language: "swift", """
-        Carousel {
-            Slide(background: "/images/photos/stack.jpg")
-            Slide(background: "/images/photos/wind.jpg")
-            Slide(background: "/images/photos/washing.jpg")
+        CodeBlock(.swift) {
+            """
+            Carousel {
+                Slide(background: "/images/photos/stack.jpg")
+                Slide(background: "/images/photos/wind.jpg")
+                Slide(background: "/images/photos/washing.jpg")
+            }
+            """
         }
-        """)
 
         Carousel {
             Slide(background: "/images/photos/stack.jpg")
@@ -40,14 +42,16 @@ struct CarouselExamples: StaticPage {
 
         Text(markdown: "You can adjust how carousels move from slide to slide using the `carouselStyle()` modifier:")
 
-        CodeBlock(language: "swift", """
-        Carousel {
-            Slide(background: "/images/photos/stack.jpg")
-            Slide(background: "/images/photos/wind.jpg")
-            Slide(background: "/images/photos/washing.jpg")
+        CodeBlock(.swift) {
+            """
+            Carousel {
+                Slide(background: "/images/photos/stack.jpg")
+                Slide(background: "/images/photos/wind.jpg")
+                Slide(background: "/images/photos/washing.jpg")
+            }
+            .carouselStyle(.crossfade)
+            """
         }
-        .carouselStyle(.crossfade)
-        """)
 
         Carousel {
             Slide(background: "/images/photos/stack.jpg")
@@ -62,40 +66,42 @@ struct CarouselExamples: StaticPage {
         This is particularly effective when overlaying content:
         """)
 
-        CodeBlock(language: "swift", """
-        Carousel {
-            Slide(background: "/images/photos/stack.jpg") {
-                Text("This is serious.")
-                    .font(.title2)
+        CodeBlock(.swift) {
+            """
+            Carousel {
+                Slide(background: "/images/photos/stack.jpg") {
+                    Text("This is serious.")
+                        .font(.title2)
 
-                Text("This is important information about the first slide.")
-                    .font(.lead)
+                    Text("This is important information about the first slide.")
+                        .font(.lead)
 
-                Text {
-                    Link("Go Home", target: "/")
-                        .linkStyle(.button)
+                    Text {
+                        Link("Go Home", target: "/")
+                            .linkStyle(.button)
+                    }
                 }
+                .backgroundOpacity(0.2)
+
+                Slide(background: "/images/photos/wind.jpg") {
+                    Text("Another great point.")
+                        .font(.title2)
+
+                    Text("This is a really convincing point to drive home how awesome carousels are.")
+                        .font(.lead)
+                }
+                .backgroundOpacity(0.2)
+
+                Slide(background: "/images/photos/washing.jpg") {
+                    Text(markdown: "One more. *Boom*.")
+                        .font(.title2)
+
+                    Text("Slides, images, text – these aren't three separate things. Are you getting it?")
+                }
+                .backgroundOpacity(0.2)
             }
-            .backgroundOpacity(0.2)
-
-            Slide(background: "/images/photos/wind.jpg") {
-                Text("Another great point.")
-                    .font(.title2)
-
-                Text("This is a really convincing point to drive home how awesome carousels are.")
-                    .font(.lead)
-            }
-            .backgroundOpacity(0.2)
-
-            Slide(background: "/images/photos/washing.jpg") {
-                Text(markdown: "One more. *Boom*.")
-                    .font(.title2)
-
-                Text("Slides, images, text – these aren't three separate things. Are you getting it?")
-            }
-            .backgroundOpacity(0.2)
+            """
         }
-        """)
 
         Carousel {
             Slide(background: "/images/photos/stack.jpg") {

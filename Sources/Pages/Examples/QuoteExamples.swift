@@ -8,10 +8,10 @@
 import Foundation
 import Ignite
 
-struct QuoteExamples: StaticPage {
+struct QuoteExamples: StaticLayout {
     var title = "Quotes"
 
-    func body(context: PublishingContext) async -> [BlockElement] {
+    var body: some HTML {
         Text("Quotes")
             .font(.title1)
 
@@ -20,11 +20,13 @@ struct QuoteExamples: StaticPage {
 
         Text("This is a plain quote:")
 
-        CodeBlock(language: "swift", """
-        Quote {
-            Text("It is a truth universally acknowledged that all good Swift projects must be in need of result builders.")
+        CodeBlock(.swift) {
+            """
+            Quote {
+                Text("It is a truth universally acknowledged that all good Swift projects must be in need of result builders.")
+            }
+            """
         }
-        """)
 
         Quote {
             Text("It is a truth universally acknowledged that all good Swift projects must be in need of result builders.")
@@ -33,13 +35,15 @@ struct QuoteExamples: StaticPage {
 
         Text("And this is a quote with a caption provided:")
 
-        CodeBlock(language: "swift", """
-        Quote {
-            Text("Programming is an art. Don't spend all your time sharpening your pencil when you should be drawing.")
-        } caption: {
-            "Paul Hudson"
+        CodeBlock(.swift) {
+            """
+            Quote {
+                Text("Programming is an art. Don't spend all your time sharpening your pencil when you should be drawing.")
+            } caption: {
+                "Paul Hudson"
+            }
+            """
         }
-        """)
 
         Quote {
             Text("Programming is an art. Don't spend all your time sharpening your pencil when you should be drawing.")

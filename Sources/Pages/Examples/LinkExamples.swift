@@ -8,10 +8,10 @@
 import Foundation
 import Ignite
 
-struct LinkExamples: StaticPage {
+struct LinkExamples: StaticLayout {
     var title = "Links"
 
-    func body(context: PublishingContext) async -> [BlockElement] {
+    var body: some HTML {
         Text("Links")
             .font(.title1)
 
@@ -20,11 +20,13 @@ struct LinkExamples: StaticPage {
 
         Text("In the simplest case we can create a link with a string target:")
 
-        CodeBlock(language: "swift", """
-        Text {
-            Link("Go Home", target: "/")
+        CodeBlock(.swift) {
+            """
+            Text {
+                Link("Go Home", target: "/")
+            }
+            """
         }
-        """)
 
         Text {
             Link("Go Home", target: "/")
@@ -32,11 +34,13 @@ struct LinkExamples: StaticPage {
 
         Text("Alternatively, you can use page types directly to get their path:")
 
-        CodeBlock(language: "swift", """
-        Text {
-            Link("Learn about carousels", target: CarouselExamples())
+        CodeBlock(.swift) {
+            """
+            Text {
+                Link("Learn about carousels", target: CarouselExamples())
+            }
+            """
         }
-        """)
 
         Text {
             Link("Learn about carousels", target: CarouselExamples())
@@ -53,16 +57,18 @@ struct LinkExamples: StaticPage {
 
         Text("Links can have roles to control how they appear:")
 
-        CodeBlock(language: "swift", """
-        for role in Role.allCases {
-            Text {
-                Link("Link with \\(role.rawValue) role.", target: "#")
-                    .role(role)
+        CodeBlock(.swift) {
+            """
+            ForEach(Role.badgeRoles) { role in
+                Text {
+                    Link("Link with \\(role.rawValue) role.", target: "#")
+                        .role(role)
+                }
             }
+            """
         }
-        """)
 
-        for role in Role.allCases {
+        ForEach(Role.badgeRoles) { role in
             Text {
                 Link("Link with \(role.rawValue) role.", target: "#")
                     .role(role)
@@ -75,27 +81,23 @@ struct LinkExamples: StaticPage {
 
         Text(markdown: "Use `linkStyle(.button)` to style links as buttons:")
 
-        CodeBlock(language: "swift", """
-        for role in Role.allCases {
-            // The default role isn't very interesting
-            if role != .default {
+        CodeBlock(.swift) {
+            """
+            ForEach(Role.badgeRoles) { role in
                 Text {
                     Link("Button-style link with \\(role.rawValue) role.", target: "#")
                         .linkStyle(.button)
                         .role(role)
                 }
             }
+            """
         }
-        """)
 
-        for role in Role.allCases {
-            // The default role isn't very interesting
-            if role != .default {
-                Text {
-                    Link("Button-style link with \(role.rawValue) role.", target: "#")
-                        .linkStyle(.button)
-                        .role(role)
-                }
+        ForEach(Role.badgeRoles) { role in
+            Text {
+                Link("Button-style link with \(role.rawValue) role.", target: "#")
+                    .linkStyle(.button)
+                    .role(role)
             }
         }
     }

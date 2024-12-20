@@ -8,10 +8,10 @@
 import Foundation
 import Ignite
 
-struct GridExamples: StaticPage {
+struct GridExamples: StaticLayout {
     var title = "Grid Layout"
 
-    func body(context: PublishingContext) async -> [BlockElement] {
+    var body: some HTML {
         Text("Grid Layout")
             .font(.title1)
 
@@ -25,19 +25,21 @@ struct GridExamples: StaticPage {
 
         Text("For example, these pictures all take up one third of the available space:")
 
-        CodeBlock(language: "swift", """
-        Section {
-            Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
-                .resizable()
+        CodeBlock(.swift) {
+            """
+            Section {
+                Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
+                    .resizable()
 
-            Image("/images/photos/stack.jpg", description: "A door partly open.")
-                .resizable()
+                Image("/images/photos/stack.jpg", description: "A door partly open.")
+                    .resizable()
 
 
-            Image("/images/photos/wind.jpg", description: "A windy day.")
-                .resizable()
+                Image("/images/photos/wind.jpg", description: "A windy day.")
+                    .resizable()
+            }
+            """
         }
-        """)
 
         Section {
             Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
@@ -58,21 +60,23 @@ struct GridExamples: StaticPage {
         For example, these pictures all take up one third of the available space when the browser window is wide, but all the space when the window is narrow:
         """)
 
-        CodeBlock(language: "swift", """
-        Section {
-            Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
-                .resizable()
-                .width(4)
+        CodeBlock(.swift) {
+            """
+            Section {
+                Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
+                    .resizable()
+                    .width(4)
 
-            Image("/images/photos/stack.jpg", description: "A door partly open.")
-                .resizable()
-                .width(4)
+                Image("/images/photos/stack.jpg", description: "A door partly open.")
+                    .resizable()
+                    .width(4)
 
-            Image("/images/photos/wind.jpg", description: "A windy day.")
-                .resizable()
-                .width(4)
+                Image("/images/photos/wind.jpg", description: "A windy day.")
+                    .resizable()
+                    .width(4)
+            }
+            """
         }
-        """)
 
         Section {
             Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
@@ -97,25 +101,27 @@ struct GridExamples: StaticPage {
         For example, this uses four pictures of width 4, causing one to wrap to the next line:
         """)
 
-        CodeBlock(language: "swift", """
-        Section {
-            Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
-                .resizable()
-                .width(4)
+        CodeBlock(.swift) {
+            """
+            Section {
+                Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
+                    .resizable()
+                    .width(4)
 
-            Image("/images/photos/stack.jpg", description: "A door partly open.")
-                .resizable()
-                .width(4)
+                Image("/images/photos/stack.jpg", description: "A door partly open.")
+                    .resizable()
+                    .width(4)
 
-            Image("/images/photos/rug.jpg", description: "A nice rug.")
-                .resizable()
-                .width(4)
+                Image("/images/photos/rug.jpg", description: "A nice rug.")
+                    .resizable()
+                    .width(4)
 
-            Image("/images/photos/car.jpg", description: "The window of a car.")
-                .resizable()
-                .width(4)
+                Image("/images/photos/car.jpg", description: "The window of a car.")
+                    .resizable()
+                    .width(4)
+            }
+            """
         }
-        """)
 
         Section {
             Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
@@ -138,22 +144,24 @@ struct GridExamples: StaticPage {
 
         Text("Although 12 columns is the default, you can adjust it downwards if needed. For example, this uses a 2-column grid:")
 
-        CodeBlock(language: "swift", """
-        Section {
-            Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
-                .resizable()
+        CodeBlock(.swift) {
+            """
+            Section {
+                Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
+                    .resizable()
 
-            Image("/images/photos/stack.jpg", description: "A door partly open.")
-                .resizable()
+                Image("/images/photos/stack.jpg", description: "A door partly open.")
+                    .resizable()
 
-            Image("/images/photos/rug.jpg", description: "A nice rug.")
-                .resizable()
+                Image("/images/photos/rug.jpg", description: "A nice rug.")
+                    .resizable()
 
-            Image("/images/photos/car.jpg", description: "The window of a car.")
-                .resizable()
+                Image("/images/photos/car.jpg", description: "The window of a car.")
+                    .resizable()
+            }
+            .columns(2)
+            """
         }
-        .columns(2)
-        """)
 
         Section {
             Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")

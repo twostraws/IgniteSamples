@@ -8,10 +8,10 @@
 import Foundation
 import Ignite
 
-struct TableExamples: StaticPage {
+struct TableExamples: StaticLayout {
     var title = "Tables"
 
-    func body(context: PublishingContext) async -> [BlockElement] {
+    var body: some HTML {
         Text("Tables")
             .font(.title1)
 
@@ -20,30 +20,32 @@ struct TableExamples: StaticPage {
 
         Text("Simple tables consist of rows and columns, like this:")
 
-        CodeBlock(language: "swift", """
-        Table {
-            Row {
-                "Taylor Swift"
-                "555, Swiftie Avenue"
-                "Nashville"
-                "Tennessee"
-            }
+        CodeBlock(.swift) {
+            """
+            Table {
+                Row {
+                    "Taylor Swift"
+                    "555, Swiftie Avenue"
+                    "Nashville"
+                    "Tennessee"
+                }
 
-            Row {
-                "Adele Adkins"
-                "Caesars Palace"
-                "Las Vegas"
-                "Nevada"
-            }
+                Row {
+                    "Adele Adkins"
+                    "Caesars Palace"
+                    "Las Vegas"
+                    "Nevada"
+                }
 
-            Row {
-                "Tim Cook"
-                "Apple Park"
-                "Cupertino"
-                "California"
+                Row {
+                    "Tim Cook"
+                    "Apple Park"
+                    "Cupertino"
+                    "California"
+                }
             }
+            """
         }
-        """)
 
         Table {
             Row {
@@ -71,35 +73,37 @@ struct TableExamples: StaticPage {
 
         Text("You can also add headings to clarify what each column means:")
 
-        CodeBlock(language: "swift", """
-        Table {
-            Row {
-                "Taylor Swift"
-                "555, Swiftie Avenue"
-                "Nashville"
-                "Tennessee"
-            }
+        CodeBlock(.swift) {
+            """
+            Table {
+                Row {
+                    "Taylor Swift"
+                    "555, Swiftie Avenue"
+                    "Nashville"
+                    "Tennessee"
+                }
 
-            Row {
-                "Adele Adkins"
-                "Caesars Palace"
-                "Las Vegas"
-                "Nevada"
-            }
+                Row {
+                    "Adele Adkins"
+                    "Caesars Palace"
+                    "Las Vegas"
+                    "Nevada"
+                }
 
-            Row {
-                "Tim Cook"
-                "Apple Park"
-                "Cupertino"
-                "California"
+                Row {
+                    "Tim Cook"
+                    "Apple Park"
+                    "Cupertino"
+                    "California"
+                }
+            } header: {
+                "Name"
+                "Address"
+                "City"
+                "State"
             }
-        } header: {
-            "Name"
-            "Address"
-            "City"
-            "State"
+            """
         }
-        """)
 
         Table {
             Row {
@@ -135,36 +139,38 @@ struct TableExamples: StaticPage {
 
         Text(markdown: "To make rows easier to distinguish, use `.tableStyle(.stripedRows)` to create a zebra striping effect:")
 
-        CodeBlock(language: "swift", """
-        Table {
-            Row {
-                "Bob Blob"
-                "Underwater Baker"
-                "Seaweed Scones"
-                "Collecting Rubber Ducks"
-            }
+        CodeBlock(.swift) {
+            """
+            Table {
+                Row {
+                    "Bob Blob"
+                    "Underwater Baker"
+                    "Seaweed Scones"
+                    "Collecting Rubber Ducks"
+                }
 
-            Row {
-                "Sally Sizzle"
-                "Firefighter Chef"
-                "Spicy Ice Cream"
-                "Volcano Surfing"
-            }
+                Row {
+                    "Sally Sizzle"
+                    "Firefighter Chef"
+                    "Spicy Ice Cream"
+                    "Volcano Surfing"
+                }
 
-            Row {
-                "Greg Grumble"
-                "Grumpy Florist"
-                "Thorny Roses Salad"
-                "Whispering to Snails"
+                Row {
+                    "Greg Grumble"
+                    "Grumpy Florist"
+                    "Thorny Roses Salad"
+                    "Whispering to Snails"
+                }
+            } header: {
+                "Name"
+                "Occupation"
+                "Favourite Food"
+                "Secret Hobby"
             }
-        } header: {
-            "Name"
-            "Occupation"
-            "Favourite Food"
-            "Secret Hobby"
+            .tableStyle(.stripedRows)
+            """
         }
-        .tableStyle(.stripedRows)
-        """)
 
         Table {
             Row {
@@ -198,36 +204,38 @@ struct TableExamples: StaticPage {
 
         Text(markdown: "Alternatively, use `.tableStyle(.stripedColumns)` to create columnar stripes:")
 
-        CodeBlock(language: "swift", """
-        Table {
-            Row {
-                "Bob Blob"
-                "Underwater Baker"
-                "Seaweed Scones"
-                "Collecting Rubber Ducks"
-            }
+        CodeBlock(.swift) {
+            """
+            Table {
+                Row {
+                    "Bob Blob"
+                    "Underwater Baker"
+                    "Seaweed Scones"
+                    "Collecting Rubber Ducks"
+                }
 
-            Row {
-                "Sally Sizzle"
-                "Firefighter Chef"
-                "Spicy Ice Cream"
-                "Volcano Surfing"
-            }
+                Row {
+                    "Sally Sizzle"
+                    "Firefighter Chef"
+                    "Spicy Ice Cream"
+                    "Volcano Surfing"
+                }
 
-            Row {
-                "Greg Grumble"
-                "Grumpy Florist"
-                "Thorny Roses Salad"
-                "Whispering to Snails"
+                Row {
+                    "Greg Grumble"
+                    "Grumpy Florist"
+                    "Thorny Roses Salad"
+                    "Whispering to Snails"
+                }
+            } header: {
+                "Name"
+                "Occupation"
+                "Favourite Food"
+                "Secret Hobby"
             }
-        } header: {
-            "Name"
-            "Occupation"
-            "Favourite Food"
-            "Secret Hobby"
+            .tableStyle(.stripedColumns)
+            """
         }
-        .tableStyle(.stripedColumns)
-        """)
 
         Table {
             Row {
@@ -259,7 +267,6 @@ struct TableExamples: StaticPage {
         .tableStyle(.stripedColumns)
         .margin(.bottom, .extraLarge)
 
-
         Text("Row and column formatting")
             .font(.title2)
 
@@ -269,37 +276,39 @@ struct TableExamples: StaticPage {
         """
         )
 
-        CodeBlock(language: "swift", """
-        Table {
-            Row {
-                Column {
-                    "Top"
-                }
-                .verticalAlignment(.top)
+        CodeBlock(.swift) {
+            """
+            Table {
+                Row {
+                    Column {
+                        "Top"
+                    }
+                    .verticalAlignment(.top)
 
-                Column {
-                    "Middle"
-                }
-                .verticalAlignment(.middle)
+                    Column {
+                        "Middle"
+                    }
+                    .verticalAlignment(.middle)
 
-                Column {
-                    "Bottom"
-                }
-                .verticalAlignment(.bottom)
+                    Column {
+                        "Bottom"
+                    }
+                    .verticalAlignment(.bottom)
 
-                Column {
-                    \"""
-                    This is much longer text and will wrap over multiple lines, so we can see vertical alignment working. \
-                    This is much longer text and will wrap over multiple lines, so we can see vertical alignment working. \
-                    This is much longer text and will wrap over multiple lines, so we can see vertical alignment working. \
-                    This is much longer text and will wrap over multiple lines, so we can see vertical alignment working. \
-                    This is much longer text and will wrap over multiple lines, so we can see vertical alignment working.
-                    \"""
+                    Column {
+                        \"""
+                        This is much longer text and will wrap over multiple lines, so we can see vertical alignment working. \
+                        This is much longer text and will wrap over multiple lines, so we can see vertical alignment working. \
+                        This is much longer text and will wrap over multiple lines, so we can see vertical alignment working. \
+                        This is much longer text and will wrap over multiple lines, so we can see vertical alignment working. \
+                        This is much longer text and will wrap over multiple lines, so we can see vertical alignment working.
+                        \"""
+                    }
                 }
             }
+            .tableBorder(true)
+            """
         }
-        .tableBorder(true)
-        """)
 
         Table {
             Row {
@@ -334,34 +343,36 @@ struct TableExamples: StaticPage {
 
         Text(markdown: "Each row item occupies one column by default, but `Column` objects have a `columnSpan()` modifier to adjust that:")
 
-        CodeBlock(language: "swift", """
-        Table {
-            Row {
-                "This is a column"
-                "Another column"
-                "One more for luck"
-            }
-
-            Row {
-                Column {
-                    "This column is as wide as the previous three, and is aligned to the center."
+        CodeBlock(.swift) {
+            """
+            Table {
+                Row {
+                    "This is a column"
+                    "Another column"
+                    "One more for luck"
                 }
-                .columnSpan(3)
-                .horizontalAlignment(.center)
-            }
 
-            Row {
-                "This is another column"
-
-                Column {
-                    "This column occupies two slots, and is aligned to the trailing edge."
+                Row {
+                    Column {
+                        "This column is as wide as the previous three, and is aligned to the center."
+                    }
+                    .columnSpan(3)
+                    .horizontalAlignment(.center)
                 }
-                .columnSpan(2)
-                .horizontalAlignment(.trailing)
+
+                Row {
+                    "This is another column"
+
+                    Column {
+                        "This column occupies two slots, and is aligned to the trailing edge."
+                    }
+                    .columnSpan(2)
+                    .horizontalAlignment(.trailing)
+                }
             }
+            .tableBorder(true)
+            """
         }
-        .tableBorder(true)
-        """)
 
         Table {
             Row {

@@ -8,10 +8,10 @@
 import Foundation
 import Ignite
 
-struct ButtonExamples: StaticPage {
+struct ButtonExamples: StaticLayout {
     var title = "Buttons"
 
-    func body(context: PublishingContext) async -> [BlockElement] {
+    var body: some HTML {
         Text("Buttons")
             .font(.title1)
 
@@ -20,14 +20,16 @@ struct ButtonExamples: StaticPage {
 
         Text("For example, here's a primary button that shows an alert when pressed:")
 
-        CodeBlock(language: "swift", """
-        Text {
-            Button("Say Hello") {
-                ShowAlert(message: "Hello, world!")
+        CodeBlock(.swift) {
+            """
+            Text {
+                Button("Say Hello") {
+                    ShowAlert(message: "Hello, world!")
+                }
+                .role(.primary)
             }
-            .role(.primary)
+            """
         }
-        """)
 
         Text {
             Button("Say Hello") {
@@ -41,32 +43,34 @@ struct ButtonExamples: StaticPage {
 
         Text("For example, this code shows two pieces of text, and buttons that toggle between them:")
 
-        CodeBlock(language: "swift", """
-        Text {
-            Button("Show First Text") {
-                ShowElement("FirstText")
-                HideElement("SecondText")
+        CodeBlock(.swift) {
+            """
+            Text {
+                Button("Show First Text") {
+                    ShowElement("FirstText")
+                    HideElement("SecondText")
+                }
+                .role(.primary)
             }
-            .role(.primary)
-        }
 
-        Text {
-            Button("Show Second Text") {
-                HideElement("FirstText")
-                ShowElement("SecondText")
+            Text {
+                Button("Show Second Text") {
+                    HideElement("FirstText")
+                    ShowElement("SecondText")
+                }
+                .role(.secondary)
             }
-            .role(.secondary)
+
+            Text("This is the first text.")
+                .font(.title3)
+                .id("FirstText")
+
+            Text("This is the second text.")
+                .font(.title3)
+                .id("SecondText")
+                .hidden()
+            """
         }
-
-        Text("This is the first text.")
-            .font(.title3)
-            .id("FirstText")
-
-        Text("This is the second text.")
-            .font(.title3)
-            .id("SecondText")
-            .hidden()
-        """)
 
         Text {
             Button("Show First Text") {
@@ -113,12 +117,14 @@ struct ButtonExamples: StaticPage {
         Text(markdown: "If you want your button to act as a link somewhere else, it's better to use `Link` with `.linkStyle(.button)`, like this:")
             .margin(.top, .extraLarge)
 
-        CodeBlock(language: "swift", """
-        Text {
-            Link("This is a link button", target: ContentExamples())
-                .linkStyle(.button)
+        CodeBlock(.swift) {
+            """
+            Text {
+                Link("This is a link button", target: ContentExamples())
+                    .linkStyle(.button)
+            }
+            """
         }
-        """)
 
         Text {
             Link("This is a link button", target: ContentExamples())
@@ -131,20 +137,22 @@ struct ButtonExamples: StaticPage {
 
         Text(markdown: "As with other several other element types, buttons can have *roles* attached to them to customize how they look. There is also a `buttonSize()` modifier to adjust how big buttons are:")
 
-        CodeBlock(language: "swift", """
-        for role in Role.allCases {
-            for size in ButtonSize.allCases {
-                Text {
-                    Button("\\(size.rawValue.capitalized) button with \\(role.rawValue) role")
-                        .buttonSize(size)
-                        .role(role)
+        CodeBlock(.swift) {
+            """
+            ForEach(Role.badgeRoles) { role in
+                ForEach(Button.Size.allCases) { size in
+                    Text {
+                        Button("\\(size.rawValue.capitalized) button with \\(role.rawValue) role")
+                            .buttonSize(size)
+                            .role(role)
+                    }
                 }
             }
+            """
         }
-        """)
 
-        for role in Role.allCases {
-            for size in ButtonSize.allCases {
+        ForEach(Role.badgeRoles) { role in
+            ForEach(Button.Size.allCases) { size in
                 Text {
                     Button("\(size.rawValue.capitalized) button with \(role.rawValue) role")
                         .buttonSize(size)

@@ -8,27 +8,30 @@
 import Foundation
 import Ignite
 
-struct StylingExamples: StaticPage {
+struct StylingExamples: StaticLayout {
     var title = "Styling"
     var path = "/custom/path/to/styling"
 
-    func body(context: PublishingContext) async -> [BlockElement] {
+    var body: some HTML {
         Text("Styling")
             .font(.title1)
 
         Text("There are lots of ways you can style your page content; this page demonstrates some examples.")
+            .class("Wom")
             .font(.lead)
 
         Section {
             Group {
                 Text("Here's an image with a fixed width and 50% opacity:")
 
-                CodeBlock(language: "swift", """
-                Image("/images/photos/dishwasher.jpg", description: "A dishwasher, and not a dog.")
-                    .resizable()
-                    .frame(width: 300)
-                    .opacity(0.5)
-                """)
+                CodeBlock(.swift) {
+                    """
+                    Image("/images/photos/dishwasher.jpg", description: "A dishwasher, and not a dog.")
+                        .resizable()
+                        .frame(width: 300)
+                        .opacity(0.5)
+                    """
+                }
 
                 Image("/images/photos/dishwasher.jpg", description: "A dishwasher, and not a dog.")
                     .resizable()
@@ -38,14 +41,16 @@ struct StylingExamples: StaticPage {
 
                 Text("The following heading has a background color, foreground style, and inner shadow:")
 
-                CodeBlock(language: "swift", """
-                Text("Hello, world!")
-                    .font(.title2)
-                    .padding(20)
-                    .foregroundStyle(.white)
-                    .background(.indigo)
-                    .innerShadow(.black, radius: 20)
-                """)
+                CodeBlock(.swift) {
+                    """
+                    Text("Hello, world!")
+                        .font(.title2)
+                        .padding(20)
+                        .foregroundStyle(.white)
+                        .background(.indigo)
+                        .innerShadow(.black, radius: 20)
+                    """
+                }
 
                 Text("Hello, world!")
                     .font(.title2)
@@ -57,13 +62,15 @@ struct StylingExamples: StaticPage {
 
                 Text("The next heading has a tooltip – hover over it to see what it says:")
 
-                CodeBlock(language: "swift", """
-                Text {
-                    Span("Hover over me")
-                        .hint(markdown: "Why, *hello* there!")
+                CodeBlock(.swift) {
+                    """
+                    Text {
+                        Span("Hover over me")
+                            .hint(markdown: "Why, *hello* there!")
+                    }
+                    .font(.title2)
+                    """
                 }
-                .font(.title2)
-                """)
 
                 Text {
                     Span("Hover over me")
@@ -75,16 +82,18 @@ struct StylingExamples: StaticPage {
             .margin(.bottom, .extraLarge)
 
             Group {
-                CodeBlock(language: "swift", """
-                Group {
-                    Text("This group is sticky. Try scrolling down!")
+                CodeBlock(.swift) {
+                    """
+                    Group {
+                        Text("This group is sticky. Try scrolling down!")
 
-                    Image("/images/photos/washing.jpg", description: "A laundry basket.")
-                        .resizable()
+                        Image("/images/photos/washing.jpg", description: "A laundry basket.")
+                            .resizable()
+                    }
+                    .position(.stickyTop)
+                    .padding(.top, 80)
+                    """
                 }
-                .position(.stickyTop)
-                .padding(.top, 80)
-                """)
 
                 Group {
                     Text("This group is sticky. Try scrolling down!")
@@ -106,9 +115,11 @@ struct StylingExamples: StaticPage {
 
         Text("The group on the right started in its original location, but when it reached the top it stuck there until you scrolled past the end of its section, at which point it scrolled again.")
 
-        CodeBlock(language: "swift", """
-        Text(markdown: "Get this in your own content using `.position(.stickyTop)`.")
-        """)
+        CodeBlock(.swift) {
+            """
+            Text(markdown: "Get this in your own content using `.position(.stickyTop)`.")
+            """
+        }
 
         Text(markdown: "Get this in your own content using `.position(.stickyTop)`.")
             .margin(.bottom, .extraLarge)
@@ -123,13 +134,15 @@ struct StylingExamples: StaticPage {
 
         Text("To see the difference in action, the heading below has no padding and 100 pixels of margins on all sides:")
 
-        CodeBlock(language: "swift", """
-        Text("Zero padding, lots of margin")
-            .padding(.none)
-            .margin(100)
-            .background(.purple)
-            .foregroundStyle(.white)
-        """)
+        CodeBlock(.swift) {
+            """
+            Text("Zero padding, lots of margin")
+                .padding(.none)
+                .margin(100)
+                .background(.purple)
+                .foregroundStyle(.white)
+            """
+        }
 
         Text("Zero padding, lots of margin")
             .padding(.none)
@@ -141,13 +154,15 @@ struct StylingExamples: StaticPage {
 
         Text("In comparison, the heading below has 100 pixels of padding on all sides and no margins:")
 
-        CodeBlock(language: "swift", """
-        Text("Lots of padding, zero margin")
-            .padding(100)
-            .margin(.none)
-            .background(.purple)
-            .foregroundStyle(.white)
-        """)
+        CodeBlock(.swift) {
+            """
+            Text("Lots of padding, zero margin")
+                .padding(100)
+                .margin(.none)
+                .background(.purple)
+                .foregroundStyle(.white)
+            """
+        }
 
         Text("Lots of padding, zero margin")
             .padding(100)
@@ -162,11 +177,10 @@ struct StylingExamples: StaticPage {
         Alert {
             Text(markdown: """
             **PS:** Did you notice the URL for this page? \
-            Static pages have their URLs generated from their type name, but you can also provide a custom path. \
-            If you're using `Link` with a `StaticPage` target it will ✨Just Work✨.
+            Static layouts have their URLs generated from their type name, but you can also provide a custom path. \
+            If you're using `Link` with a `StaticLayout` target it will ✨Just Work✨.
             """)
         }
         .role(.info)
     }
 }
-

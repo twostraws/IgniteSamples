@@ -1,5 +1,5 @@
 //
-// SuggestedArticleTheme.swift
+// SuggestedArticleLayout.swift
 // IgniteSamples
 // https://www.github.com/twostraws/Ignite
 // See LICENSE for license information.
@@ -8,26 +8,27 @@
 import Foundation
 import Ignite
 
-struct SuggestedArticleTheme: Theme {
-    func render(page: Page, context: PublishingContext) async -> HTML {
-        HTML {
-            Head(for: page, in: context)
+struct SuggestedArticleLayout: Layout {
+    @Environment(\.siteConfiguration) var siteConfiguration
+    @Environment(\.content) var content
 
-            Body {
+    var body: some HTML {
+        HTMLDocument {
+            HTMLHead(for: page, with: siteConfiguration)
+
+            HTMLBody {
                 NavBar()
 
                 Section {
-                    Group {
-                        page.body
-                    }
-                    .width(9)
-                    .padding(.vertical, 80)
+                    Group(page.body)
+                        .width(9)
+                        .padding(.vertical, 80)
 
                     Group {
                         Text("Read this next…")
                             .font(.title3)
 
-                        if let latest = context.allContent.randomElement() {
+                        if let latest = content.all.randomElement() {
                             ContentPreview(for: latest)
                         }
                     }
@@ -38,6 +39,7 @@ struct SuggestedArticleTheme: Theme {
 
                 IgniteFooter()
             }
+            .class("container")
         }
     }
 }
