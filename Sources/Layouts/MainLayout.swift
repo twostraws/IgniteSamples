@@ -20,7 +20,10 @@ struct MainLayout: Layout {
 
                 Group(page.body)
 
-                IgniteFooter()
+                Group {
+                    SocialFooter()
+                    IgniteFooter()
+                }
             }
             .padding(.vertical, 80)
             .class("container")

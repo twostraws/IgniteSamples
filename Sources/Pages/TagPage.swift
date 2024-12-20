@@ -10,6 +10,7 @@ import Ignite
 
 struct Tags: TagLayout {
     var body: some HTML {
+
         if let tag {
             Text(tag)
                 .font(.title1)

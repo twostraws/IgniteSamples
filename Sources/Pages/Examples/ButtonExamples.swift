@@ -154,7 +154,8 @@ struct ButtonExamples: StaticLayout {
         ForEach(Role.badgeRoles) { role in
             ForEach(Button.Size.allCases) { size in
                 Text {
-                    Button("\(size.rawValue.capitalized) button with \(role.rawValue) role")
+                    let description = "\(size.rawValue.capitalized) button with \(role.rawValue) role"
+                    Button(role == .close ? "" : description)
                         .buttonSize(size)
                         .role(role)
                 }

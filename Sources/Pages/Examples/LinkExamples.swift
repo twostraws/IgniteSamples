@@ -46,6 +46,22 @@ struct LinkExamples: StaticLayout {
             Link("Learn about carousels", target: CarouselExamples())
         }
 
+        Text("Using a `.target(.blank)` modifier opens new tabs")
+
+        CodeBlock(.swift) {
+            """
+            Text {
+                Link("Another tab of links", target: LinkExamples())
+                    .target(.blank)
+            }
+            """
+        }
+
+        Text {
+            Link("Another tab of links", target: LinkExamples())
+                .target(.blank)
+        }
+
         Alert {
             Text(markdown: "**Tip:** Page targets use initialized pages, so you can pass in custom values that adjust the path.")
         }

@@ -39,26 +39,20 @@ struct AlertExamples: StaticLayout {
 
         CodeBlock(.swift) {
             """
-            for role in Role.allCases {
-                // The default role isn't interesting for alerts
-                if role != .default {
-                    Alert {
-                        Text("This alert has the \\(role.rawValue) role.")
-                    }
-                    .role(role)
+            ForEach(Role.badgeRoles) { role in
+                Alert {
+                    Text("This alert has the \\(role.rawValue) role.")
                 }
+                .role(role)
             }
             """
         }
 
-        ForEach(Role.allCases) { role in
-            // The default role isn't interesting for alerts
-            if role != .default {
-                Alert {
-                    Text("This alert has the \(role.rawValue) role.")
-                }
-                .role(role)
+        ForEach(Role.badgeRoles) { role in
+            Alert {
+                Text("This alert has the \(role.rawValue) role.")
             }
+            .role(role)
         }
     }
 }
