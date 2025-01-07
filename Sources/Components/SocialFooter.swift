@@ -5,7 +5,6 @@
 // See LICENSE for license information.
 //
 
-import Foundation
 import Ignite
 
 /// Displays a global "Social Footer", with each social icon linking to an

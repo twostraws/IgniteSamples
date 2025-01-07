@@ -5,7 +5,6 @@
 // See LICENSE for license information.
 //
 
-import Foundation
 import Ignite
 
 struct GridExamples: StaticLayout {
@@ -21,13 +20,13 @@ struct GridExamples: StaticLayout {
         """)
             .font(.lead)
 
-        Text(markdown: "To create a new page section, use the `Section` element. Your columns will be subdivided to make space for each item you've placed.")
+        Text(markdown: "To create a grid, use the `Grid` element. Your columns will be subdivided to make space for each item you've placed.")
 
         Text("For example, these pictures all take up one third of the available space:")
 
         CodeBlock(.swift) {
             """
-            Section {
+            Grid {
                 Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
                     .resizable()
 
@@ -41,7 +40,7 @@ struct GridExamples: StaticLayout {
             """
         }
 
-        Section {
+        Grid {
             Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
                 .resizable()
 
@@ -62,7 +61,7 @@ struct GridExamples: StaticLayout {
 
         CodeBlock(.swift) {
             """
-            Section {
+            Grid {
                 Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
                     .resizable()
                     .width(4)
@@ -78,7 +77,7 @@ struct GridExamples: StaticLayout {
             """
         }
 
-        Section {
+        Grid {
             Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
                 .resizable()
                 .width(4)
@@ -97,13 +96,13 @@ struct GridExamples: StaticLayout {
             .font(.title1)
 
         Text("""
-        If you place more than 12 columns of items in a section, they will wrap automatically. \
+        If you place more than 12 columns of items in a grid, they will wrap automatically. \
         For example, this uses four pictures of width 4, causing one to wrap to the next line:
         """)
 
         CodeBlock(.swift) {
             """
-            Section {
+            Grid {
                 Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
                     .resizable()
                     .width(4)
@@ -123,7 +122,7 @@ struct GridExamples: StaticLayout {
             """
         }
 
-        Section {
+        Grid {
             Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
                 .resizable()
                 .width(4)
@@ -146,7 +145,7 @@ struct GridExamples: StaticLayout {
 
         CodeBlock(.swift) {
             """
-            Section {
+            Grid {
                 Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
                     .resizable()
 
@@ -163,7 +162,7 @@ struct GridExamples: StaticLayout {
             """
         }
 
-        Section {
+        Grid {
             Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
                 .resizable()
 

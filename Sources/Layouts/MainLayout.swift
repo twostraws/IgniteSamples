@@ -5,11 +5,10 @@
 // See LICENSE for license information.
 //
 
-import Foundation
 import Ignite
 
 struct MainLayout: Layout {
-    @Environment(\.siteConfiguration) var siteConfiguration
+    @Environment(\.siteConfiguration) private var siteConfiguration
 
     var body: some HTML {
         HTMLDocument {
@@ -18,9 +17,9 @@ struct MainLayout: Layout {
             HTMLBody {
                 NavBar()
 
-                Group(page.body)
+                Section(page.body)
 
-                Group {
+                Section {
                     SocialFooter()
                     IgniteFooter()
                 }

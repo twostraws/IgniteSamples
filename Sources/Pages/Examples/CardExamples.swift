@@ -5,7 +5,6 @@
 // See LICENSE for license information.
 //
 
-import Foundation
 import Ignite
 
 struct CardExamples: StaticLayout {
@@ -80,7 +79,7 @@ struct CardExamples: StaticLayout {
             """
         }
 
-        Section {
+        Grid {
             Card(imageName: "/images/photos/rug.jpg") {
                 Text(markdown: "Content below image: use `.top`")
             }
@@ -134,7 +133,7 @@ struct CardExamples: StaticLayout {
         """)
         .margin(.top, .large)
 
-        Section {
+        Grid {
             ForEach(Card.ContentAlignment.allCases) { alignment in
                 let alignmentName = String(describing: alignment)
                 Card(imageName: "/images/photos/dishwasher.jpg") {

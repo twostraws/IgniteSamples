@@ -5,7 +5,6 @@
 // See LICENSE for license information.
 //
 
-import Foundation
 import Ignite
 
 struct StylingExamples: StaticLayout {
@@ -20,8 +19,8 @@ struct StylingExamples: StaticLayout {
             .class("Wom")
             .font(.lead)
 
-        Section {
-            Group {
+        Grid {
+            Section {
                 Text("Here's an image with a fixed width and 50% opacity:")
 
                 CodeBlock(.swift) {
@@ -81,7 +80,7 @@ struct StylingExamples: StaticLayout {
             .width(7)
             .margin(.bottom, .extraLarge)
 
-            Group {
+            Section {
                 CodeBlock(.swift) {
                     """
                     Group {
@@ -95,7 +94,7 @@ struct StylingExamples: StaticLayout {
                     """
                 }
 
-                Group {
+                Section {
                     Text("This group is sticky. Try scrolling down!")
 
                     Image("/images/photos/washing.jpg", description: "A laundry basket.")

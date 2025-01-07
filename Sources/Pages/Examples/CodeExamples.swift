@@ -5,7 +5,6 @@
 // See LICENSE for license information.
 //
 
-import Foundation
 import Ignite
 
 struct CodeExamples: StaticLayout {
@@ -15,7 +14,7 @@ struct CodeExamples: StaticLayout {
         Text("Code")
             .font(.title1)
 
-        Group {
+        Section {
             Text(markdown: "Code comes in two forms: `Code` is for inline code snippets, and `CodeBlock` for larger chunks.")
                 .font(.lead)
 

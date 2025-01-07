@@ -5,7 +5,6 @@
 // See LICENSE for license information.
 //
 
-import Foundation
 import Ignite
 
 struct EmbedExamples: StaticLayout {
@@ -15,7 +14,7 @@ struct EmbedExamples: StaticLayout {
         Text("Embeds")
             .font(.title1)
 
-        Group {
+        Section {
             Text("Embeds let you place external content onto your page, such as YouTube or Vimeo videos.")
                 .font(.lead)
 
@@ -38,7 +37,7 @@ struct EmbedExamples: StaticLayout {
                 .margin(.bottom, .extraLarge)
         }
 
-        Group {
+        Section {
             Text("Here's a Vimeo video:")
 
             CodeBlock(.swift) {

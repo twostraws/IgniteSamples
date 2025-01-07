@@ -5,14 +5,12 @@
 // See LICENSE for license information.
 //
 
-import Foundation
 import Ignite
 
 /// An example navigation bar, demonstrating how to create reusable components.
 struct NavBar: HTML {
     var body: some HTML {
-        NavigationBar(logo: Image("/images/logo.svg", description: "ExampleSite logo").frame(width: "min(60vw, 300px)", height: "100%")) {
-
+        NavigationBar {
             Dropdown("Key concepts") {
                 Link("Grid Layout", target: GridExamples())
                 Link("Navigation", target: NavigationExamples())
@@ -41,6 +39,9 @@ struct NavBar: HTML {
             }
 
             Link("Ignite on GitHub", target: "https://github.com/twostraws/Ignite")
+        } logo: {
+            Image("/images/logo.svg", description: "ExampleSite logo")
+                .frame(width: .custom("min(60vw, 300px)"), height: .percent(100%))
         }
         .navigationItemAlignment(.trailing)
         .navigationBarStyle(.dark)

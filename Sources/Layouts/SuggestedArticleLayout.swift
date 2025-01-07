@@ -5,12 +5,11 @@
 // See LICENSE for license information.
 //
 
-import Foundation
 import Ignite
 
 struct SuggestedArticleLayout: Layout {
-    @Environment(\.siteConfiguration) var siteConfiguration
-    @Environment(\.content) var content
+    @Environment(\.siteConfiguration) private var siteConfiguration
+    @Environment(\.content) private var content
 
     var body: some HTML {
         HTMLDocument {
@@ -19,12 +18,12 @@ struct SuggestedArticleLayout: Layout {
             HTMLBody {
                 NavBar()
 
-                Section {
-                    Group(page.body)
+                Grid {
+                    Section(page.body)
                         .width(9)
                         .padding(.vertical, 80)
 
-                    Group {
+                    Section {
                         Text("Read this next…")
                             .font(.title3)
 

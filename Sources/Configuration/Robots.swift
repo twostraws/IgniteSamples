@@ -5,7 +5,6 @@
 // See LICENSE for license information.
 //
 
-import Foundation
 import Ignite
 
 /// An example custom robots.txt configuration file, blocking certain paths

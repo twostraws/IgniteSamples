@@ -5,7 +5,6 @@
 // See LICENSE for license information.
 //
 
-import Foundation
 import Ignite
 
 struct ImageExamples: StaticLayout {
@@ -19,7 +18,7 @@ struct ImageExamples: StaticLayout {
         Text("Images")
             .font(.title1)
 
-        Group {
+        Section {
             Text(markdown: "Images can be either pictures from your **/Assets/images** folder, or one of the built-in icons.")
                 .font(.lead)
 
