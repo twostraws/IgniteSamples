@@ -34,6 +34,7 @@ struct ExampleSite: Site {
         TextExamples()
         StylingExamples()
         ThemeExamples()
+        CustomModifierExamples()
 
         AccordionExamples()
         AlertExamples()
