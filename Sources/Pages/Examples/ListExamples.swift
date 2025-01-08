@@ -15,7 +15,7 @@ struct ListExamples: StaticLayout {
         Text("Lists")
             .font(.title1)
 
-        Group {
+        Section {
             Text("Lists can be ordered or unordered, and you can customize their bullet styles too.")
                 .font(.lead)
 

@@ -1,5 +1,5 @@
 //
-// TestExamples.swift
+// TextExamples.swift
 // IgniteSamples
 // https://www.github.com/twostraws/Ignite
 // See LICENSE for license information.

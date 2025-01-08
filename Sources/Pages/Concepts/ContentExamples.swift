@@ -88,7 +88,7 @@ struct ContentExamples: StaticLayout {
 
         CodeBlock(.swift) {
             """
-            Section {
+            Grid {
                 ForEach(content.all) { item in
                     ContentPreview(for: item)
                         .width(3)
@@ -98,7 +98,7 @@ struct ContentExamples: StaticLayout {
             """
         }
 
-        Section {
+        Grid {
             ForEach(content.all) { item in
                 ContentPreview(for: item)
                     .width(3)

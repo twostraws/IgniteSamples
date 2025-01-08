@@ -9,7 +9,7 @@ import Foundation
 import Ignite
 
 struct IncludeExamples: StaticLayout {
-    @Environment(\.decode) var decode
+    @Environment(\.decode) private var decode
     var title = "Includes"
 
     var body: some HTML {

@@ -46,9 +46,9 @@ struct ModalExamples: StaticLayout {
             """
         }
 
-        Group {
+        Section {
             Card {
-                Group {
+                Section {
                     Button("Show simple Modal") {
                         ShowModal(id: showModalId)
                     }
@@ -82,7 +82,7 @@ struct ModalExamples: StaticLayout {
         CodeBlock(.swift) {
             """
             Modal(id: "\(dismissModalId)") {
-                Group {
+                Section {
                     Button().role(.close).onClick {
                         DismissModal(id: "\(dismissModalId)")
                     }
@@ -97,9 +97,9 @@ struct ModalExamples: StaticLayout {
             """
         }
 
-        Group {
+        Section {
             Card {
-                Group {
+                Section {
                     Button("Show Modal with a Close Button") {
                         ShowModal(id: dismissModalId)
                     }
@@ -110,7 +110,7 @@ struct ModalExamples: StaticLayout {
             .role(.light)
 
             Modal(id: dismissModalId) {
-                Group {
+                Section {
                     Button().role(.close).onClick {
                         DismissModal(id: dismissModalId)
                     }
@@ -159,7 +159,7 @@ struct ModalExamples: StaticLayout {
             .size(.xlarge)
             
             Modal(id: "\(fullscreenModalId)") {
-                Group {
+                Section {
                     Button().role(.close).onClick {
                         DismissModal(id: "\(fullscreenModalId)")
                     }
@@ -175,25 +175,25 @@ struct ModalExamples: StaticLayout {
             """
         }
 
-        Group {
+        Section {
             Card {
-                Group {
-                    Section {
-                        Group {
+                Section {
+                    Grid {
+                        Section {
                             Button("Show Small Modal") {
                                 ShowModal(id: smallModalId)
                             }
                             .role(.primary)
                         }
 
-                        Group {
+                        Section {
                             Button("Show xLarge Modal") {
                                 ShowModal(id: xLargeModalId)
                             }
                             .role(.primary)
                         }
 
-                        Group {
+                        Section {
                             Button("Show Fullscreen Modal") {
                                 ShowModal(id: fullscreenModalId)
                             }
@@ -223,7 +223,7 @@ struct ModalExamples: StaticLayout {
             .size(.xLarge)
 
             Modal(id: "\(fullscreenModalId)") {
-                Group {
+                Section {
                     Button().role(.close).onClick {
                         DismissModal(id: "\(fullscreenModalId)")
                     }
@@ -264,9 +264,9 @@ struct ModalExamples: StaticLayout {
             """
         }
 
-        Group {
+        Section {
             Card {
-                Group {
+                Section {
                     Button("Show Modal at the top") {
                         ShowModal(id: topModalId)
                     }
@@ -348,25 +348,25 @@ struct ModalExamples: StaticLayout {
             """
         }
 
-        Group {
+        Section {
             Card {
-                Group {
-                    Section {
-                        Group {
+                Section {
+                    Grid {
+                        Section {
                             Button("Show Modal with Header") {
                                 ShowModal(id: headerModalId)
                             }
                             .role(.primary)
                         }
 
-                        Group {
+                        Section {
                             Button("Show Modal with Footer") {
                                 ShowModal(id: footerModalId)
                             }
                             .role(.primary)
                         }
 
-                        Group {
+                        Section {
                             Button("Show Modal with Header and Footer") {
                                 ShowModal(id: headerAndFooterModalId)
                             }
@@ -456,9 +456,9 @@ struct ModalExamples: StaticLayout {
             """
         }
 
-        Group {
+        Section {
             Card {
-                Group {
+                Section {
                     Button("Show Modal with Scrollable Content") {
                         ShowModal(id: modal7)
                     }

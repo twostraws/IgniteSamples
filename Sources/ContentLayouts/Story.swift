@@ -21,7 +21,7 @@ struct Story: ContentLayout {
         }
 
         if content.hasTags {
-            Group {
+            Section {
                 Text("Tagged with: \(content.tags.joined(separator: ", "))")
 
                 Text("\(content.estimatedWordCount) words; \(content.estimatedReadingMinutes) minutes to read.")

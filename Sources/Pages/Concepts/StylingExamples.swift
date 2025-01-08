@@ -20,8 +20,8 @@ struct StylingExamples: StaticLayout {
             .class("Wom")
             .font(.lead)
 
-        Section {
-            Group {
+        Grid {
+            Section {
                 Text("Here's an image with a fixed width and 50% opacity:")
 
                 CodeBlock(.swift) {
@@ -81,11 +81,11 @@ struct StylingExamples: StaticLayout {
             .width(7)
             .margin(.bottom, .extraLarge)
 
-            Group {
+            Section {
                 CodeBlock(.swift) {
                     """
-                    Group {
-                        Text("This group is sticky. Try scrolling down!")
+                    Section {
+                        Text("This section is sticky. Try scrolling down!")
 
                         Image("/images/photos/washing.jpg", description: "A laundry basket.")
                             .resizable()
@@ -95,8 +95,8 @@ struct StylingExamples: StaticLayout {
                     """
                 }
 
-                Group {
-                    Text("This group is sticky. Try scrolling down!")
+                Section {
+                    Text("This section is sticky. Try scrolling down!")
 
                     Image("/images/photos/washing.jpg", description: "A laundry basket.")
                         .resizable()
@@ -113,7 +113,7 @@ struct StylingExamples: StaticLayout {
 
         Spacer(size: 300)
 
-        Text("The group on the right started in its original location, but when it reached the top it stuck there until you scrolled past the end of its section, at which point it scrolled again.")
+        Text("The section on the right started in its original location, but when it reached the top it stuck there until you scrolled past the end of its section, at which point it scrolled again.")
 
         CodeBlock(.swift) {
             """
