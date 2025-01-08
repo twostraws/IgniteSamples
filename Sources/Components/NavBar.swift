@@ -17,6 +17,7 @@ struct NavBar: HTML {
                 Link("Content", target: ContentExamples())
                 Link("Text", target: TextExamples())
                 Link("Styling", target: StylingExamples())
+                Link("Theming", target: ThemeExamples())
             }
 
             Dropdown("Examples") {

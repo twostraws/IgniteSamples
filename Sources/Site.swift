@@ -16,7 +16,7 @@ struct IgniteWebsite {
 struct ExampleSite: Site {
     var name = "My Awesome Site"
     var titleSuffix = " – My Awesome Site"
-    var url = URL(string: "https://www.yoursite.com")!
+    var url = URL(static: "https://www.yoursite.com")
 
     var builtInIconsEnabled = true
     var feedConfiguration = FeedConfiguration(mode: .full, contentCount: 20, image: .init(url: "https://www.yoursite.com/images/icon32.png", width: 32, height: 32))
@@ -32,6 +32,8 @@ struct ExampleSite: Site {
         GridExamples()
         NavigationExamples()
         TextExamples()
+        StylingExamples()
+        ThemeExamples()
 
         AccordionExamples()
         AlertExamples()
@@ -48,7 +50,6 @@ struct ExampleSite: Site {
         ListExamples()
         ModalExamples()
         QuoteExamples()
-        StylingExamples()
         TableExamples()
     }
 

@@ -83,8 +83,8 @@ struct StylingExamples: StaticLayout {
             Section {
                 CodeBlock(.swift) {
                     """
-                    Group {
-                        Text("This group is sticky. Try scrolling down!")
+                    Section {
+                        Text("This section is sticky. Try scrolling down!")
 
                         Image("/images/photos/washing.jpg", description: "A laundry basket.")
                             .resizable()
@@ -95,7 +95,7 @@ struct StylingExamples: StaticLayout {
                 }
 
                 Section {
-                    Text("This group is sticky. Try scrolling down!")
+                    Text("This section is sticky. Try scrolling down!")
 
                     Image("/images/photos/washing.jpg", description: "A laundry basket.")
                         .resizable()
@@ -112,7 +112,7 @@ struct StylingExamples: StaticLayout {
 
         Spacer(size: 300)
 
-        Text("The group on the right started in its original location, but when it reached the top it stuck there until you scrolled past the end of its section, at which point it scrolled again.")
+        Text("The section on the right started in its original location, but when it reached the top it stuck there until you scrolled past the end of its section, at which point it scrolled again.")
 
         CodeBlock(.swift) {
             """
