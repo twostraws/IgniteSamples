@@ -5,6 +5,7 @@
 // See LICENSE for license information.
 //
 
+import Foundation
 import Ignite
 
 struct ListExamples: StaticLayout {

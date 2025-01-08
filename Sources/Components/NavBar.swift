@@ -5,6 +5,7 @@
 // See LICENSE for license information.
 //
 
+import Foundation
 import Ignite
 
 /// An example navigation bar, demonstrating how to create reusable components.
