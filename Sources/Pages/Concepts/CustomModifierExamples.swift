@@ -30,7 +30,7 @@ struct CustomModifierExamples: StaticLayout {
 
         Text("Creating a Custom Modifier")
             .font(.title2)
-            .margin(.top, .extraLarge)
+            .margin(.top, .xLarge)
 
         Text(markdown: """
         To create a custom modifier, follow these steps:
@@ -68,11 +68,11 @@ struct CustomModifierExamples: StaticLayout {
 
         Text("This text will be blue!")
             .blueText()
-            .margin(.bottom, .extraLarge)
+            .margin(.bottom, .xLarge)
 
         Text("Advanced Modifiers")
             .font(.title2)
-            .margin(.top, .extraLarge)
+            .margin(.top, .xLarge)
 
         Text(markdown: """
         Custom modifiers can also accept parameters to make them more flexible. Here's how you would create a modifier that accepts a custom color:

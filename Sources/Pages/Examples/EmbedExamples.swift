@@ -35,7 +35,7 @@ struct EmbedExamples: StaticLayout {
 
             Embed(youTubeID: "dQw4w9WgXcQ", title: "There was only ever going to be one video used here.")
                 .aspectRatio(.r16x9)
-                .margin(.bottom, .extraLarge)
+                .margin(.bottom, .xLarge)
         }
 
         Section {
@@ -50,7 +50,7 @@ struct EmbedExamples: StaticLayout {
 
             Embed(vimeoID: 291590798, title: "Teaching Swift at Scale – Paul Hudson at NSSpain.")
                 .aspectRatio(.r16x9)
-                .margin(.bottom, .extraLarge)
+                .margin(.bottom, .xLarge)
 
             Text("And here's a very important embedded website:")
 

@@ -37,7 +37,7 @@ struct ButtonExamples: StaticLayout {
             }
             .role(.primary)
         }
-        .margin(.bottom, .extraLarge)
+        .margin(.bottom, .xLarge)
 
         Text("Button actions can contain multiple commands, all of which get compiled to JavaScript when your site is built.")
 
@@ -98,7 +98,7 @@ struct ButtonExamples: StaticLayout {
             .hidden()
 
         Text(markdown: "All the same actions you can use with buttons can also be used with event handlers, such as `onClick()` or `onHover()`. For example:")
-            .margin(.top, .extraLarge)
+            .margin(.top, .xLarge)
 
         Text("Hover over this text to make a message appear below.")
             .font(.lead)
@@ -115,7 +115,7 @@ struct ButtonExamples: StaticLayout {
             .hidden()
 
         Text(markdown: "If you want your button to act as a link somewhere else, it's better to use `Link` with `.linkStyle(.button)`, like this:")
-            .margin(.top, .extraLarge)
+            .margin(.top, .xLarge)
 
         CodeBlock(.swift) {
             """
@@ -133,7 +133,7 @@ struct ButtonExamples: StaticLayout {
 
         Text("Styling buttons")
             .font(.title2)
-            .margin(.top, .extraLarge)
+            .margin(.top, .xLarge)
 
         Text(markdown: "As with other several other element types, buttons can have *roles* attached to them to customize how they look. There is also a `buttonSize()` modifier to adjust how big buttons are:")
 

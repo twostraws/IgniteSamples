@@ -43,7 +43,7 @@ struct CardExamples: StaticLayout {
         .frame(maxWidth: 500)
 
         Text(markdown: "It's also possible to omit the `imageName` parameter and simply place a image in the content:")
-            .margin(.top, .extraLarge)
+            .margin(.top, .xLarge)
 
         CodeBlock(.swift) {
             """
@@ -95,7 +95,7 @@ struct CardExamples: StaticLayout {
 
         Text("Overlaying text")
             .font(.title2)
-            .margin(.top, .extraLarge)
+            .margin(.top, .xLarge)
 
         Text(markdown: """
         By default the contents of your card are positioned below any image, but you can change that using \
@@ -154,7 +154,7 @@ struct CardExamples: StaticLayout {
 
         Text("Headers and footers")
             .font(.title2)
-            .margin(.top, .extraLarge)
+            .margin(.top, .xLarge)
 
         Text(markdown: """
         You can attach headers and/or footers to your cards, and they automatically get styled appropriately. \
@@ -187,7 +187,7 @@ struct CardExamples: StaticLayout {
 
         Text("Card styles")
             .font(.title2)
-            .margin(.top, .extraLarge)
+            .margin(.top, .xLarge)
 
         Text(markdown: """
         Cards have three styles: `.default`, `.solid`, and `.bordered`, and can also be assigned roles. \
@@ -222,7 +222,7 @@ struct CardExamples: StaticLayout {
             if style != .default {
                 Text(markdown: "`\(style)` style")
                     .font(.title3)
-                    .margin(.top, .extraLarge)
+                    .margin(.top, .xLarge)
 
                 ForEach(Role.allCases) { role in
                     Card {

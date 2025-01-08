@@ -39,7 +39,7 @@ struct ContentExamples: StaticLayout {
         Text(markdown: "[This content uses the default layout](/story/luna-and-arya-come-to-wwdc).")
 
         Text(markdown: "[And this content uses a custom layout](/story/sam-swift-saves-the-day).")
-            .padding(.bottom, .extraLarge)
+            .padding(.bottom, .xLarge)
 
         Text("Listing content")
             .font(.title2)
@@ -105,7 +105,7 @@ struct ContentExamples: StaticLayout {
                     .margin(.bottom)
             }
         }
-        .margin(.bottom, .extraLarge)
+        .margin(.bottom, .xLarge)
 
         Text("YAML front matter")
             .font(.title1)
@@ -137,7 +137,7 @@ struct ContentExamples: StaticLayout {
 
         Text("Tag pages")
             .font(.title2)
-            .margin(.top, .extraLarge)
+            .margin(.top, .xLarge)
 
         Text(markdown: "If you make a type that conforms to the `TagLayout` protocol, you can use it to display tag pages on your site.")
 

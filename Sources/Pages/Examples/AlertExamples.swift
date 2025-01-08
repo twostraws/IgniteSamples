@@ -33,7 +33,7 @@ struct AlertExamples: StaticLayout {
             Text("Something went really wrong.")
         }
         .role(.danger)
-        .margin(.bottom, .extraLarge)
+        .margin(.bottom, .xLarge)
 
         Text("Each role applies different styling to the alert, as you can see in this example:")
 

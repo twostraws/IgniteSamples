@@ -20,14 +20,13 @@ struct ThemeExamples: StaticLayout {
                     SwitchTheme(theme)
                 }
                 .role(.light)
-                .margin(.trailing, .small)
+                .margin(.horizontal, .xSmall)
             }
         }
         .position(.fixedBottom)
         .background(.firebrick)
-        .frame(width: 300, height: 50)
-        .frame(maxWidth: .percent(100%), alignment: .trailing)
-        .padding(.trailing, 25)
+        .frame(height: 50)
+        .frame(maxWidth: .percent(100%))
     }
 
     var body: some HTML {
@@ -39,7 +38,7 @@ struct ThemeExamples: StaticLayout {
 
         Text("Creating themes")
             .font(.title2)
-            .margin(.top, .extraLarge)
+            .margin(.top, .xLarge)
 
         Text(markdown: """
         Themes conform to the `Theme` protocol, but it's recommended to use either `LightTheme` or `DarkTheme` \
@@ -83,7 +82,7 @@ struct ThemeExamples: StaticLayout {
 
         Text("Theme switching")
             .font(.title2)
-            .margin(.top, .extraLarge)
+            .margin(.top, .xLarge)
 
         Text(markdown: """
         You can access all available themes through the environment, making it easy to create a theme switcher. \
@@ -112,7 +111,7 @@ struct ThemeExamples: StaticLayout {
 
         Text("Materials")
             .font(.title2)
-            .margin(.top, .extraLarge)
+            .margin(.top, .xLarge)
 
         Text(markdown: """
         When using `Material`, the correct variant (light or dark) will automatically be selected \
@@ -151,8 +150,8 @@ struct ThemeExamples: StaticLayout {
                     .frame(maxWidth: .percent(100%), maxHeight: .percent(100%))
                     .background(.thinMaterial)
             }
-            .cornerRadius(12)
             .clipped()
+            .cornerRadius(12)
 
             ZStack {
                 Image("/images/photos/dishwasher.jpg")

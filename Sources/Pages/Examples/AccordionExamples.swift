@@ -54,7 +54,7 @@ struct AccordionExamples: StaticLayout {
             }
         }
         .openMode(.individual)
-        .margin(.bottom, .extraLarge)
+        .margin(.bottom, .xLarge)
 
         Text("This accordion is set to allow multiple items to be open at a time:")
 
@@ -91,7 +91,7 @@ struct AccordionExamples: StaticLayout {
             }
         }
         .openMode(.all)
-        .margin(.bottom, .extraLarge)
+        .margin(.bottom, .xLarge)
 
         Text("You can configure individual items to be open by default if you want:")
 
@@ -128,7 +128,7 @@ struct AccordionExamples: StaticLayout {
             }
         }
         .openMode(.individual)
-        .margin(.bottom, .extraLarge)
+        .margin(.bottom, .xLarge)
 
         Text("And you can add more complex elements and styling to your accordion titles and contents if you want:")
 

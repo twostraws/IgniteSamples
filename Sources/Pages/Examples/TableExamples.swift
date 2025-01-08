@@ -69,7 +69,7 @@ struct TableExamples: StaticLayout {
                 "California"
             }
         }
-        .margin(.bottom, .extraLarge)
+        .margin(.bottom, .xLarge)
 
         Text("You can also add headings to clarify what each column means:")
 
@@ -132,7 +132,7 @@ struct TableExamples: StaticLayout {
             "City"
             "State"
         }
-        .margin(.bottom, .extraLarge)
+        .margin(.bottom, .xLarge)
 
         Text("Table styling")
             .font(.title2)
@@ -200,7 +200,7 @@ struct TableExamples: StaticLayout {
             "Secret Hobby"
         }
         .tableStyle(.stripedRows)
-        .margin(.bottom, .extraLarge)
+        .margin(.bottom, .xLarge)
 
         Text(markdown: "Alternatively, use `.tableStyle(.stripedColumns)` to create columnar stripes:")
 
@@ -265,7 +265,7 @@ struct TableExamples: StaticLayout {
             "Secret Hobby"
         }
         .tableStyle(.stripedColumns)
-        .margin(.bottom, .extraLarge)
+        .margin(.bottom, .xLarge)
 
         Text("Row and column formatting")
             .font(.title2)
@@ -339,7 +339,7 @@ struct TableExamples: StaticLayout {
             }
         }
         .tableBorder(true)
-        .margin(.bottom, .extraLarge)
+        .margin(.bottom, .xLarge)
 
         Text(markdown: "Each row item occupies one column by default, but `Column` objects have a `columnSpan()` modifier to adjust that:")
 

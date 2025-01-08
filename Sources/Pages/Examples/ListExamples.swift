@@ -36,7 +36,7 @@ struct ListExamples: StaticLayout {
                 "So is this"
                 "And this"
             }
-            .margin(.bottom, .extraLarge)
+            .margin(.bottom, .xLarge)
 
             Text(markdown: "Lists are unordered by default. Use the `listStyle()` modifier to change that:")
 
@@ -58,7 +58,7 @@ struct ListExamples: StaticLayout {
             "And here's one more"
         }
         .listMarkerStyle(.ordered(.automatic))
-        .margin(.bottom, .extraLarge)
+        .margin(.bottom, .xLarge)
 
         Text("You can customize the bullet style by adjusting the list style. For example, here are Roman numerals:")
 
@@ -79,7 +79,7 @@ struct ListExamples: StaticLayout {
             "Vici"
         }
         .listMarkerStyle(.ordered(.lowerRoman))
-        .margin(.bottom, .extraLarge)
+        .margin(.bottom, .xLarge)
 
         Text("And here is a custom style using emoji:")
 

@@ -45,7 +45,7 @@ struct ImageExamples: StaticLayout {
 
             Text("Icons")
                 .font(.title2)
-                .margin(.top, .extraLarge)
+                .margin(.top, .xLarge)
 
             Text(markdown: "You can also create images from icons. If they are inside `Text`, they will resize with the font:")
 
@@ -79,7 +79,7 @@ struct ImageExamples: StaticLayout {
         }
 
         Text(markdown: "Use the `foregroundStyle()` modifier to recolor your icons, like this:")
-            .margin(.top, .extraLarge)
+            .margin(.top, .xLarge)
 
             CodeBlock(.swift) {
                 """
@@ -109,7 +109,7 @@ struct ImageExamples: StaticLayout {
         .margin(.bottom, .large)
 
         Text(markdown: "**Tip:** Make sure your site configuration options enables the built-in icons.")
-            .margin(.bottom, .extraLarge)
+            .margin(.bottom, .xLarge)
 
         Alert {
             Text("In case you hadn't noticed, this page uses a custom theme that places some random content on the right-hand side.")
