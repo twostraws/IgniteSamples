@@ -8,22 +8,27 @@
 import Foundation
 import Ignite
 
-private struct ThemeSwitcher: HTML {
-    @Environment(\.themes) private var themes
-
-    var body: some HTML {
-        ForEach(themes) { theme in
-            Button(theme.name.capitalized) {
-                SwitchTheme(theme)
-            }
-            .role(.light)
-            .margin(.trailing, .small)
-        }
-    }
-}
-
 struct ThemeExamples: StaticLayout {
     var title = "Themes"
+
+    @Environment(\.themes) private var themes
+
+    private var themeSwitcher: some HTML {
+        Section {
+            ForEach(themes) { theme in
+                Button(theme.name.capitalized) {
+                    SwitchTheme(theme)
+                }
+                .role(.light)
+                .margin(.trailing, .small)
+            }
+        }
+        .position(.fixedBottom)
+        .background(.firebrick)
+        .frame(width: 300, height: 50)
+        .frame(maxWidth: .percent(100%), alignment: .trailing)
+        .padding(.trailing, 25)
+    }
 
     var body: some HTML {
         Text("Themes")
@@ -103,14 +108,7 @@ struct ThemeExamples: StaticLayout {
 
         Text("Give the theme switcher at the bottom of this page a whirl to see this all in action. 👇")
 
-        Section {
-            ThemeSwitcher()
-                .background(.firebrick)
-                .frame(width: 300, height: 50)
-                .frame(maxWidth: .percent(100%), alignment: .trailing)
-                .padding(.trailing, 25)
-        }
-        .position(.fixedBottom)
+        themeSwitcher
 
         Text("Materials")
             .font(.title2)
