@@ -42,7 +42,7 @@ struct DropdownExamples: StaticLayout {
 
         Text("Styling dropdowns")
             .font(.title2)
-            .margin(.top, .extraLarge)
+            .margin(.top, .xLarge)
 
         Text("Like other buttons, dropdowns can have roles and sizes:")
 
@@ -70,7 +70,7 @@ struct DropdownExamples: StaticLayout {
                 }
                 .dropdownSize(size)
                 .role(role)
-                .margin(.bottom, .extraSmall)
+                .margin(.bottom, .xSmall)
             }
 
             Spacer(size: .medium)
@@ -78,7 +78,7 @@ struct DropdownExamples: StaticLayout {
 
         Text(markdown: "Dropdowns in `NavigationBar`")
             .font(.title2)
-            .margin(.top, .extraLarge)
+            .margin(.top, .xLarge)
 
         Text(markdown: "Dropdowns also work great in `NavigationBar` elements – there's one up there right now.")
     }

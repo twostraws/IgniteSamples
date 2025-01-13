@@ -51,7 +51,7 @@ struct GridExamples: StaticLayout {
             Image("/images/photos/wind.jpg", description: "A windy day.")
                     .resizable()
         }
-        .margin(.bottom, .extraLarge)
+        .margin(.bottom, .xLarge)
 
         Text(markdown: "You can also explicitly set a width for each element using the `width()` modifier.")
 
@@ -91,7 +91,7 @@ struct GridExamples: StaticLayout {
                 .resizable()
                 .width(4)
         }
-        .margin(.bottom, .extraLarge)
+        .margin(.bottom, .xLarge)
 
         Text("Wrapping items")
             .font(.title1)
@@ -140,7 +140,7 @@ struct GridExamples: StaticLayout {
                 .resizable()
                 .width(4)
         }
-        .margin(.bottom, .extraLarge)
+        .margin(.bottom, .xLarge)
 
         Text("Although 12 columns is the default, you can adjust it downwards if needed. For example, this uses a 2-column grid:")
 

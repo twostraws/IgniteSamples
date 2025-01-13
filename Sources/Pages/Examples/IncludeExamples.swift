@@ -31,7 +31,7 @@ struct IncludeExamples: StaticLayout {
 
         Text("Loading arbitrary data")
             .font(.title2)
-            .margin(.top, .extraLarge)
+            .margin(.top, .xLarge)
 
         Text(markdown: "If you want to load arbitrary resources for parsing in your Swift code, you should create a folder called **Resources** then you have three options.")
 

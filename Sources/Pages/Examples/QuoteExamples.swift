@@ -31,7 +31,7 @@ struct QuoteExamples: StaticLayout {
         Quote {
             Text("It is a truth universally acknowledged that all good Swift projects must be in need of result builders.")
         }
-        .margin(.bottom, .extraLarge)
+        .margin(.bottom, .xLarge)
 
         Text("And this is a quote with a caption provided:")
 

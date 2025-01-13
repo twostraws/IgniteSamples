@@ -38,7 +38,7 @@ struct CarouselExamples: StaticLayout {
             Slide(background: "/images/photos/wind.jpg")
             Slide(background: "/images/photos/washing.jpg")
         }
-        .margin(.bottom, .extraLarge)
+        .margin(.bottom, .xLarge)
 
         Text(markdown: "You can adjust how carousels move from slide to slide using the `carouselStyle()` modifier:")
 
@@ -59,7 +59,7 @@ struct CarouselExamples: StaticLayout {
             Slide(background: "/images/photos/washing.jpg")
         }
         .carouselStyle(.crossfade)
-        .margin(.bottom, .extraLarge)
+        .margin(.bottom, .xLarge)
 
         Text("""
         You can dim background images by setting their opacity to a value lower than 1. \

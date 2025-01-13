@@ -62,7 +62,7 @@ struct ModalExamples: StaticLayout {
                 Text("Dismiss me by clicking on the backdrop.")
                     .horizontalAlignment(.center)
                     .font(.title3)
-                    .margin(.extraLarge)
+                    .margin(.xLarge)
             }
         }
         .padding(.top, .large)
@@ -70,7 +70,7 @@ struct ModalExamples: StaticLayout {
 
         Text("Dismissing Modals")
             .font(.title2)
-            .margin(.top, .extraLarge)
+            .margin(.top, .xLarge)
 
         Text(markdown: "Modals can either be dismissed by clicking on the backdrop, unless otherwise configured in the [Presentation Options](#Options), by pressing the `Esc` key or programmatically by using the `DismissModal(id:)` action.")
 
@@ -120,7 +120,7 @@ struct ModalExamples: StaticLayout {
                 Text("Dismiss me by clicking on the close button.")
                     .horizontalAlignment(.center)
                     .font(.title3)
-                    .margin(.extraLarge)
+                    .margin(.xLarge)
             }
         }
         .padding(.top, .large)
@@ -129,7 +129,7 @@ struct ModalExamples: StaticLayout {
 
         Text("Modal Size")
             .font(.title2)
-            .margin(.top, .extraLarge)
+            .margin(.top, .xLarge)
 
         Text(markdown: "The height of a modal is determined by the height of the content. However, the width can be adjusted by using the `size()` modifier. By default a modal takes a medium width but it can be adjusted to `.small`, `.large`, `.xLarge` and `.fullscreen`")
 
@@ -210,7 +210,7 @@ struct ModalExamples: StaticLayout {
                 Text(markdown: "Modal with size `.small`")
                     .horizontalAlignment(.center)
                     .font(.title3)
-                    .margin(.extraLarge)
+                    .margin(.xLarge)
             }
             .size(.small)
 
@@ -218,7 +218,7 @@ struct ModalExamples: StaticLayout {
                 Text(markdown: "Modal with size `.xLarge`")
                     .horizontalAlignment(.center)
                     .font(.title3)
-                    .margin(.extraLarge)
+                    .margin(.xLarge)
             }
             .size(.xLarge)
 
@@ -233,7 +233,7 @@ struct ModalExamples: StaticLayout {
                 Text(markdown: "Modal with size `.fullscreen`.")
                     .horizontalAlignment(.center)
                     .font(.title3)
-                    .margin(.extraLarge)
+                    .margin(.xLarge)
             }
             .size(.fullscreen)
         }
@@ -243,7 +243,7 @@ struct ModalExamples: StaticLayout {
 
         Text("Modal Position")
             .font(.title2)
-            .margin(.top, .extraLarge)
+            .margin(.top, .xLarge)
 
         Text(markdown: "Modals are always horizontally centered but the vertical position can be changed from `Position.center` to `Position.top` by using the `.modalPosition()` modifier.")
 
@@ -280,7 +280,7 @@ struct ModalExamples: StaticLayout {
                 Text(markdown: "Modal with `Position.top`")
                     .horizontalAlignment(.center)
                     .font(.title3)
-                    .margin(.extraLarge)
+                    .margin(.xLarge)
             }
             .modalPosition(.top)
         }
@@ -289,7 +289,7 @@ struct ModalExamples: StaticLayout {
 
         Text("Headers and Footers")
             .font(.title2)
-            .margin(.top, .extraLarge)
+            .margin(.top, .xLarge)
 
         Text(markdown: "Optionally modals can have a header and/or a footer.")
 
@@ -434,7 +434,7 @@ struct ModalExamples: StaticLayout {
 
         Text("Scrollable Content")
             .font(.title2)
-            .margin(.top, .extraLarge)
+            .margin(.top, .xLarge)
 
         Text(markdown: "For content that is too long to fit on the screen, the body content can be made scrollable by using the `scrollableContent()` modifier.")
 
@@ -481,7 +481,7 @@ struct ModalExamples: StaticLayout {
 
         Text("Presentation Options")
             .font(.title2)
-            .margin(.top, .extraLarge)
+            .margin(.top, .xLarge)
             .id("Options")
 
         Text(markdown: "The `ShowModal` action accepts an array of options that allow you to configure various presentation settings:")
@@ -510,7 +510,7 @@ struct ModalExamples: StaticLayout {
         }
 
         Text(markdown: "A modal which can not be dismissed by clicking on the backdrop can be configured like this:")
-            .margin(.top, .extraLarge)
+            .margin(.top, .xLarge)
 
         CodeBlock(.swift) {
             """

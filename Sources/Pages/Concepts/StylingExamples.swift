@@ -37,7 +37,7 @@ struct StylingExamples: StaticLayout {
                     .resizable()
                     .frame(width: 300)
                     .opacity(0.5)
-                    .margin(.bottom, .extraLarge)
+                    .margin(.bottom, .xLarge)
 
                 Text("The following heading has a background color, foreground style, and inner shadow:")
 
@@ -58,7 +58,7 @@ struct StylingExamples: StaticLayout {
                     .foregroundStyle(.white)
                     .background(.indigo)
                     .innerShadow(.black, radius: 20)
-                    .margin(.bottom, .extraLarge)
+                    .margin(.bottom, .xLarge)
 
                 Text("The next heading has a tooltip – hover over it to see what it says:")
 
@@ -79,7 +79,7 @@ struct StylingExamples: StaticLayout {
                 .font(.title2)
             }
             .width(7)
-            .margin(.bottom, .extraLarge)
+            .margin(.bottom, .xLarge)
 
             Section {
                 CodeBlock(.swift) {
@@ -122,7 +122,7 @@ struct StylingExamples: StaticLayout {
         }
 
         Text(markdown: "Get this in your own content using `.position(.stickyTop)`.")
-            .margin(.bottom, .extraLarge)
+            .margin(.bottom, .xLarge)
 
         Text("A note about margin and padding")
             .font(.title2)

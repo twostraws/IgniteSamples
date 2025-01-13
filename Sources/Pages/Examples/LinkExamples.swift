@@ -69,7 +69,7 @@ struct LinkExamples: StaticLayout {
 
         Text("Link styling")
             .font(.title2)
-            .margin(.top, .extraLarge)
+            .margin(.top, .xLarge)
 
         Text("Links can have roles to control how they appear:")
 
@@ -93,7 +93,7 @@ struct LinkExamples: StaticLayout {
 
         Text("Links as buttons")
             .font(.title2)
-            .margin(.top, .extraLarge)
+            .margin(.top, .xLarge)
 
         Text(markdown: "Use `linkStyle(.button)` to style links as buttons:")
 

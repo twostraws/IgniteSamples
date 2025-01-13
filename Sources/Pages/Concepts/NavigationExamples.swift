@@ -83,7 +83,7 @@ struct NavigationExamples: StaticLayout {
         }
         .navigationBarStyle(.dark)
         .background(.steelBlue)
-        .margin(.bottom, .extraLarge)
+        .margin(.bottom, .xLarge)
 
         Text(markdown: "Use the `.navigationItemAlignment()` modifier to align bar items centrally or to the trailing edge:")
 
@@ -108,7 +108,7 @@ struct NavigationExamples: StaticLayout {
         .navigationItemAlignment(.trailing)
         .navigationBarStyle(.light)
         .background(.antiqueWhite)
-        .margin(.bottom, .extraLarge)
+        .margin(.bottom, .xLarge)
 
         Text(markdown: """
         And finally, use the `position()` modifier to adjust where the bar is this placed. \

@@ -51,7 +51,7 @@ struct CodeExamples: StaticLayout {
                 }
                 """
             }
-            .margin(.bottom, .extraLarge)
+            .margin(.bottom, .xLarge)
         }
 
         Text("Here's some Python:")
@@ -91,7 +91,7 @@ struct CodeExamples: StaticLayout {
                 return primes
             """
         }
-        .margin(.bottom, .extraLarge)
+        .margin(.bottom, .xLarge)
 
         Text("And here's some Ruby for good luck:")
 
@@ -120,7 +120,7 @@ struct CodeExamples: StaticLayout {
             end
             """
         }
-        .margin(.bottom, .extraLarge)
+        .margin(.bottom, .xLarge)
 
         Text(markdown: "**Important:** The configuration for this site includes all three languages as highlighters.")
     }

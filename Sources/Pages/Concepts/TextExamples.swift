@@ -76,7 +76,7 @@ struct TextExamples: StaticLayout {
 
         Text("Styling your text")
             .font(.title2)
-            .margin(.top, .extraLarge)
+            .margin(.top, .xLarge)
 
         Text(markdown: "You can adjust the weight of text using the `fontWeight()` modifier, like this:")
 
@@ -91,7 +91,7 @@ struct TextExamples: StaticLayout {
         Text("Hello, world!")
             .font(.title3)
             .fontWeight(.black)
-            .margin(.bottom, .extraLarge)
+            .margin(.bottom, .xLarge)
 
         Text(markdown: "There are a variety of available weights available, from `.black` down to `.ultraThin`:")
 
@@ -170,7 +170,7 @@ struct TextExamples: StaticLayout {
         Text("Hello, world: Ultra Light")
             .font(.title3)
             .fontWeight(.ultraLight)
-            .margin(.bottom, .extraLarge)
+            .margin(.bottom, .xLarge)
 
         Text(markdown: "Use the `horizontalAlignment()` modifier to adjust how your text is aligned:")
 
@@ -195,7 +195,7 @@ struct TextExamples: StaticLayout {
 
         Text("This is right-aligned text.")
             .horizontalAlignment(.trailing)
-            .margin(.bottom, .extraLarge)
+            .margin(.bottom, .xLarge)
 
         Text(markdown: "Change your text's color using the `foregroundStyle()` modifier. This can be one of the standard roles, e.g. `.danger`, or can be a regular color.")
 

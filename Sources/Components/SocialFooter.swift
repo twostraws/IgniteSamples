@@ -37,7 +37,7 @@ struct SocialFooter: HTML {
             }
         }
         .horizontalAlignment(.center)
-        .margin(.top, .extraLarge)
+        .margin(.top, .xLarge)
         .font(.title2)
     }
 }

@@ -35,7 +35,7 @@ struct BadgeExamples: StaticLayout {
                 .role(.danger)
         }
         .font(.title2)
-        .margin(.bottom, .extraLarge)
+        .margin(.bottom, .xLarge)
 
         Text("Each role applies different styling to the badge, as you can see in this example:")
 
@@ -61,7 +61,7 @@ struct BadgeExamples: StaticLayout {
 
         Text("Badge sizes")
             .font(.title2)
-            .margin(.top, .extraLarge)
+            .margin(.top, .xLarge)
 
         Text("Badges automatically adapt to the font of the text element they belong to. For example, here are badges in a range of sizes:")
 
@@ -87,7 +87,7 @@ struct BadgeExamples: StaticLayout {
 
         Text("Badge variants")
             .font(.title2)
-            .margin(.top, .extraLarge)
+            .margin(.top, .xLarge)
 
         Text(markdown: "Each badge role comes in three variants: `.default`, `.subtle`, and `subtleBordered`. These are shown below:")
 
