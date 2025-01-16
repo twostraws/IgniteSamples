@@ -41,7 +41,7 @@ struct ModalExamples: StaticLayout {
                 Text("Dismiss me by clicking on the backdrop.")
                     .horizontalAlignment(.center)
                     .font(.title3)
-                    .margin(.extraLarge)
+                    .margin(.xLarge)
             }
             """
         }
@@ -92,7 +92,7 @@ struct ModalExamples: StaticLayout {
                 Text("Dismiss me by clicking on the close button.")
                     .horizontalAlignment(.center)
                     .font(.title3)
-                    .margin(.extraLarge)
+                    .margin(.xLarge)
             }
             """
         }
@@ -146,7 +146,7 @@ struct ModalExamples: StaticLayout {
                 Text(markdown: "Modal with size `.small`")
                     .horizontalAlignment(.center)
                     .font(.title3)
-                    .margin(.extraLarge)
+                    .margin(.xLarge)
             }
             .size(.small)
             
@@ -154,7 +154,7 @@ struct ModalExamples: StaticLayout {
                 Text(markdown: "Modal with size `.xLarge`")
                     .horizontalAlignment(.center)
                     .font(.title3)
-                    .margin(.extraLarge)
+                    .margin(.xLarge)
             }
             .size(.xlarge)
             
@@ -169,7 +169,7 @@ struct ModalExamples: StaticLayout {
                 Text(markdown: "Modal with size `.fullscreen`.")
                     .horizontalAlignment(.center)
                     .font(.title3)
-                    .margin(.extraLarge)
+                    .margin(.xLarge)
             }
             .size(.fullscreen)
             """
@@ -258,7 +258,7 @@ struct ModalExamples: StaticLayout {
                 Text(markdown: "Modal with `Position.top`")
                     .horizontalAlignment(.center)
                     .font(.title3)
-                    .margin(.extraLarge)
+                    .margin(.xLarge)
             }
             .position(.top)
             """

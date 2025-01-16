@@ -212,7 +212,7 @@ struct CardExamples: StaticLayout {
                         .margin(.bottom)
                     }
 
-                    Spacer(size: .extraLarge)
+                    Spacer(size: .xLarge)
                 }
             }
             """

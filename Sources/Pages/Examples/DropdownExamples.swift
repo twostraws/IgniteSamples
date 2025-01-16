@@ -55,7 +55,7 @@ struct DropdownExamples: StaticLayout {
                     }
                     .dropdownSize(size)
                     .role(role)
-                    .margin(.bottom, .extraSmall)
+                    .margin(.bottom, .xSmall)
                 }
 
                 Spacer(size: .medium)

@@ -36,7 +36,7 @@ struct AccordionExamples: StaticLayout {
                 }
             }
             .openMode(.individual)
-            .margin(.bottom, .extraLarge)
+            .margin(.bottom, .xLarge)
             """
         }
 
