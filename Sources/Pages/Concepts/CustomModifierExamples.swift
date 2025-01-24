@@ -8,7 +8,7 @@ import Ignite
 
 struct BlueTextModifier: HTMLModifier {
     func body(content: some HTML) -> any HTML {
-        content.style("color: #0066cc;")
+        content.style(.color, "#0066cc")
     }
 }
 
