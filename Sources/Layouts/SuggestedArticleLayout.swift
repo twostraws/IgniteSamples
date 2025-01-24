@@ -39,7 +39,6 @@ struct SuggestedArticleLayout: Layout {
 
                 IgniteFooter()
             }
-            .class("container")
         }
     }
 }

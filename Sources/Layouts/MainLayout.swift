@@ -26,7 +26,6 @@ struct MainLayout: Layout {
                 }
             }
             .padding(.vertical, 80)
-            .class("container")
         }
     }
 }
