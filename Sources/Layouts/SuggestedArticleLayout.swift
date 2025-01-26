@@ -9,12 +9,11 @@ import Foundation
 import Ignite
 
 struct SuggestedArticleLayout: Layout {
-    @Environment(\.siteConfiguration) private var siteConfiguration
     @Environment(\.content) private var content
 
     var body: some HTML {
         HTMLDocument {
-            HTMLHead(for: page, with: siteConfiguration)
+            HTMLHead(for: page)
 
             HTMLBody {
                 NavBar()
