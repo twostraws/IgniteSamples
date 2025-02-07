@@ -8,7 +8,7 @@
 import Foundation
 import Ignite
 
-struct AccordionExamples: StaticLayout {
+struct AccordionExamples: Page {
     var title = "Accordions"
 
     var body: some HTML {

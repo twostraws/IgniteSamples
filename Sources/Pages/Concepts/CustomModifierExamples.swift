@@ -18,7 +18,7 @@ extension HTML {
     }
 }
 
-struct CustomModifierExamples: StaticLayout {
+struct CustomModifierExamples: Page {
     var title = "Modifiers"
 
     var body: some HTML {

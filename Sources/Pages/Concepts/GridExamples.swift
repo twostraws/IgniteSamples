@@ -8,7 +8,7 @@
 import Foundation
 import Ignite
 
-struct GridExamples: StaticLayout {
+struct GridExamples: Page {
     var title = "Grid Layout"
 
     var body: some HTML {

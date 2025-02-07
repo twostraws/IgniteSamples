@@ -8,7 +8,7 @@
 import Foundation
 import Ignite
 
-struct DropdownExamples: StaticLayout {
+struct DropdownExamples: Page {
     var title = "Dropdowns"
 
     var body: some HTML {

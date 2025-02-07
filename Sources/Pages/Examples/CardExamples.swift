@@ -8,7 +8,7 @@
 import Foundation
 import Ignite
 
-struct CardExamples: StaticLayout {
+struct CardExamples: Page {
     var title = "Cards"
 
     var body: some HTML {

@@ -8,7 +8,7 @@
 import Foundation
 import Ignite
 
-struct LinkExamples: StaticLayout {
+struct LinkExamples: Page {
     var title = "Links"
 
     var body: some HTML {

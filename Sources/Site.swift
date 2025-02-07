@@ -26,10 +26,10 @@ struct ExampleSite: Site {
     var author = "Paul Hudson"
 
     var homePage = Home()
-    var tagLayout = Tags()
+    var archivePage = Tags()
     var layout = MainLayout()
 
-    var staticLayouts: [any StaticLayout] {
+    var pages: [any Page] {
         ContentExamples()
         GridExamples()
         NavigationExamples()
@@ -56,7 +56,7 @@ struct ExampleSite: Site {
         TableExamples()
     }
 
-    var contentLayouts: [any ContentLayout] {
+    var articles: [any Article] {
         Story()
         CustomStory()
     }
