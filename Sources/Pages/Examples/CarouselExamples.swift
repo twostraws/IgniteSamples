@@ -8,7 +8,7 @@
 import Foundation
 import Ignite
 
-struct CarouselExamples: StaticLayout {
+struct CarouselExamples: Page {
     var title = "Carousels"
 
     var body: some HTML {

@@ -8,7 +8,7 @@
 import Foundation
 import Ignite
 
-struct CustomStory: ContentLayout {
+struct CustomStory: Article {
     var body: some HTML {
         if let image = content.image {
             Image(image, description: content.imageDescription)

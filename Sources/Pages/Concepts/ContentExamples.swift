@@ -8,7 +8,7 @@
 import Foundation
 import Ignite
 
-struct ContentExamples: StaticLayout {
+struct ContentExamples: Page {
     @Environment(\.content) var content
     var title = "Content"
 
@@ -122,7 +122,7 @@ struct ContentExamples: StaticLayout {
             "layout: The name of the content page struct in your site to use for this content."
             "published: Set to false to leave this article unpublished on your site."
             "subtitle: An optional subheading for your content."
-            "tags: A comma-separated list of tags for this article. If you have enabled tag pages, these will be used to list matching content."
+            "tags: A comma-separated list of tags for this article. If you have enabled archive pages, these will be used to list matching content."
         }
 
         Text(markdown: "As well as the predefined fields, you can use the `metadata` dictionary to access any custom properties you have defined in the front matter. Note that the dictionary values are optionals: your page code must be able to deal with the dictionary item not existing!")
@@ -135,11 +135,11 @@ struct ContentExamples: StaticLayout {
 
         Text(markdown: "In addition, you can read properties such as `estimatedWordCount` and `estimatedReadingMinutes` on your content, to provide extra information to users.")
 
-        Text("Tag pages")
+        Text("Archive pages")
             .font(.title2)
             .margin(.top, .xLarge)
 
-        Text(markdown: "If you make a type that conforms to the `TagLayout` protocol, you can use it to display tag pages on your site.")
+        Text(markdown: "If you make a type that conforms to the `Archive` protocol, you can use it to display archive pages on your site.")
 
         Text(markdown: "This protocol passes you an optional tag string: if it has a tag you should use it, but if it's nil you should render an \"all tags\" page.")
 
