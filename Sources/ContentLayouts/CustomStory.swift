@@ -18,11 +18,9 @@ struct CustomStory: ContentLayout {
         Text(content.title)
             .font(.title1)
 
-        if content.hasTags {
-            Text {
-                content.tagLinks()
-            }
-            .font(.title3)
+        if content.hasTags, let tags = content.tagLinks() {
+            Text { tags }
+                .font(.title3)
         }
 
         Text(content.body)

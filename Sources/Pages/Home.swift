@@ -30,7 +30,6 @@ struct Home: StaticLayout {
             Link("Text", target: TextExamples())
             Link("Styling", target: StylingExamples())
             Link("Theming", target: ThemeExamples())
-            Link("Modifiers", target: CustomModifierExamples())
         }
         .listMarkerStyle(.ordered(.automatic))
 
