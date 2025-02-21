@@ -10,11 +10,12 @@ import Ignite
 
 struct MainLayout: Layout {
     var body: some HTML {
-        HTMLDocument {
-            HTMLHead(for: page)
+        Document {
+            Head(for: page)
 
-            HTMLBody {
+            Body {
                 NavBar()
+                    .padding(.bottom, 80)
 
                 Section(page.body)
 
@@ -23,7 +24,6 @@ struct MainLayout: Layout {
                     IgniteFooter()
                 }
             }
-            .padding(.vertical, 80)
         }
     }
 }

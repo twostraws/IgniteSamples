@@ -26,7 +26,7 @@ struct ThemeExamples: StaticLayout {
         .position(.fixedBottom)
         .background(.firebrick)
         .frame(height: 50)
-        .frame(maxWidth: .percent(100%))
+        .frame(maxWidth: .percent(100%), alignment: .center)
     }
 
     var body: some HTML {
@@ -130,7 +130,7 @@ struct ThemeExamples: StaticLayout {
                     .resizable()
                 Text("Always Dark Material")
                     .font(.title3)
-                    .frame(maxWidth: .percent(100%), maxHeight: .percent(100%))
+                    .frame(width: .percent(100%), height: .percent(100%))
                     .background(.thinMaterial.colorScheme(.dark))
             }
             .clipped()
@@ -141,13 +141,12 @@ struct ThemeExamples: StaticLayout {
         Text(markdown: "Here's an example using `Material`:")
 
         Grid {
-            ZStack(alignment: .top) {
+            ZStack {
                 Image("/images/photos/dishwasher.jpg")
                     .resizable()
                 Text("Adaptive Material")
                     .font(.title3)
-                    .margin(0)
-                    .frame(maxWidth: .percent(100%), maxHeight: .percent(100%))
+                    .frame(width: .percent(100%), height: .percent(100%))
                     .background(.thinMaterial)
             }
             .clipped()
@@ -158,8 +157,7 @@ struct ThemeExamples: StaticLayout {
                     .resizable()
                 Text("Always Dark Material")
                     .font(.title3)
-                    .margin(0)
-                    .frame(maxWidth: .percent(100%), maxHeight: .percent(100%))
+                    .frame(width: .percent(100%), height: .percent(100%))
                     .background(.thinMaterial.colorScheme(.dark))
             }
             .clipped()

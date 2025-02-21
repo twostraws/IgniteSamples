@@ -12,10 +12,8 @@ struct SuggestedArticleLayout: Layout {
     @Environment(\.content) private var content
 
     var body: some HTML {
-        HTMLDocument {
-            HTMLHead(for: page)
-
-            HTMLBody {
+        Document {
+            Body {
                 NavBar()
 
                 Grid {

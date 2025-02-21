@@ -20,7 +20,7 @@ struct ExampleSite: Site {
     var url = URL(static: "https://www.yoursite.com")
 
     var builtInIconsEnabled = true
-    var syntaxHighlighters: [HighlighterLanguage] = [.swift, .python, .ruby]
+    var syntaxHighlighterConfiguration: SyntaxHighlighterConfiguration = .init(languages: [.swift, .python, .ruby])
     var feedConfiguration = FeedConfiguration(mode: .full, contentCount: 20, image: .init(url: "https://www.yoursite.com/images/icon32.png", width: 32, height: 32))
     var robotsConfiguration = Robots()
     var author = "Paul Hudson"
@@ -36,7 +36,6 @@ struct ExampleSite: Site {
         TextExamples()
         StylingExamples()
         ThemeExamples()
-        CustomModifierExamples()
 
         AccordionExamples()
         AlertExamples()

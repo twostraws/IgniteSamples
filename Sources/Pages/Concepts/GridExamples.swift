@@ -49,7 +49,7 @@ struct GridExamples: StaticLayout {
                 .resizable()
 
             Image("/images/photos/wind.jpg", description: "A windy day.")
-                    .resizable()
+                .resizable()
         }
         .margin(.bottom, .xLarge)
 

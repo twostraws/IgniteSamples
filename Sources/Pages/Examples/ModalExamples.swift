@@ -36,7 +36,7 @@ struct ModalExamples: StaticLayout {
                 ShowModal(id: "\(showModalId)")
             }
             .role(.primary)
-            
+
             Modal(id: "\(showModalId)") {
                 Text("Dismiss me by clicking on the backdrop.")
                     .horizontalAlignment(.center)
@@ -67,7 +67,6 @@ struct ModalExamples: StaticLayout {
         }
         .padding(.top, .large)
 
-
         Text("Dismissing Modals")
             .font(.title2)
             .margin(.top, .xLarge)
@@ -88,7 +87,7 @@ struct ModalExamples: StaticLayout {
                     }
                 }
                 .horizontalAlignment(.trailing)
-            
+
                 Text("Dismiss me by clicking on the close button.")
                     .horizontalAlignment(.center)
                     .font(.title3)
@@ -149,7 +148,7 @@ struct ModalExamples: StaticLayout {
                     .margin(.xLarge)
             }
             .size(.small)
-            
+
             Modal(id: "\(xLargeModalId)") {
                 Text(markdown: "Modal with size `.xLarge`")
                     .horizontalAlignment(.center)
@@ -157,7 +156,7 @@ struct ModalExamples: StaticLayout {
                     .margin(.xLarge)
             }
             .size(.xlarge)
-            
+
             Modal(id: "\(fullscreenModalId)") {
                 Section {
                     Button().role(.close).onClick {
@@ -165,7 +164,7 @@ struct ModalExamples: StaticLayout {
                     }
                 }
                 .horizontalAlignment(.trailing)
-            
+
                 Text(markdown: "Modal with size `.fullscreen`.")
                     .horizontalAlignment(.center)
                     .font(.title3)
@@ -286,7 +285,6 @@ struct ModalExamples: StaticLayout {
         }
         .padding(.top, .large)
 
-
         Text("Headers and Footers")
             .font(.title2)
             .margin(.top, .xLarge)
@@ -306,12 +304,12 @@ struct ModalExamples: StaticLayout {
                 Text("Body")
             } header: {
                 Text("Header").font(.title5)
-            
+
                 Button().role(.close).onClick{
                     DismissModal(id: "\(headerModalId)")
                 }
             }
-            
+
             Modal(id: "\(footerModalId)") {
                 Text("Body")
             } footer: {
@@ -319,18 +317,18 @@ struct ModalExamples: StaticLayout {
                     DismissModal(id: "\(footerModalId)")
                 }
                 .role(.secondary)
-            
+
                 Button("Go") {
                     // Do something
                 }
                 .role(.primary)
             }
-            
+
             Modal(id: "\(headerAndFooterModalId)") {
                 Text("Body")
             } header: {
                 Text("Header").font(.title5)
-            
+
                 Button().role(.close).onClick{
                     DismissModal(id: "\(headerAndFooterModalId)")
                 }
@@ -339,7 +337,7 @@ struct ModalExamples: StaticLayout {
                     DismissModal(id: "\(headerAndFooterModalId)")
                 }
                 .role(.secondary)
-            
+
                 Button("Go") {
                     // Do something
                 }
@@ -389,8 +387,8 @@ struct ModalExamples: StaticLayout {
                 Text("Body")
             } header: {
                 Text("Header").font(.title5)
-                
-                Button().role(.close).onClick{
+
+                Button().role(.close).onClick {
                     DismissModal(id: headerModalId)
                 }
             }
@@ -402,7 +400,7 @@ struct ModalExamples: StaticLayout {
                     DismissModal(id: footerModalId)
                 }
                 .role(.secondary)
-                
+
                 Button("Go") {
                     // Do something
                 }
@@ -413,8 +411,8 @@ struct ModalExamples: StaticLayout {
                 Text("Body")
             } header: {
                 Text("Header").font(.title5)
-                
-                Button().role(.close).onClick{
+
+                Button().role(.close).onClick {
                     DismissModal(id: headerAndFooterModalId)
                 }
             } footer: {
@@ -430,7 +428,6 @@ struct ModalExamples: StaticLayout {
             }
         }
         .padding(.top, .large)
-
 
         Text("Scrollable Content")
             .font(.title2)
@@ -467,7 +464,7 @@ struct ModalExamples: StaticLayout {
                 .margin(.vertical, .medium)
             }
             .role(.light)
-            
+
             Modal(id: modal7) {
                 Text(placeholderLength: 1000)
             } header: {
@@ -477,7 +474,6 @@ struct ModalExamples: StaticLayout {
             .size(.large)
             .scrollableContent(true)
         }
-
 
         Text("Presentation Options")
             .font(.title2)
