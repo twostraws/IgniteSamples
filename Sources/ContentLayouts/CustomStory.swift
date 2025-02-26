@@ -8,21 +8,21 @@
 import Foundation
 import Ignite
 
-struct CustomStory: ContentLayout {
+struct CustomStory: ArticleLayout {
     var body: some HTML {
-        if let image = content.image {
-            Image(image, description: content.imageDescription)
+        if let image = article.image {
+            Image(image, description: article.imageDescription)
                 .resizable()
         }
 
-        Text(content.title)
+        Text(article.title)
             .font(.title1)
 
-        if content.hasTags, let tags = content.tagLinks() {
-            Text { tags }
+        if let tagLinks = article.tagLinks() {
+            Text(tagLinks)
                 .font(.title3)
         }
 
-        Text(content.body)
+        Text(article.text)
     }
 }

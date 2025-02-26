@@ -9,33 +9,31 @@ import Foundation
 import Ignite
 
 struct SuggestedArticleLayout: Layout {
-    @Environment(\.content) private var content
+    @Environment(\.articles) private var articles
 
     var body: some HTML {
-        Document {
-            Body {
-                NavBar()
+        Body {
+            NavBar()
 
-                Grid {
-                    Section(page.body)
-                        .width(9)
-                        .padding(.vertical, 80)
+            Grid {
+                content
+                    .width(9)
+                    .padding(.vertical, 80)
 
-                    Section {
-                        Text("Read this next…")
-                            .font(.title3)
+                Section {
+                    Text("Read this next…")
+                        .font(.title3)
 
-                        if let latest = content.all.randomElement() {
-                            ContentPreview(for: latest)
-                        }
+                    if let latest = articles.all.randomElement() {
+                        ContentPreview(for: latest)
                     }
-                    .width(3)
-                    .position(.stickyTop)
-                    .padding(.top, 80)
                 }
-
-                IgniteFooter()
+                .width(3)
+                .position(.stickyTop)
+                .padding(.top, 80)
             }
+
+            IgniteFooter()
         }
     }
 }

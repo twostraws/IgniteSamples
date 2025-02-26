@@ -8,26 +8,26 @@
 import Foundation
 import Ignite
 
-struct Story: ContentLayout {
+struct Story: ArticleLayout {
     var body: some HTML {
-        Text(content.title)
+        Text(article.title)
             .font(.title1)
 
-        if let image = content.image {
-            Image(image, description: content.imageDescription)
+        if let image = article.image {
+            Image(image, description: article.imageDescription)
                 .resizable()
                 .cornerRadius(20)
                 .frame(maxHeight: 300)
         }
 
-        if content.hasTags {
+        if let tags = article.tags {
             Section {
-                Text("Tagged with: \(content.tags.joined(separator: ", "))")
+                Text("Tagged with: \(tags.joined(separator: ", "))")
 
-                Text("\(content.estimatedWordCount) words; \(content.estimatedReadingMinutes) minutes to read.")
+                Text("\(article.estimatedWordCount) words; \(article.estimatedReadingMinutes) minutes to read.")
             }
         }
 
-        Text(content.body)
+        Text(article.text)
     }
 }

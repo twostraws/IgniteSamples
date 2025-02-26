@@ -55,7 +55,7 @@ struct ExampleSite: Site {
         TableExamples()
     }
 
-    var contentLayouts: [any ContentLayout] {
+    var articleLayouts: [any ArticleLayout] {
         Story()
         CustomStory()
     }
