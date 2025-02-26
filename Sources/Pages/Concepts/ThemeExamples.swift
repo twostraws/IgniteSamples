@@ -130,7 +130,7 @@ struct ThemeExamples: StaticLayout {
                     .resizable()
                 Text("Always Dark Material")
                     .font(.title3)
-                    .frame(width: .percent(100%), height: .percent(100%))
+                    .frame(width: .percent(100%), height: .percent(100%), alignment: .center)
                     .background(.thinMaterial.colorScheme(.dark))
             }
             .clipped()
@@ -146,7 +146,7 @@ struct ThemeExamples: StaticLayout {
                     .resizable()
                 Text("Adaptive Material")
                     .font(.title3)
-                    .frame(width: .percent(100%), height: .percent(100%))
+                    .frame(width: .percent(100%), height: .percent(100%), alignment: .center)
                     .background(.thinMaterial)
             }
             .clipped()
@@ -157,7 +157,7 @@ struct ThemeExamples: StaticLayout {
                     .resizable()
                 Text("Always Dark Material")
                     .font(.title3)
-                    .frame(width: .percent(100%), height: .percent(100%))
+                    .frame(width: .percent(100%), height: .percent(100%), alignment: .center)
                     .background(.thinMaterial.colorScheme(.dark))
             }
             .clipped()

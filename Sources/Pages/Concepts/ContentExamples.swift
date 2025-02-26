@@ -9,7 +9,7 @@ import Foundation
 import Ignite
 
 struct ContentExamples: StaticLayout {
-    @Environment(\.content) var content
+    @Environment(\.articles) var articles
     var title = "Content"
 
     var body: some HTML {
@@ -59,8 +59,8 @@ struct ContentExamples: StaticLayout {
         }
 
         List {
-            ForEach(content.all) { content in
-                Link(content)
+            ForEach(articles.all) { article in
+                Link(article)
             }
         }
 
@@ -77,8 +77,8 @@ struct ContentExamples: StaticLayout {
         }
 
         List {
-            ForEach(content.typed("story")) { content in
-                Link(content)
+            ForEach(articles.typed("story")) { article in
+                Link(article)
             }
         }
 
@@ -99,7 +99,7 @@ struct ContentExamples: StaticLayout {
         }
 
         Grid {
-            ForEach(content.all) { item in
+            ForEach(articles.all) { item in
                 ContentPreview(for: item)
                     .width(3)
                     .margin(.bottom)
