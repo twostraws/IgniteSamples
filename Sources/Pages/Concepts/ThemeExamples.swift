@@ -41,20 +41,57 @@ struct ThemeExamples: StaticLayout {
             .margin(.top, .xLarge)
 
         Text(markdown: """
-        Themes conform to the `Theme` protocol, but it's recommended to use either `LightTheme` or `DarkTheme` \
-        as your base – these provide sensible defaults matching Bootstrap's light and dark themes respectively.
+        Themes conform to the `Theme` protocol, which provides sensible defaults for both \
+        light and dark appearances. When creating a theme, you specify its `colorScheme` to \
+        determine whether it uses light or dark variants of Ignite's default styles.
         """)
 
         CodeBlock(.swift) {
             """
-            struct MyLightTheme: LightTheme {
-                static var name: String = "light"
-                var syntaxHighlighterTheme: HighlighterTheme = .xcodeLight
+            struct MyTheme: Theme {
+                static var name: String = "custom"
+                static var colorScheme: ColorScheme = .light // or .dark
+                
+                // Override any theme properties you want to customize
+                var syntaxHighlighterTheme: HighlighterTheme = .githubLight
+            }
+            """
+        }
+
+        Text("Theme composition")
+            .font(.title2)
+            .margin(.top, .xLarge)
+
+        Text(markdown: """
+        You can create a base theme protocol that provides common values for multiple themes. This allows you to share styling \
+        between themes while still having color scheme specific values for properties you haven't explicitly set.
+        """)
+
+        CodeBlock(.swift) {
+            """
+            // Base protocol with shared theme values
+            protocol BaseTheme: Theme {}
+
+            // Default implementation for shared values
+            extension BaseTheme {
+                var accent: Color { Color(hex: "#FF0000") }
+                var secondaryAccent: Color { Color(hex: "#00FF00") }
             }
 
-            struct MyDarkTheme: DarkTheme {
-                static var name: String = "dark"
-                var syntaxHighlighterTheme: HighlighterTheme = .xcodeDark
+            // Light theme implementation
+            struct LightTheme: BaseTheme {
+                static var name: String = "light"
+                static var colorScheme: ColorScheme = .light
+                // Uses shared accent/secondaryAccent colors
+                // Other values default to stock light theme colors
+            }
+
+            // Dark theme implementation
+            struct DarkTheme: BaseTheme {
+                static var name: String = "dark" 
+                static var colorScheme: ColorScheme = .dark
+                // Uses shared accent/secondaryAccent colors
+                // Other values default to stock dark theme colors
             }
             """
         }
@@ -64,8 +101,8 @@ struct ThemeExamples: StaticLayout {
         CodeBlock(.swift) {
             """
             struct ExampleSite: Site {
-                var lightTheme: (any Theme)? = MyLightTheme()
-                var darkTheme: (any Theme)? = MyDarkTheme()
+                var lightTheme: (any Theme)? = LightTheme()
+                var darkTheme: (any Theme)? = DarkTheme()
                 var alternateThemes: [any Theme] = [
                     SeaTheme(),
                     DesertTheme(),
@@ -77,6 +114,30 @@ struct ThemeExamples: StaticLayout {
 
         Alert {
             Text(markdown: "**Note:**  You can add additional themes through `Site`'s `alternateThemes` property.")
+        }
+        .role(.info)
+
+        Text(markdown: "You can disable either light or dark mode by setting the corresponding theme to `nil`:")
+
+        CodeBlock(.swift) {
+            """
+            struct DarkOnlySite: Site {
+                var lightTheme: (any Theme)? = nil  // Disable light mode
+                var darkTheme: (any Theme)? = DarkTheme()
+            }
+
+            struct LightOnlySite: Site {
+                var lightTheme: (any Theme)? = LightTheme()
+                var darkTheme: (any Theme)? = nil   // Disable dark mode
+            }
+            """
+        }
+
+        Alert {
+            Text(markdown: """
+            **Note:** You must provide at least one theme (either light or dark). Setting both `lightTheme` \
+            and `darkTheme` to `nil` will result in a build error.
+            """)
         }
         .role(.info)
 
@@ -115,7 +176,7 @@ struct ThemeExamples: StaticLayout {
 
         Text(markdown: """
         When using `Material`, the correct variant (light or dark) will automatically be selected \
-        based on whether your theme conforms to `LightTheme` or `DarkTheme`.
+        based on your theme's `colorScheme` value.
         """)
 
         Text(markdown: """
