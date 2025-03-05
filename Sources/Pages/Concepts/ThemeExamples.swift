@@ -49,7 +49,6 @@ struct ThemeExamples: StaticLayout {
         CodeBlock(.swift) {
             """
             struct MyTheme: Theme {
-                static var name: String = "custom"
                 static var colorScheme: ColorScheme = .light // or .dark
                 
                 // Override any theme properties you want to customize
@@ -80,7 +79,6 @@ struct ThemeExamples: StaticLayout {
 
             // Light theme implementation
             struct LightTheme: BaseTheme {
-                static var name: String = "light"
                 static var colorScheme: ColorScheme = .light
                 // Uses shared accent/secondaryAccent colors
                 // Other values default to stock light theme colors
@@ -88,7 +86,6 @@ struct ThemeExamples: StaticLayout {
 
             // Dark theme implementation
             struct DarkTheme: BaseTheme {
-                static var name: String = "dark" 
                 static var colorScheme: ColorScheme = .dark
                 // Uses shared accent/secondaryAccent colors
                 // Other values default to stock dark theme colors
