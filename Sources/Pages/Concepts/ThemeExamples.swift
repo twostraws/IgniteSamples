@@ -79,14 +79,14 @@ struct ThemeExamples: StaticLayout {
 
             // Light theme implementation
             struct LightTheme: BaseTheme {
-                static var colorScheme: ColorScheme = .light
+                var colorScheme: ColorScheme = .light
                 // Uses shared accent/secondaryAccent colors
                 // Other values default to stock light theme colors
             }
 
             // Dark theme implementation
             struct DarkTheme: BaseTheme {
-                static var colorScheme: ColorScheme = .dark
+                var colorScheme: ColorScheme = .dark
                 // Uses shared accent/secondaryAccent colors
                 // Other values default to stock dark theme colors
             }
