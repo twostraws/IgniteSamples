@@ -206,6 +206,7 @@ struct ThemeExamples: StaticLayout {
                     .font(.title3)
                     .frame(width: .percent(100%), height: .percent(100%), alignment: .center)
                     .background(.thinMaterial)
+                    .margin(.bottom, 0)
             }
             .clipped()
             .cornerRadius(12)
@@ -217,6 +218,7 @@ struct ThemeExamples: StaticLayout {
                     .font(.title3)
                     .frame(width: .percent(100%), height: .percent(100%), alignment: .center)
                     .background(.thinMaterial.colorScheme(.dark))
+                    .margin(.bottom, 0)
             }
             .clipped()
             .cornerRadius(12)
