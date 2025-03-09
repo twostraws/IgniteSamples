@@ -11,16 +11,11 @@ import Ignite
 struct Tags: TagLayout {
     var body: some HTML {
 
-        if let tag {
-            Text(tag)
-                .font(.title1)
-        } else {
-            Text("All tags")
-                .font(.title1)
-        }
+        Text(tag.name)
+            .font(.title1)
 
         List {
-            ForEach(content) { article in
+            ForEach(tag.articles) { article in
                 Link(article)
             }
         }
