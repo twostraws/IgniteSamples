@@ -8,7 +8,7 @@
 import Foundation
 import Ignite
 
-struct ContentExamples: StaticLayout {
+struct ContentExamples: StaticPage {
     @Environment(\.articles) var articles
     var title = "Content"
 
@@ -139,7 +139,7 @@ struct ContentExamples: StaticLayout {
             .font(.title2)
             .margin(.top, .xLarge)
 
-        Text(markdown: "If you make a type that conforms to the `TagLayout` protocol, you can use it to display tag pages on your site.")
+        Text(markdown: "If you make a type that conforms to the `TagPage` protocol, you can use it to display tag pages on your site.")
 
         Text(markdown: "This protocol passes you an optional tag string: if it has a tag you should use it, but if it's nil you should render an \"all tags\" page.")
 

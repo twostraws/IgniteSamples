@@ -8,7 +8,7 @@
 import Foundation
 import Ignite
 
-struct StylingExamples: StaticLayout {
+struct StylingExamples: StaticPage {
     var title = "Styling"
     var path = "/custom/path/to/styling"
 
@@ -178,7 +178,7 @@ struct StylingExamples: StaticLayout {
             Text(markdown: """
             **PS:** Did you notice the URL for this page? \
             Static layouts have their URLs generated from their type name, but you can also provide a custom path. \
-            If you're using `Link` with a `StaticLayout` target it will ✨Just Work✨.
+            If you're using `Link` with a `StaticPage` target it will ✨Just Work✨.
             """)
         }
         .role(.info)

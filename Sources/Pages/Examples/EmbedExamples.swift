@@ -8,7 +8,7 @@
 import Foundation
 import Ignite
 
-struct EmbedExamples: StaticLayout {
+struct EmbedExamples: StaticPage {
     var title = "Embeds"
 
     var body: some HTML {

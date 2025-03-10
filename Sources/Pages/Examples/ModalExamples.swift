@@ -8,7 +8,7 @@
 import Foundation
 import Ignite
 
-struct ModalExamples: StaticLayout {
+struct ModalExamples: StaticPage {
     var title = "Modals"
 
     var body: some HTML {

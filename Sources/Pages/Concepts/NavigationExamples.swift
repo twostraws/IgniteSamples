@@ -8,7 +8,7 @@
 import Foundation
 import Ignite
 
-struct NavigationExamples: StaticLayout {
+struct NavigationExamples: StaticPage {
     var title = "Navigation"
 
     var body: some HTML {

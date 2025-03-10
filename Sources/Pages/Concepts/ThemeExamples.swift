@@ -8,7 +8,7 @@
 import Foundation
 import Ignite
 
-struct ThemeExamples: StaticLayout {
+struct ThemeExamples: StaticPage {
     var title = "Themes"
 
     @Environment(\.themes) private var themes

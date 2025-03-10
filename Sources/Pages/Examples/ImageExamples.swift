@@ -8,12 +8,12 @@
 import Foundation
 import Ignite
 
-struct ImageExamples: StaticLayout {
+struct ImageExamples: StaticPage {
     var title = "Images"
 
     // This page also demonstrates using a custom
     // theme, as shown below.
-    var parentLayout = SuggestedArticleLayout()
+    var parentLayout = SuggestedArticlePage()
 
     var body: some HTML {
         Text("Images")

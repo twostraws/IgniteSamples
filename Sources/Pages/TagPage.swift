@@ -1,5 +1,5 @@
 //
-// TagLayout.swift
+// TagPage.swift
 // IgniteSamples
 // https://www.github.com/twostraws/Ignite
 // See LICENSE for license information.
@@ -8,7 +8,7 @@
 import Foundation
 import Ignite
 
-struct Tags: TagLayout {
+struct Tags: TagPage {
     var body: some HTML {
 
         Text(tag.name)

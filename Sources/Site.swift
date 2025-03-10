@@ -29,7 +29,7 @@ struct ExampleSite: Site {
     var tagLayout = Tags()
     var layout = MainLayout()
 
-    var staticLayouts: [any StaticLayout] {
+    var pages: [any StaticPage] {
         ContentExamples()
         GridExamples()
         NavigationExamples()
@@ -55,7 +55,7 @@ struct ExampleSite: Site {
         TableExamples()
     }
 
-    var articleLayouts: [any ArticleLayout] {
+    var articlePages: [any ArticlePage] {
         Story()
         CustomStory()
     }

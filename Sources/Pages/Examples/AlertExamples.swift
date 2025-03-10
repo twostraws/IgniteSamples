@@ -8,7 +8,7 @@
 import Foundation
 import Ignite
 
-struct AlertExamples: StaticLayout {
+struct AlertExamples: StaticPage {
     var title = "Accordions"
 
     var body: some HTML {

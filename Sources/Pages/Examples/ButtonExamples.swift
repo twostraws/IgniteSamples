@@ -8,7 +8,7 @@
 import Foundation
 import Ignite
 
-struct ButtonExamples: StaticLayout {
+struct ButtonExamples: StaticPage {
     var title = "Buttons"
 
     var body: some HTML {

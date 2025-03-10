@@ -8,7 +8,7 @@
 import Foundation
 import Ignite
 
-struct IncludeExamples: StaticLayout {
+struct IncludeExamples: StaticPage {
     @Environment(\.decode) private var decode
     var title = "Includes"
 

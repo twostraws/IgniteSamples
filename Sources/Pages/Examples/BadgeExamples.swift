@@ -8,7 +8,7 @@
 import Foundation
 import Ignite
 
-struct BadgeExamples: StaticLayout {
+struct BadgeExamples: StaticPage {
     var title = "Badges"
 
     var body: some HTML {

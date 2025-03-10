@@ -8,7 +8,7 @@
 import Foundation
 import Ignite
 
-struct Story: ArticleLayout {
+struct Story: ArticlePage {
     var body: some HTML {
         Text(article.title)
             .font(.title1)

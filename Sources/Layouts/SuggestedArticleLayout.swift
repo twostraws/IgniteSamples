@@ -1,5 +1,5 @@
 //
-// SuggestedArticleLayout.swift
+// SuggestedArticlePage.swift
 // IgniteSamples
 // https://www.github.com/twostraws/Ignite
 // See LICENSE for license information.
@@ -8,7 +8,7 @@
 import Foundation
 import Ignite
 
-struct SuggestedArticleLayout: Layout {
+struct SuggestedArticlePage: Layout {
     @Environment(\.articles) private var articles
 
     var body: some HTML {
