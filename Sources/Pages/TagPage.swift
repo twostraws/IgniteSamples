@@ -10,7 +10,6 @@ import Ignite
 
 struct Tags: TagPage {
     var body: some HTML {
-
         Text(tag.name)
             .font(.title1)
 
