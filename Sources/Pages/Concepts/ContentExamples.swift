@@ -100,7 +100,7 @@ struct ContentExamples: StaticPage {
 
         Grid {
             ForEach(articles.all) { item in
-                ContentPreview(for: item)
+                ArticlePreview(for: item)
                     .width(3)
                     .margin(.bottom)
             }
