@@ -25,7 +25,7 @@ struct SuggestedArticlePage: Layout {
                         .font(.title3)
 
                     if let latest = articles.all.randomElement() {
-                        ContentPreview(for: latest)
+                        ArticlePreview(for: latest)
                     }
                 }
                 .width(3)
