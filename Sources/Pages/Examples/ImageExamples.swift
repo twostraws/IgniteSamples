@@ -11,9 +11,8 @@ import Ignite
 struct ImageExamples: StaticPage {
     var title = "Images"
 
-    // This page also demonstrates using a custom
-    // theme, as shown below.
-    var parentLayout = SuggestedArticlePage()
+    // This page also demonstrates using a custom layout, as shown below.
+    var layout = SuggestedArticleLayout()
 
     var body: some HTML {
         Text("Images")
