@@ -8,7 +8,7 @@
 import Foundation
 import Ignite
 
-struct SuggestedArticlePage: Layout {
+struct SuggestedArticleLayout: Layout {
     @Environment(\.articles) private var articles
 
     var body: some HTML {
