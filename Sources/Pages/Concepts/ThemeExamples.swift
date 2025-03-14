@@ -49,7 +49,7 @@ struct ThemeExamples: StaticPage {
         CodeBlock(.swift) {
             """
             struct MyTheme: Theme {
-                static var colorScheme: ColorScheme = .light // or .dark
+                var colorScheme: ColorScheme = .light // or .dark
                 
                 // Override any theme properties you want to customize
                 var syntaxHighlighterTheme: HighlighterTheme = .githubLight
