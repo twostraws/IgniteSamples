@@ -19,6 +19,8 @@ struct MainLayout: Layout {
             Section {
                 SocialFooter()
                 IgniteFooter()
+                VersionInfo()
+                    .margin(.bottom, 80)
             }
         }
     }

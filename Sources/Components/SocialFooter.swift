@@ -27,16 +27,16 @@ struct SocialFooter: HTML {
     ]
 
     var body: some HTML {
-        Text {
-            ForEach(zip(icons, urlStrings)) { (icon, urlString) in
-                Link(icon, target: urlString)
-                    .role(.secondary)
-                    .target(.blank)
-                    .relationship(.noOpener, .noReferrer)
-                    .margin(.trailing, 20)
+        VStack {
+            HStack {
+                ForEach(zip(icons, urlStrings)) { (icon, urlString) in
+                    Link(icon, target: urlString)
+                        .role(.secondary)
+                        .target(.blank)
+                        .relationship(.noOpener, .noReferrer)
+                }
             }
         }
-        .horizontalAlignment(.center)
         .margin(.top, .xLarge)
         .font(.title2)
     }
