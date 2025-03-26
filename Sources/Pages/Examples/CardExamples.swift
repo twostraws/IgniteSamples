@@ -134,20 +134,18 @@ struct CardExamples: StaticPage {
         """)
         .margin(.top, .large)
 
-        Grid {
-            ForEach(Card.ContentAlignment.allCases) { alignment in
+        Grid(Card.ContentAlignment.allCases) { alignment in
+            Card(imageName: "/images/photos/dishwasher.jpg") {
                 let alignmentName = String(describing: alignment)
-                Card(imageName: "/images/photos/dishwasher.jpg") {
-                    Text(markdown: "`.\(alignmentName)`")
-                        .foregroundStyle(.white)
-                        .background(.lightGray)
+                Text(markdown: "`.\(alignmentName)`")
+                    .foregroundStyle(.white)
+                    .background(.lightGray)
 
-                    Link("Back to the homepage", target: "/")
-                        .linkStyle(.button)
-                }
-                .contentPosition(.overlay(alignment: alignment))
-                .imageOpacity(0.5)
+                Link("Back to the homepage", target: "/")
+                    .linkStyle(.button)
             }
+            .contentPosition(.overlay(alignment: alignment))
+            .imageOpacity(0.5)
         }
         .columns(3)
         .margin(.top, .large)

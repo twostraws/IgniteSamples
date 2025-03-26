@@ -20,39 +20,39 @@ struct ContentExamples: StaticPage {
             .font(.lead)
 
         Text("""
-        You should create subfolders inside Content to represent different types of content. \
-        This might be by date, e.g. Content/2023, Content/2024, etc, by type, e.g. Content/articles, Content/tutorials, or whatever other approach you want.
+        You should create subfolders inside Content to represent different types of articles. \
+        This might be by date, e.g. Content/2023, Content/2024, etc, by type, e.g. Content/posts, Content/tutorials, or whatever other approach you want.
         """)
 
         Text("When it come to rendering your articles, you have two options:")
 
         List {
-            "You can use YAML front matter to specify the layout to use for your content."
+            "You can use YAML front matter to specify the layout to use for your article."
             "You can provide only one layout in your site, and it will be used if nothing else is specified."
         }
         .listMarkerStyle(.ordered(.automatic))
 
         Text(markdown: """
-        This example site contains two types of content, articles and stories. Some content requests a specific layout, but others don't.
+        This example site contains two types of articles, posts and stories. Some articles requests a specific layout, but others don't.
         """)
 
-        Text(markdown: "[This content uses the default layout](/story/luna-and-arya-come-to-wwdc).")
+        Text(markdown: "[This article uses the default layout](/story/luna-and-arya-come-to-wwdc).")
 
-        Text(markdown: "[And this content uses a custom layout](/story/sam-swift-saves-the-day).")
+        Text(markdown: "[And this article uses a custom layout](/story/sam-swift-saves-the-day).")
             .padding(.bottom, .xLarge)
 
-        Text("Listing content")
+        Text("Listing articles")
             .font(.title2)
 
-        Text(markdown: "You can access Markdown content by adding the property `@Environment(\\.content) var content` to your view, which lets you read all content, or content with a specific type or tag.")
+        Text(markdown: "You can access Markdown content by adding the property `@Environment(\\.articles) var articles` to your view, which lets you read all articles, or articles with a specific type or tag.")
 
         Text("For example, we can write code to show a list of all articles right here on this page:")
 
         CodeBlock(.swift) {
             """
             List {
-                ForEach(content.all) { content in
-                    Link(content)
+                ForEach(articles.all) { article in
+                    Link(article)
                 }
             }
             """
@@ -64,13 +64,13 @@ struct ContentExamples: StaticPage {
             }
         }
 
-        Text(markdown: "Or we could show only content that matches the type `story`:")
+        Text(markdown: "Or we could show only articles that matches the type `story`:")
 
         CodeBlock(.swift) {
             """
             List {
-                ForEach(content.typed("story")) { content in
-                    Link(content)
+                ForEach(articles.typed("story")) { article in
+                    Link(article)
                 }
             }
             """
@@ -84,13 +84,13 @@ struct ContentExamples: StaticPage {
 
         Text("But there are a handful of helpers available to make things both easier and more attractive.")
 
-        Text(markdown: "First, `ContentPreview` can be used to make a preview for articles. This automatically includes the articles image, title, description, link, and tags, all in one:")
+        Text(markdown: "First, `ArticlePreview` can be used to make a preview for articles. This automatically includes the articles image, title, description, link, and tags, all in one:")
 
         CodeBlock(.swift) {
             """
             Grid {
-                ForEach(content.all) { item in
-                    ContentPreview(for: item)
+                ForEach(articles.all) { item in
+                    ArticlePreview(for: item)
                         .width(3)
                         .margin(.bottom)
                 }
@@ -98,12 +98,10 @@ struct ContentExamples: StaticPage {
             """
         }
 
-        Grid {
-            ForEach(articles.all) { item in
-                ArticlePreview(for: item)
-                    .width(3)
-                    .margin(.bottom)
-            }
+        Grid(articles.all) { item in
+            ArticlePreview(for: item)
+                .width(3)
+                .margin(.bottom)
         }
         .margin(.bottom, .xLarge)
 
@@ -114,22 +112,22 @@ struct ContentExamples: StaticPage {
         Text("Specifically, the following fields are supported:")
 
         List {
-            "author: The author's name or contact details, depending on what you want."
-            "date: Set to an ISO-8601 date for when this article was first published."
-            "image: The main image for this content. Will be used with content previews and social sharing."
-            "imageDescription: Screenreader-friendly text describing your article's main image."
-            "lastModified: Set to an ISO-8601 date for when this article was last changed. If this is not present, the published date will be used instead."
-            "layout: The name of the content page struct in your site to use for this content."
-            "published: Set to false to leave this article unpublished on your site."
-            "subtitle: An optional subheading for your content."
-            "tags: A comma-separated list of tags for this article. If you have enabled tag pages, these will be used to list matching content."
+            Text(markdown: "`author`: The author's name or contact details, depending on what you want.")
+            Text(markdown: "`date`: Set to an ISO-8601 date for when this article was first published.")
+            Text(markdown: "`image`: The main image for this content. Will be used with content previews and social sharing.")
+            Text(markdown: "`imageDescription`: Screenreader-friendly text describing your article's main image.")
+            Text(markdown: "`lastModified`: Set to an ISO-8601 date for when this article was last changed. If this is not present, the published date will be used instead.")
+            Text(markdown: "`layout`: The name of the `ArticlePage` struct in your site to use for this content.")
+            Text(markdown: "`published`: Set to false to leave this article unpublished on your site.")
+            Text(markdown: "`subtitle`: An optional subheading for your content.")
+            Text(markdown: "`tags`: A comma-separated list of tags for this article. If you have enabled tag pages, these will be used to list matching content.")
         }
 
         Text(markdown: "As well as the predefined fields, you can use the `metadata` dictionary to access any custom properties you have defined in the front matter. Note that the dictionary values are optionals: your page code must be able to deal with the dictionary item not existing!")
 
         CodeBlock(.swift) {
             """
-            Text(content.metadata["CustomValue"] ?? "Not defined")
+            Text(article.metadata["CustomValue"] ?? "Not defined")
             """
         }
 
@@ -141,7 +139,7 @@ struct ContentExamples: StaticPage {
 
         Text(markdown: "If you make a type that conforms to the `TagPage` protocol, you can use it to display tag pages on your site.")
 
-        Text(markdown: "This protocol passes you an optional tag string: if it has a tag you should use it, but if it's nil you should render an \"all tags\" page.")
+        Text(markdown: "This protocol passes you one of two types conforming to the `Category` protocol: `TagCategory`, which represents a page dedicated the content of a single tag, or `AllTagsCategory`, which represents a page featuring all tags and their content.")
 
         Text("This sample site has a small tags page implementation. You can see it in action with these links:")
 

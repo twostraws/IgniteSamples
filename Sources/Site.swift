@@ -26,7 +26,7 @@ struct ExampleSite: Site {
     var author = "Paul Hudson"
 
     var homePage = Home()
-    var tagLayout = Tags()
+    var tagPage = Tags()
     var layout = MainLayout()
 
     var staticPages: [any StaticPage] {

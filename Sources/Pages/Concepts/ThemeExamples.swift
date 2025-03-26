@@ -14,19 +14,21 @@ struct ThemeExamples: StaticPage {
     @Environment(\.themes) private var themes
 
     private var themeSwitcher: some HTML {
-        Section {
-            ForEach(themes) { theme in
-                Button(theme.name.capitalized) {
-                    SwitchTheme(theme)
+        VStack(alignment: .center) {
+            Section {
+                ForEach(themes) { theme in
+                    Button(theme.name.capitalized) {
+                        SwitchTheme(theme)
+                    }
+                    .role(.light)
+                    .margin(.horizontal, .xSmall)
                 }
-                .role(.light)
-                .margin(.horizontal, .xSmall)
             }
+            .padding(.vertical, .small)
         }
         .position(.fixedBottom)
         .background(.firebrick)
-        .frame(height: 50)
-        .frame(maxWidth: .percent(100%), alignment: .center)
+        .frame(maxWidth: .percent(100%))
     }
 
     var body: some HTML {
@@ -188,7 +190,7 @@ struct ThemeExamples: StaticPage {
                     .resizable()
                 Text("Always Dark Material")
                     .font(.title3)
-                    .frame(width: .percent(100%), height: .percent(100%), alignment: .center)
+                    .containerRelativeFrame()
                     .background(.thinMaterial.colorScheme(.dark))
             }
             .clipped()
@@ -204,7 +206,7 @@ struct ThemeExamples: StaticPage {
                     .resizable()
                 Text("Adaptive Material")
                     .font(.title3)
-                    .frame(width: .percent(100%), height: .percent(100%), alignment: .center)
+                    .containerRelativeFrame()
                     .background(.thinMaterial)
                     .margin(.bottom, 0)
             }
@@ -216,7 +218,7 @@ struct ThemeExamples: StaticPage {
                     .resizable()
                 Text("Always Dark Material")
                     .font(.title3)
-                    .frame(width: .percent(100%), height: .percent(100%), alignment: .center)
+                    .containerRelativeFrame()
                     .background(.thinMaterial.colorScheme(.dark))
                     .margin(.bottom, 0)
             }
