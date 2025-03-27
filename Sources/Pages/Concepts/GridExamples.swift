@@ -103,7 +103,7 @@ struct GridExamples: StaticPage {
 
         CodeBlock(.swift) {
             """
-            Grid {
+            Grid(alignment: .leading) {
                 Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
                     .resizable()
                     .width(4)
@@ -123,7 +123,7 @@ struct GridExamples: StaticPage {
             """
         }
 
-        Grid {
+        Grid(alignment: .leading) {
             Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
                 .resizable()
                 .width(4)

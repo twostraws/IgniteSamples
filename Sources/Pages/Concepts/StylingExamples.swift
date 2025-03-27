@@ -20,7 +20,7 @@ struct StylingExamples: StaticPage {
             .class("Wom")
             .font(.lead)
 
-        Grid {
+        Grid(alignment: .top) {
             Section {
                 Text("Here's an image with a fixed width and 50% opacity:")
 
