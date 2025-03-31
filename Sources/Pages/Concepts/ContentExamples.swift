@@ -88,17 +88,15 @@ struct ContentExamples: StaticPage {
 
         CodeBlock(.swift) {
             """
-            Grid {
-                ForEach(articles.all) { item in
-                    ArticlePreview(for: item)
-                        .width(3)
-                        .margin(.bottom)
-                }
+            Grid(articles.all, alignment: .top) { item in
+                ArticlePreview(for: item)
+                    .width(3)
+                    .margin(.bottom)
             }
             """
         }
 
-        Grid(articles.all) { item in
+        Grid(articles.all, alignment: .top) { item in
             ArticlePreview(for: item)
                 .width(3)
                 .margin(.bottom)
