@@ -20,7 +20,7 @@ struct NavBar: HTML {
                 Link("Styling", target: StylingExamples())
                 Link("Theming", target: ThemeExamples())
             } title: {
-                Text("Key concepts")
+                Span("Key concepts")
                     .foregroundStyle(.white)
             }
 
@@ -42,7 +42,7 @@ struct NavBar: HTML {
                 Link("Quotes", target: QuoteExamples())
                 Link("Tables", target: TableExamples())
             } title: {
-                Text("Examples")
+                Span("Examples")
                     .foregroundStyle(.white)
             }
 

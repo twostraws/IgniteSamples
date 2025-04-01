@@ -15,7 +15,7 @@ struct SuggestedArticleLayout: Layout {
         Body {
             NavBar()
 
-            Grid {
+            Grid(alignment: .top) {
                 content
                     .width(9)
                     .padding(.vertical, 80)
