@@ -1,0 +1,6 @@
+# Ignore file length, because some pages are huge – example code plus the same as a string really adds up!
+disabled_rules:
+    - file_length
+
+included:
+    - Sources

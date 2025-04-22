@@ -19,7 +19,7 @@ struct ListExamples: StaticPage {
             Text("Lists can be ordered or unordered, and you can customize their bullet styles too.")
                 .font(.lead)
 
-            Text("A simple list can be made up just of strings, like this:")
+            Text("A simple list can be made up just of hard-coded strings, like this:")
 
             CodeBlock(.swift) {
                 """
@@ -35,6 +35,21 @@ struct ListExamples: StaticPage {
                 "This is a list item"
                 "So is this"
                 "And this"
+            }
+            .margin(.bottom, .xLarge)
+
+            Text(markdown: "Alternatively, you can pass in an array like this:")
+
+            CodeBlock(.swift) {
+                """
+                List(User.examples) { user in
+                    user.name
+                }
+                """
+            }
+
+            List(User.examples) { user in
+                user.name
             }
             .margin(.bottom, .xLarge)
 

@@ -15,7 +15,7 @@ struct TableExamples: StaticPage {
         Text("Tables")
             .font(.title1)
 
-        Text("Tables let you create tabulate data in rows and columns for easier reading.")
+        Text("Tables let you create tabulated data in rows and columns for easier reading.")
             .font(.lead)
 
         Text("Simple tables consist of rows and columns, like this:")
@@ -71,30 +71,42 @@ struct TableExamples: StaticPage {
         }
         .margin(.bottom, .xLarge)
 
+        Text("In that example, all rows are fixed directly as Swift code. If you prefer, you can pass in an array:")
+
+        CodeBlock(.swift) {
+            """
+            Table(User.examples) { user in
+                Row {
+                    user.name
+                    user.address
+                    user.city
+                    user.state
+                }
+            }
+            .margin(.bottom, .xLarge)
+            """
+        }
+
+        Table(User.examples) { user in
+            Row {
+                user.name
+                user.address
+                user.city
+                user.state
+            }
+        }
+        .margin(.bottom, .xLarge)
+
         Text("You can also add headings to clarify what each column means:")
 
         CodeBlock(.swift) {
             """
-            Table {
+            Table(User.examples) { user in
                 Row {
-                    "Taylor Swift"
-                    "555, Swiftie Avenue"
-                    "Nashville"
-                    "Tennessee"
-                }
-
-                Row {
-                    "Adele Adkins"
-                    "Caesars Palace"
-                    "Las Vegas"
-                    "Nevada"
-                }
-
-                Row {
-                    "Tim Cook"
-                    "Apple Park"
-                    "Cupertino"
-                    "California"
+                    user.name
+                    user.address
+                    user.city
+                    user.state
                 }
             } header: {
                 "Name"
@@ -105,26 +117,12 @@ struct TableExamples: StaticPage {
             """
         }
 
-        Table {
+        Table(User.examples) { user in
             Row {
-                "Taylor Swift"
-                "555, Swiftie Avenue"
-                "Nashville"
-                "Tennessee"
-            }
-
-            Row {
-                "Adele Adkins"
-                "Caesars Palace"
-                "Las Vegas"
-                "Nevada"
-            }
-
-            Row {
-                "Tim Cook"
-                "Apple Park"
-                "Cupertino"
-                "California"
+                user.name
+                user.address
+                user.city
+                user.state
             }
         } header: {
             "Name"
@@ -141,26 +139,12 @@ struct TableExamples: StaticPage {
 
         CodeBlock(.swift) {
             """
-            Table {
+            Table(TeamMember.examples) { teamMember in
                 Row {
-                    "Bob Blob"
-                    "Underwater Baker"
-                    "Seaweed Scones"
-                    "Collecting Rubber Ducks"
-                }
-
-                Row {
-                    "Sally Sizzle"
-                    "Firefighter Chef"
-                    "Spicy Ice Cream"
-                    "Volcano Surfing"
-                }
-
-                Row {
-                    "Greg Grumble"
-                    "Grumpy Florist"
-                    "Thorny Roses Salad"
-                    "Whispering to Snails"
+                    teamMember.name
+                    teamMember.occupation
+                    teamMember.favoriteFood
+                    teamMember.secretHobby
                 }
             } header: {
                 "Name"
@@ -172,26 +156,12 @@ struct TableExamples: StaticPage {
             """
         }
 
-        Table {
+        Table(TeamMember.examples) { teamMember in
             Row {
-                "Bob Blob"
-                "Underwater Baker"
-                "Seaweed Scones"
-                "Collecting Rubber Ducks"
-            }
-
-            Row {
-                "Sally Sizzle"
-                "Firefighter Chef"
-                "Spicy Ice Cream"
-                "Volcano Surfing"
-            }
-
-            Row {
-                "Greg Grumble"
-                "Grumpy Florist"
-                "Thorny Roses Salad"
-                "Whispering to Snails"
+                teamMember.name
+                teamMember.occupation
+                teamMember.favoriteFood
+                teamMember.secretHobby
             }
         } header: {
             "Name"
@@ -206,26 +176,12 @@ struct TableExamples: StaticPage {
 
         CodeBlock(.swift) {
             """
-            Table {
+            Table(TeamMember.examples) { teamMember in
                 Row {
-                    "Bob Blob"
-                    "Underwater Baker"
-                    "Seaweed Scones"
-                    "Collecting Rubber Ducks"
-                }
-
-                Row {
-                    "Sally Sizzle"
-                    "Firefighter Chef"
-                    "Spicy Ice Cream"
-                    "Volcano Surfing"
-                }
-
-                Row {
-                    "Greg Grumble"
-                    "Grumpy Florist"
-                    "Thorny Roses Salad"
-                    "Whispering to Snails"
+                    teamMember.name
+                    teamMember.occupation
+                    teamMember.favoriteFood
+                    teamMember.secretHobby
                 }
             } header: {
                 "Name"
@@ -237,26 +193,12 @@ struct TableExamples: StaticPage {
             """
         }
 
-        Table {
+        Table(TeamMember.examples) { teamMember in
             Row {
-                "Bob Blob"
-                "Underwater Baker"
-                "Seaweed Scones"
-                "Collecting Rubber Ducks"
-            }
-
-            Row {
-                "Sally Sizzle"
-                "Firefighter Chef"
-                "Spicy Ice Cream"
-                "Volcano Surfing"
-            }
-
-            Row {
-                "Greg Grumble"
-                "Grumpy Florist"
-                "Thorny Roses Salad"
-                "Whispering to Snails"
+                teamMember.name
+                teamMember.occupation
+                teamMember.favoriteFood
+                teamMember.secretHobby
             }
         } header: {
             "Name"
@@ -265,6 +207,34 @@ struct TableExamples: StaticPage {
             "Secret Hobby"
         }
         .tableStyle(.stripedColumns)
+        .margin(.bottom, .xLarge)
+
+        Text("Filtering tables")
+            .font(.title2)
+
+        Text(markdown: "If you want users to be able to filter the data in your table, add a `filterTitle` parameter when you create it. This will filter on any text in each row.")
+
+        CodeBlock(.swift) {
+            """
+            Table(Customer.examples, filterTitle: "Search for a user") { customer in
+                Row {
+                    customer.name
+                    customer.city
+                    customer.country
+                }
+            }
+            .tableStyle(.stripedRows)
+            """
+        }
+
+        Table(Customer.examples, filterTitle: "Search for a user") { customer in
+            Row {
+                customer.name
+                customer.city
+                customer.country
+            }
+        }
+        .tableStyle(.stripedRows)
         .margin(.bottom, .xLarge)
 
         Text("Row and column formatting")
@@ -371,6 +341,7 @@ struct TableExamples: StaticPage {
                 }
             }
             .tableBorder(true)
+            .tableStyle(.stripedRows)
             """
         }
 
@@ -400,5 +371,6 @@ struct TableExamples: StaticPage {
             }
         }
         .tableBorder(true)
+        .tableStyle(.stripedRows)
     }
 }

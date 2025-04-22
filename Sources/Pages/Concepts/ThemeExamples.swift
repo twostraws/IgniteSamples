@@ -52,7 +52,7 @@ struct ThemeExamples: StaticPage {
             """
             struct MyTheme: Theme {
                 var colorScheme: ColorScheme = .light // or .dark
-                
+
                 // Override any theme properties you want to customize
                 var syntaxHighlighterTheme: HighlighterTheme = .githubLight
             }
