@@ -11,6 +11,10 @@ import Ignite
 struct ContentExamples: StaticPage {
     @Environment(\.articles) var articles
     var title = "Content"
+    var description = """
+    Organize and display Markdown content with YAML front matter, article previews, and tag pages. \
+    Create flexible layouts and access content through the @Environment.
+    """
 
     var body: some HTML {
         Text("Working with content")

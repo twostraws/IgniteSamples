@@ -28,6 +28,7 @@ struct Home: StaticPage {
             Link("Navigation", target: NavigationExamples())
             Link("Content", target: ContentExamples())
             Link("Text", target: TextExamples())
+            Link("Forms", target: FormExamples())
             Link("Styling", target: StylingExamples())
             Link("Theming", target: ThemeExamples())
         }

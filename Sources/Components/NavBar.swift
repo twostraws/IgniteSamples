@@ -17,6 +17,7 @@ struct NavBar: HTML {
                 Link("Navigation", target: NavigationExamples())
                 Link("Content", target: ContentExamples())
                 Link("Text", target: TextExamples())
+                Link("Forms", target: FormExamples())
                 Link("Styling", target: StylingExamples())
                 Link("Theming", target: ThemeExamples())
             } title: {
@@ -47,9 +48,11 @@ struct NavBar: HTML {
             }
 
             Link(target: "https://github.com/twostraws/Ignite") {
-                Text("Ignite on GitHub")
+                Span("Ignite on GitHub")
                     .foregroundStyle(.white)
             }
+        } actions: {
+           searchForm
         } logo: {
             Image("/images/logo.svg", description: "ExampleSite logo")
                 .frame(width: .custom("min(60vw, 300px)"), height: .percent(100%))
@@ -57,5 +60,22 @@ struct NavBar: HTML {
         .navigationItemAlignment(.trailing)
         .background(.firebrick)
         .position(.fixedTop)
+    }
+
+    private var searchForm: some NavigationItem {
+        SearchForm { result in
+            result.title
+                .foregroundStyle(.firebrick)
+                .font(.title4)
+            result.description
+            if let tags = result.tags {
+                tags
+                    .background(.firebrick)
+                    .foregroundStyle(.white)
+                    .padding(.horizontal, 5)
+                    .cornerRadius(3)
+            }
+        }
+        .frame(width: .percent(100%))
     }
 }

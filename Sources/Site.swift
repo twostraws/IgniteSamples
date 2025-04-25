@@ -34,6 +34,7 @@ struct ExampleSite: Site {
         GridExamples()
         NavigationExamples()
         TextExamples()
+        FormExamples()
         StylingExamples()
         ThemeExamples()
 

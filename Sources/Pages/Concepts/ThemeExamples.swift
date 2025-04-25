@@ -10,6 +10,11 @@ import Ignite
 
 struct ThemeExamples: StaticPage {
     var title = "Themes"
+    var description = """
+    Customize your site's appearance with light, dark, and custom themes. \
+    Learn theme composition to share styles between themes, create a \
+    theme switcher, and use Material to create beautiful blur effects.
+    """
 
     @Environment(\.themes) private var themes
 

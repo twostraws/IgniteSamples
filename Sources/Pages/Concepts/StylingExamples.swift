@@ -11,6 +11,11 @@ import Ignite
 struct StylingExamples: StaticPage {
     var title = "Styling"
     var path = "/custom/path/to/styling"
+    var description = """
+    Learn how to style your content with colors, shadows, and positioning. \
+    See examples of opacity, tooltips, sticky positioning, and the \
+    important difference between margins and padding.           
+    """
 
     var body: some HTML {
         Text("Styling")

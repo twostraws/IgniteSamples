@@ -11,6 +11,10 @@ import Ignite
 struct IncludeExamples: StaticPage {
     @Environment(\.decode) private var decode
     var title = "Includes"
+    var description = """
+    Import HTML content from Includes directory and load external resources \
+    from Resources folder, including JSON data decoding.
+    """
 
     var body: some HTML {
         Text("Includes")

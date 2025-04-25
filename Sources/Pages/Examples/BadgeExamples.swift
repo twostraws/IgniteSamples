@@ -10,6 +10,12 @@ import Ignite
 
 struct BadgeExamples: StaticPage {
     var title = "Badges"
+    var description = """
+    Create compact, contextual labels with semantic styling. \
+    Design badges with different roles, sizes, and visual \
+    styles to highlight counts, tags, and status indicators. \
+    Supports default, subtle, and bordered variants for each role.
+    """
 
     var body: some HTML {
         Text("Badges")
@@ -41,7 +47,7 @@ struct BadgeExamples: StaticPage {
 
         CodeBlock(.swift) {
             """
-            ForEach(Role.badgeRoles) { role in
+            ForEach(Role.standardRoles) { role in
                 Text {
                     Badge("This badge has the \\(role.rawValue) role")
                         .role(role)
@@ -51,7 +57,7 @@ struct BadgeExamples: StaticPage {
             """
         }
 
-        ForEach(Role.badgeRoles) { role in
+        ForEach(Role.standardRoles) { role in
             Text {
                 Badge("This badge has the \(role.rawValue) role")
                     .role(role)
@@ -97,7 +103,7 @@ struct BadgeExamples: StaticPage {
                 Text(markdown: "`\\(style)` style:")
                     .font(.title3)
 
-                ForEach(Role.badgeRoles) { role in
+                ForEach(Role.standardRoles) { role in
                     Text {
                         Badge("This badge has the \\(style) style and \\(role.rawValue) role")
                             .badgeStyle(style)
@@ -116,7 +122,7 @@ struct BadgeExamples: StaticPage {
                 .font(.title3)
                 .margin(.top, .large)
 
-            ForEach(Role.badgeRoles) { role in
+            ForEach(Role.standardRoles) { role in
                 Text {
                     Badge("This badge has the \(style) style and \(role.rawValue) role")
                         .badgeStyle(style)

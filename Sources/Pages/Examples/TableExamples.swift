@@ -10,6 +10,11 @@ import Ignite
 
 struct TableExamples: StaticPage {
     var title = "Tables"
+    var description = """
+    Create structured data layouts with rows and columns, \
+    supporting headers, striped styles, filtering, and custom alignment. \
+    Perfect for displaying tabular data clearly.
+    """
 
     var body: some HTML {
         Text("Tables")

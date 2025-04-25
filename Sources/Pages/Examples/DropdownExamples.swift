@@ -10,6 +10,12 @@ import Ignite
 
 struct DropdownExamples: StaticPage {
     var title = "Dropdowns"
+    var description = """
+    Create dropdown menus with customizable buttons, links, text, \
+    and dividers. Style dropdowns with different roles and sizes, \
+    and integrate them seamlessly into navigation \
+    bars for enhanced user interaction.
+    """
 
     var body: some HTML {
         Text("Dropdowns")

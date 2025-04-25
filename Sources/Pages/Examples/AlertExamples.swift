@@ -9,7 +9,12 @@ import Foundation
 import Ignite
 
 struct AlertExamples: StaticPage {
-    var title = "Accordions"
+    var title = "Alerts"
+    var description = """
+    Display prominent, contextual notifications with semantic styling. \
+    Create alerts with different roles for success, warning, error, \
+    and information messages, each with distinct visual styling and icons.
+    """
 
     var body: some HTML {
         Text("Alerts")
@@ -39,7 +44,7 @@ struct AlertExamples: StaticPage {
 
         CodeBlock(.swift) {
             """
-            ForEach(Role.badgeRoles) { role in
+            ForEach(Role.semanticRoles) { role in
                 Alert {
                     Text("This alert has the \\(role.rawValue) role.")
                 }
@@ -48,7 +53,7 @@ struct AlertExamples: StaticPage {
             """
         }
 
-        ForEach(Role.badgeRoles) { role in
+        ForEach(Role.standardRoles) { role in
             Alert {
                 Text("This alert has the \(role.rawValue) role.")
             }

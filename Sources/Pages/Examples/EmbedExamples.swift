@@ -10,6 +10,10 @@ import Ignite
 
 struct EmbedExamples: StaticPage {
     var title = "Embeds"
+    var description = """
+    Embed external content like YouTube and Vimeo videos, \
+    or entire websites, with proper aspect ratio scaling for responsive layouts.
+    """
 
     var body: some HTML {
         Text("Embeds")

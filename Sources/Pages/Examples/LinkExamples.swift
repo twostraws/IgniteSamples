@@ -10,6 +10,10 @@ import Ignite
 
 struct LinkExamples: StaticPage {
     var title = "Links"
+    var description = """
+    Create internal and external links with customizable styling, roles, and \
+    button appearances. Open links in new tabs and target specific pages directly.
+    """
 
     var body: some HTML {
         Text("Links")
@@ -46,7 +50,7 @@ struct LinkExamples: StaticPage {
             Link("Learn about carousels", target: CarouselExamples())
         }
 
-        Text("Using a `.target(.blank)` modifier opens new tabs")
+        Text(markdown: "Using a `.target(.blank)` modifier opens new tabs:")
 
         CodeBlock(.swift) {
             """
@@ -67,6 +71,41 @@ struct LinkExamples: StaticPage {
         }
         .role(.info)
 
+        Text(markdown: "Use `LinkGroup` when you need to make multiple `HTML` elements clickable as a single link:")
+
+        CodeBlock(.swift) {
+            """
+            LinkGroup(target: "/") {
+                Section {
+                    Text("Building Modern Websites")
+                        .font(.title3)
+                    
+                    Text("Learn how to create beautiful, responsive interfaces using Ignite's declarative syntax.")
+                        .font(.lead)
+                }
+                .border(.lightGray)
+                .padding()
+                .cornerRadius(5)
+                .frame(maxWidth: 500)
+            }
+            """
+        }
+
+        LinkGroup(target: "/") {
+            Section {
+                Text("Building Modern Websites")
+                    .font(.title3)
+
+                Text("Learn how to create beautiful, responsive interfaces using Ignite's declarative syntax.")
+                    .font(.lead)
+            }
+            .border(.lightGray)
+            .padding()
+            .cornerRadius(5)
+            .frame(maxWidth: 500)
+        }
+        .margin(.bottom, .xLarge)
+
         Text("Link styling")
             .font(.title2)
             .margin(.top, .xLarge)
@@ -75,7 +114,7 @@ struct LinkExamples: StaticPage {
 
         CodeBlock(.swift) {
             """
-            ForEach(Role.badgeRoles) { role in
+            ForEach(Role.standardRoles) { role in
                 Text {
                     Link("Link with \\(role.rawValue) role.", target: "#")
                         .role(role)
@@ -84,7 +123,7 @@ struct LinkExamples: StaticPage {
             """
         }
 
-        ForEach(Role.badgeRoles) { role in
+        ForEach(Role.standardRoles) { role in
             Text {
                 Link("Link with \(role.rawValue) role.", target: "#")
                     .role(role)
@@ -99,7 +138,7 @@ struct LinkExamples: StaticPage {
 
         CodeBlock(.swift) {
             """
-            ForEach(Role.badgeRoles) { role in
+            ForEach(Role.standardRoles) { role in
                 Text {
                     Link("Button-style link with \\(role.rawValue) role.", target: "#")
                         .linkStyle(.button)
@@ -109,7 +148,7 @@ struct LinkExamples: StaticPage {
             """
         }
 
-        ForEach(Role.badgeRoles) { role in
+        ForEach(Role.standardRoles) { role in
             Text {
                 Link("Button-style link with \(role.rawValue) role.", target: "#")
                     .linkStyle(.button)

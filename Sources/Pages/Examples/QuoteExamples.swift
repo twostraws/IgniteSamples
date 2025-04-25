@@ -10,6 +10,11 @@ import Ignite
 
 struct QuoteExamples: StaticPage {
     var title = "Quotes"
+    var description = """
+    A component for highlighting important text or testimonials \
+    with optional attribution. Quotes are visually distinct and \
+    designed for emphasizing memorable statements.
+    """
 
     var body: some HTML {
         Text("Quotes")

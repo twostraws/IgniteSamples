@@ -10,6 +10,10 @@ import Ignite
 
 struct ListExamples: StaticPage {
     var title = "Lists"
+    var description = """
+    Create ordered and unordered lists with customizable markers. \
+    Support both static items and dynamic content from arrays.
+    """
 
     var body: some HTML {
         Text("Lists")
@@ -115,5 +119,108 @@ struct ListExamples: StaticPage {
             "Fakers gonna fake"
         }
         .listMarkerStyle(.custom("💃"))
+
+        Text("List Styles")
+            .font(.title2)
+            .margin(.top, .xLarge)
+
+        Text(markdown: "Lists can be styled in different ways using the `listStyle()` modifier:")
+
+        CodeBlock(.swift) {
+            """
+            List {
+                "Plain list item"
+                "Another plain item"
+            }
+            """
+        }
+
+        List {
+            "Plain list item"
+            "Another plain item"
+        }
+        .margin(.bottom, .medium)
+
+        CodeBlock(.swift) {
+            """
+            List {
+                "Group list item"
+                "Another group item"
+                    .badge(Badge("1").role(.primary))
+            }
+            .listStyle(.group)
+            """
+        }
+
+        List {
+            "Group list item"
+            "Another group item"
+                .badge(Badge("1").role(.primary))
+        }
+        .listStyle(.group)
+        .margin(.bottom, .medium)
+
+        CodeBlock(.swift) {
+            """
+            List {
+                "Horizontal group item"
+                "Another horizontal item"
+            }
+            .listStyle(.horizontalGroup)
+            """
+        }
+
+        List {
+            "Horizontal group item"
+            "Another Horizontal item"
+        }
+        .listStyle(.horizontalGroup)
+        .margin(.bottom, .xLarge)
+
+        CodeBlock(.swift) {
+            """
+            List {
+                "Flush group item"
+                "Another flush item"
+            }
+            .listStyle(.flushGroup)
+            """
+        }
+
+        List {
+            "Flush group item"
+            "Another flush item"
+        }
+        .listStyle(.flushGroup)
+        .margin(.bottom, .xLarge)
+
+        Text("List Items")
+            .font(.title2)
+            .margin(.top, .xLarge)
+
+        Text(markdown: "When using `List` with `listStyle(.group)`, you can add roles via `ListItem`:")
+
+        CodeBlock(.swift) {
+            """
+            List {
+                ForEach(Role.standardRoles) { role in
+                    ListItem { 
+                        "A simple \\(role.rawValue) list group item" 
+                    }
+                    .role(role)
+                }
+            }
+            .listStyle(.group)
+            """
+        }
+
+        List {
+            ForEach(Role.standardRoles) { role in
+                ListItem { "A simple \(role.rawValue) list group item" }
+                    .role(role)
+            }
+        }
+        .listStyle(.group)
+        .margin(.bottom, .xLarge)
     }
 }

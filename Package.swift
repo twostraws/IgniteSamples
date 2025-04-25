@@ -9,7 +9,8 @@ let package = Package(
     dependencies: [
         // The line below makes Ignite Samples use
         // the main Ignite repository.
-        .package(url: "https://github.com/twostraws/Ignite.git", branch: "main")
+//        .package(url: "https://github.com/twostraws/Ignite.git", branch: "main")
+        .package(url: "https://github.com/twostraws/Ignite.git", branch: "v0.6-beta")
 
         // This line makes Ignite Samples use a local
         // copy of Ignite, placed one folder up

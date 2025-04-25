@@ -10,6 +10,11 @@ import Ignite
 
 struct AccordionExamples: StaticPage {
     var title = "Accordions"
+    var description = """
+    Create collapsible content sections that users can expand and collapse. \
+    Learn how to control whether multiple sections can be open at once, \
+    set default open states, and style accordion titles and content." 
+    """
 
     var body: some HTML {
         Text("Accordions")

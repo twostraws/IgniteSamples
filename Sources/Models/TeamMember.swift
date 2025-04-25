@@ -1,8 +1,8 @@
 //
-//  File.swift
-//  IgniteSamples
-//
-//  Created by Paul Hudson on 22/04/2025.
+// TeamMember.swift
+// Ignite
+// https://www.github.com/twostraws/Ignite
+// See LICENSE for license information.
 //
 
 import Foundation

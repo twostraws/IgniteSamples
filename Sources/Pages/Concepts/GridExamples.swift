@@ -10,6 +10,10 @@ import Ignite
 
 struct GridExamples: StaticPage {
     var title = "Grid Layout"
+    var description = """
+    Create flexible, responsive layouts using Ignite's 12-column grid system. \
+    Learn how to subdivide space, set explicit widths, and handle wrapping content automatically.
+    """
 
     var body: some HTML {
         Text("Grid Layout")
