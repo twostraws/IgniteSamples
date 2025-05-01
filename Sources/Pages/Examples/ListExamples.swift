@@ -66,7 +66,7 @@ struct ListExamples: StaticPage {
                     "This is the second one"
                     "And here's one more"
                 }
-                .listStyle(.ordered(.default))
+                .listStyle(.ordered)
                 """
             }
         }
@@ -129,17 +129,34 @@ struct ListExamples: StaticPage {
         CodeBlock(.swift) {
             """
             List {
-                "Plain list item"
-                "Another plain item"
+                "Default list item"
+                "Another default item"
             }
             """
         }
 
         List {
-            "Plain list item"
-            "Another plain item"
+            "Default list item"
+            "Another default item"
         }
         .margin(.bottom, .medium)
+
+        CodeBlock(.swift) {
+            """
+            List {
+                "Plain list item"
+                "Another plain list item"
+            }
+            .listStyle(.plain)
+            """
+        }
+
+        List {
+            "Plain list item"
+            "Another plain list item"
+        }
+        .listStyle(.plain)
+        .margin(.bottom, .xLarge)
 
         CodeBlock(.swift) {
             """
@@ -175,23 +192,6 @@ struct ListExamples: StaticPage {
             "Another Horizontal item"
         }
         .listStyle(.horizontalGroup)
-        .margin(.bottom, .xLarge)
-
-        CodeBlock(.swift) {
-            """
-            List {
-                "Separated list item"
-                "Another separated list item"
-            }
-            .listStyle(.separated)
-            """
-        }
-
-        List {
-            "Separated list item"
-            "Another separated list item"
-        }
-        .listStyle(.separated)
         .margin(.bottom, .xLarge)
 
         Text("List Items")
