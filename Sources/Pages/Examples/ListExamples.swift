@@ -180,18 +180,18 @@ struct ListExamples: StaticPage {
         CodeBlock(.swift) {
             """
             List {
-                "Flush group item"
-                "Another flush item"
+                "Separated list item"
+                "Another separated list item"
             }
-            .listStyle(.flushGroup)
+            .listStyle(.separated)
             """
         }
 
         List {
-            "Flush group item"
-            "Another flush item"
+            "Separated list item"
+            "Another separated list item"
         }
-        .listStyle(.flushGroup)
+        .listStyle(.separated)
         .margin(.bottom, .xLarge)
 
         Text("List Items")
