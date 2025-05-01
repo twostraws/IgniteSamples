@@ -115,6 +115,7 @@ struct AccordionExamples: StaticPage {
                     Text("This is the third accordion item.")
                 }
             }
+            .accordionStyle(.plain)
             .openMode(.individual)
             """
         }
