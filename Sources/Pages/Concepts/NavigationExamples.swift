@@ -116,7 +116,7 @@ struct NavigationExamples: StaticPage {
         .background(.steelBlue)
         .margin(.bottom, .xLarge)
 
-        Text(markdown: "Add buttons, forms, and other controls to the trailing edge of the navigation bar using the `actions` parameter. These items will remain visible even when the navigation menu is collapsed:")
+        Text(markdown: "Show buttons, forms, and other controls at all screen sizes using `navigationBarVisibility()`. These items will remain visible even when the navigation menu is collapsed:")
 
         CodeBlock(.swift) {
             """
@@ -124,11 +124,12 @@ struct NavigationExamples: StaticPage {
                 Link("Accordions", target: AccordionExamples())
                 Link("Carousels", target: CarouselExamples())
                 Link("Tables", target: TableExamples())
-            } actions: {
+
                 Link("GitHub", target: "https://github.com/twostraws/Ignite")
                     .target(.newWindow)
                     .linkStyle(.button)
                     .role(.danger)
+                    .navigationBarVisibility(.always)
             }
             .navigationBarStyle(.dark)
             .background(.paleVioletRed)
@@ -139,11 +140,12 @@ struct NavigationExamples: StaticPage {
             Link("Accordions", target: AccordionExamples())
             Link("Carousels", target: CarouselExamples())
             Link("Tables", target: TableExamples())
-        } actions: {
+
             Link("GitHub", target: "https://github.com/twostraws/Ignite")
                 .target(.newWindow)
                 .linkStyle(.button)
                 .role(.danger)
+                .navigationBarVisibility(.always)
         }
         .navigationBarStyle(.dark)
         .background(.paleVioletRed)

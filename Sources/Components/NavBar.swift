@@ -51,8 +51,9 @@ struct NavBar: HTML {
                 Span("Ignite on GitHub")
                     .foregroundStyle(.white)
             }
-        } actions: {
-           searchForm
+
+            searchForm
+                .navigationBarVisibility(.always)
         } logo: {
             Image("/images/logo.svg", description: "ExampleSite logo")
                 .frame(width: .custom("min(60vw, 300px)"), height: .percent(100%))
