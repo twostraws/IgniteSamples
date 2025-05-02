@@ -10,6 +10,11 @@ import Ignite
 
 struct NavigationExamples: StaticPage {
     var title = "Navigation"
+    var description = """
+    Create responsive navigation bars with logos, links, and dropdowns. \
+    Customize with menu icons, sticky positioning, and persistent \
+    action controls that stay visible on mobile.
+    """
 
     var body: some HTML {
         Text("Navigation")
@@ -44,8 +49,7 @@ struct NavigationExamples: StaticPage {
         Text("All navigation bars automatically adapt to a mobile-friendly layout when horizontal space is restricted. Try it out here!")
 
         Alert {
-            Text("The bar on this site is fixed, which means it will always stay visible at the top.")
-            Text("If you also plan to use a fixed bar, make sure you add some top padding to your `Body` object in your theme, so it doesn't start under the navigation bar.")
+            Text(markdown: "If you plan to use a fixed bar like the one on this site, make sure you add some top padding to your `Body` object in your theme, so it doesn't start under the navigation bar.")
         }
         .role(.warning)
         .margin(.vertical, .large)
@@ -65,8 +69,8 @@ struct NavigationExamples: StaticPage {
                     Link("Lists", target: ListExamples())
                 }
             }
-            .navigationBarStyle(.dark)
-            .background(.steelBlue)
+            .navigationBarStyle(.light)
+            .background(.antiqueWhite)
             """
         }
 
@@ -81,11 +85,11 @@ struct NavigationExamples: StaticPage {
                 Link("Lists", target: ListExamples())
             }
         }
-        .navigationBarStyle(.dark)
-        .background(.steelBlue)
+        .navigationBarStyle(.light)
+        .background(.antiqueWhite)
         .margin(.bottom, .xLarge)
 
-        Text(markdown: "Use the `.navigationItemAlignment()` modifier to align bar items centrally or to the trailing edge:")
+        Text(markdown: "Use modifiers like `navigationItemAlignment()`, `navigationMenuIcon()`, and `navigationMenuStyle()` to customize the appearance of the navigation bar:")
 
         CodeBlock(.swift) {
             """
@@ -94,9 +98,10 @@ struct NavigationExamples: StaticPage {
                 Link("Carousels", target: CarouselExamples())
                 Link("Tables", target: TableExamples())
             }
-            .navigationItemAlignment(.trailing)
-            .navigationBarStyle(.light)
-            .background(.antiqueWhite)
+            .navigationItemAlignment(.leading)
+            .navigationMenuIcon(.ellipsis)
+            .navigationMenuStyle(.plain)
+            .background(.steelBlue)
             """
         }
 
@@ -105,9 +110,45 @@ struct NavigationExamples: StaticPage {
             Link("Carousels", target: CarouselExamples())
             Link("Tables", target: TableExamples())
         }
-        .navigationItemAlignment(.trailing)
-        .navigationBarStyle(.light)
-        .background(.antiqueWhite)
+        .navigationItemAlignment(.leading)
+        .navigationMenuIcon(.ellipsis)
+        .navigationMenuStyle(.plain)
+        .background(.steelBlue)
+        .margin(.bottom, .xLarge)
+
+        Text(markdown: "Show buttons, forms, and other controls at all screen sizes using `navigationBarVisibility()`. These items will remain visible even when the navigation menu is collapsed:")
+
+        CodeBlock(.swift) {
+            """
+            NavigationBar(logo: "My Awesome Site") {
+                Link("Accordions", target: AccordionExamples())
+                Link("Carousels", target: CarouselExamples())
+                Link("Tables", target: TableExamples())
+
+                Link("GitHub", target: "https://github.com/twostraws/Ignite")
+                    .target(.newWindow)
+                    .linkStyle(.button)
+                    .role(.danger)
+                    .navigationBarVisibility(.always)
+            }
+            .navigationBarStyle(.dark)
+            .background(.paleVioletRed)
+            """
+        }
+
+        NavigationBar(logo: "My Awesome Site") {
+            Link("Accordions", target: AccordionExamples())
+            Link("Carousels", target: CarouselExamples())
+            Link("Tables", target: TableExamples())
+
+            Link("GitHub", target: "https://github.com/twostraws/Ignite")
+                .target(.newWindow)
+                .linkStyle(.button)
+                .role(.danger)
+                .navigationBarVisibility(.always)
+        }
+        .navigationBarStyle(.dark)
+        .background(.paleVioletRed)
         .margin(.bottom, .xLarge)
 
         Text(markdown: """
@@ -122,7 +163,6 @@ struct NavigationExamples: StaticPage {
                 Link("Carousels", target: CarouselExamples())
                 Link("Tables", target: TableExamples())
             }
-            .navigationItemAlignment(.trailing)
             .navigationBarStyle(.dark)
             .position(.fixedBottom)
             .background(.steelBlue)
@@ -134,7 +174,6 @@ struct NavigationExamples: StaticPage {
             Link("Carousels", target: CarouselExamples())
             Link("Tables", target: TableExamples())
         }
-        .navigationItemAlignment(.trailing)
         .navigationBarStyle(.dark)
         .position(.fixedBottom)
         .background(.steelBlue)

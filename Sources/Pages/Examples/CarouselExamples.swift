@@ -10,6 +10,12 @@ import Ignite
 
 struct CarouselExamples: StaticPage {
     var title = "Carousels"
+    var description = """
+    Create dynamic image slideshows with optional content overlays. \
+    Design carousels with different transition styles, \
+    background opacity controls, and rich content layouts. \
+    Supports automatic scaling and cropping of images to fill available space.
+    """
 
     var body: some HTML {
         Text("Carousels")
@@ -49,7 +55,7 @@ struct CarouselExamples: StaticPage {
                 Slide(background: "/images/photos/wind.jpg")
                 Slide(background: "/images/photos/washing.jpg")
             }
-            .carouselStyle(.crossfade)
+            .carouselStyle(.crossfade(3, curve: .easeInOut))
             """
         }
 
@@ -58,7 +64,7 @@ struct CarouselExamples: StaticPage {
             Slide(background: "/images/photos/wind.jpg")
             Slide(background: "/images/photos/washing.jpg")
         }
-        .carouselStyle(.crossfade)
+        .carouselStyle(.crossfade(3, curve: .easeInOut))
         .margin(.bottom, .xLarge)
 
         Text("""

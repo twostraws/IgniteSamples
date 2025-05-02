@@ -10,6 +10,11 @@ import Ignite
 
 struct AccordionExamples: StaticPage {
     var title = "Accordions"
+    var description = """
+    Create collapsible content sections that users can expand and collapse. \
+    Learn how to control whether multiple sections can be open at once, \
+    set default open states, and style accordion titles and content.
+    """
 
     var body: some HTML {
         Text("Accordions")
@@ -110,6 +115,7 @@ struct AccordionExamples: StaticPage {
                     Text("This is the third accordion item.")
                 }
             }
+            .accordionStyle(.plain)
             .openMode(.individual)
             """
         }
@@ -128,6 +134,7 @@ struct AccordionExamples: StaticPage {
             }
         }
         .openMode(.individual)
+        .accordionStyle(.plain)
         .margin(.bottom, .xLarge)
 
         Text("And you can add more complex elements and styling to your accordion titles and contents if you want:")
@@ -135,45 +142,59 @@ struct AccordionExamples: StaticPage {
         CodeBlock(.swift) {
             """
             Accordion {
-                Item(Emphasis { "This title is italic" }, startsOpen: true) {
+                Item(startsOpen: true) {
                     Text {
                         Image("/images/photos/chair.jpg", description: "This is a picture of a chair, and not a dog.")
                             .resizable()
                     }
 
                     Text("This is the first accordion item.")
+                } header: {
+                    Emphasis { "This title is italic" }
+                        .foregroundStyle(.black)
                 }
 
                 Item(Underline { "This title is underlined." }) {
                     Text("This is the second accordion item.")
                 }
+                .contentBackground(.aliceBlue)
 
                 Item(Strong { "This title is bold." }) {
                     Text("This is the third accordion item.")
                 }
             }
             .openMode(.individual)
+            .headerBackground(.mintCream, open: .seaGreen)
+            .headerForegroundStyle(.darkGreen, open: .white)
+            .borderColor(.lightSeaGreen)
             """
         }
 
         Accordion {
-            Item(Emphasis { "This title is italic" }, startsOpen: true) {
+            Item(startsOpen: true) {
                 Text {
                     Image("/images/photos/chair.jpg", description: "This is a picture of a chair, and not a dog.")
                         .resizable()
                 }
 
                 Text("This is the first accordion item.")
+            } header: {
+                Emphasis { "This title is italic" }
+                    .foregroundStyle(.black)
             }
 
             Item(Underline { "This title is underlined." }) {
                 Text("This is the second accordion item.")
             }
+            .contentBackground(.aliceBlue)
 
             Item(Strong { "This title is bold." }) {
                 Text("This is the third accordion item.")
             }
         }
         .openMode(.individual)
+        .headerBackground(.mintCream, open: .seaGreen)
+        .headerForegroundStyle(.darkGreen, open: .white)
+        .borderColor(.lightSeaGreen)
     }
 }

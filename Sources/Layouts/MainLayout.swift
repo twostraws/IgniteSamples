@@ -9,10 +9,10 @@ import Foundation
 import Ignite
 
 struct MainLayout: Layout {
-    var body: some HTML {
+    var body: Document {
         Body {
             NavBar()
-                .padding(.bottom, 80)
+                .padding(.bottom, 100)
 
             content
 

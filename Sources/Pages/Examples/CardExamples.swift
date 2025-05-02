@@ -10,6 +10,12 @@ import Ignite
 
 struct CardExamples: StaticPage {
     var title = "Cards"
+    var description = """
+    Create flexible content containers with images, headers, and footers. \
+    Design cards with different styles, roles, and content layouts, including \
+    overlay text positioning and image opacity controls. Supports default, \
+    solid, and bordered variants with semantic styling.
+    """
 
     var body: some HTML {
         Text("Cards")

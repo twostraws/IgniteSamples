@@ -17,6 +17,7 @@ struct NavBar: HTML {
                 Link("Navigation", target: NavigationExamples())
                 Link("Content", target: ContentExamples())
                 Link("Text", target: TextExamples())
+                Link("Forms", target: FormExamples())
                 Link("Styling", target: StylingExamples())
                 Link("Theming", target: ThemeExamples())
             } title: {
@@ -47,7 +48,7 @@ struct NavBar: HTML {
             }
 
             Link(target: "https://github.com/twostraws/Ignite") {
-                Text("Ignite on GitHub")
+                Span("Ignite on GitHub")
                     .foregroundStyle(.white)
             }
         } logo: {

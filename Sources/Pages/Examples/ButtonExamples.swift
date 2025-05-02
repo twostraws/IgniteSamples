@@ -10,6 +10,11 @@ import Ignite
 
 struct ButtonExamples: StaticPage {
     var title = "Buttons"
+    var description = """
+    Create interactive buttons with semantic styling and client-side actions. \
+    Design buttons with different roles, sizes, and behaviors to trigger \
+    JavaScript events, show alerts, toggle content visibility, or navigate between pages.
+    """
 
     var body: some HTML {
         Text("Buttons")
@@ -139,7 +144,7 @@ struct ButtonExamples: StaticPage {
 
         CodeBlock(.swift) {
             """
-            ForEach(Role.badgeRoles) { role in
+            ForEach(Role.standardRoles) { role in
                 ForEach(Button.Size.allCases) { size in
                     Text {
                         Button("\\(size.rawValue.capitalized) button with \\(role.rawValue) role")
@@ -151,7 +156,7 @@ struct ButtonExamples: StaticPage {
             """
         }
 
-        ForEach(Role.badgeRoles) { role in
+        ForEach(Role.standardRoles) { role in
             ForEach(Button.Size.allCases) { size in
                 Text {
                     let description = "\(size.rawValue.capitalized) button with \(role.rawValue) role"

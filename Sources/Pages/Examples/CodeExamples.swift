@@ -10,6 +10,11 @@ import Ignite
 
 struct CodeExamples: StaticPage {
     var title = "Code"
+    var description = """
+    Display code snippets with syntax highlighting and language-specific formatting. \
+    Create inline code with Code or multi-line blocks with CodeBlock, \
+    supporting multiple programming languages.
+    """
 
     var body: some HTML {
         Text("Code")
@@ -22,9 +27,9 @@ struct CodeExamples: StaticPage {
             Text(markdown: "You can also create code with Markdown, alongside other text: `NavigationSplitView`.")
 
             Text(markdown: """
-        When using `CodeBlock`, you can specify a language for your code. \
-        If you also include that language in your site's syntax highlighters, that code will be colored automatically.
-        """)
+            When using `CodeBlock`, you can specify a language for your code. \
+            If you also include that language in your site's syntax highlighters, that code will be colored automatically.
+            """)
 
             Text("For example, here's some Swift code:")
 
@@ -122,6 +127,42 @@ struct CodeExamples: StaticPage {
         }
         .margin(.bottom, .xLarge)
 
-        Text(markdown: "**Important:** The configuration for this site includes all three languages as highlighters.")
+        Alert {
+            Text(markdown: "**Important:** When using syntax highlighting in articles, your site's `syntaxHighlighterConfiguration` must include those languages.")
+        }
+        .role(.warning)
+
+        Text(markdown: "Use the `highlightedLines()` and `lineNumberVisibility()` modifiers to style your code blocks:")
+
+        CodeBlock(.swift) {
+            """
+            CodeBlock(.swift) {
+                \"""
+                struct User {
+                    let name: String
+                    let age: Int
+                    let email: String
+                    let isActive: Bool
+                }
+                \"""
+            }
+            .highlightedLines(2, 4)
+            .lineNumberVisibility(.visible) 
+            """
+        }
+
+        CodeBlock(.swift) {
+            """
+            struct User {
+                let name: String
+                let age: Int
+                let email: String
+                let isActive: Bool
+            }
+            """
+        }
+        .highlightedLines(2, 4)
+        .lineNumberVisibility(.visible)
+        .margin(.bottom, .xLarge)
     }
 }

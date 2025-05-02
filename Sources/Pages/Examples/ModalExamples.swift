@@ -10,6 +10,11 @@ import Ignite
 
 struct ModalExamples: StaticPage {
     var title = "Modals"
+    var description = """
+    Learn how to create and customize modals with different sizes, \
+    positions, headers, and footers. See how to make content scrollable \
+    and control modal behavior with presentation options.
+    """
 
     var body: some HTML {
         Text("Modals")

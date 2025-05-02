@@ -10,6 +10,11 @@ import Ignite
 
 struct TextExamples: StaticPage {
     var title = "Text"
+    var description = """
+    Format text with Markdown, custom styles, and embedded elements. \
+    Learn how to adjust font weights, colors, alignment, and line limits \
+    to create beautiful typography.
+    """
 
     var body: some HTML {
         Text("Text")
@@ -21,18 +26,19 @@ struct TextExamples: StaticPage {
         CodeBlock(.swift) {
             """
             Text(markdown: \"""
-            Although you *can* use elements such as `Strong` and `Italic` to style your text, it's easier to use markdown. \
+            Although you *can* use elements such as `Strong` and `Italic` to style your text, it's easier to use Markdown. \
             To do that, use `Text(markdown:)` then write your Markdown as normal.
             \""")
             """
         }
 
         Text(markdown: """
-        Although you *can* use elements such as `Strong` and `Italic` to style your text, it's easier to use markdown. \
+        Although you *can* use elements such as `Strong` and `Italic` to style your text, it's easier to use Markdown. \
         To do that, use `Text(markdown:)` then write your Markdown as normal.
-        """)
 
-        Text("It's common to place other elements inside text, to gain access to alignment and more. For example, icons, badges, and images are all commonly used inside text.")
+        It's common to place other elements inside text, to gain access to alignment and more. For example, icons, badges, \
+        and images are all commonly used inside text.
+        """)
 
         CodeBlock(.swift) {
             """
@@ -214,5 +220,18 @@ struct TextExamples: StaticPage {
 
         Text("This is steel blue text.")
             .foregroundStyle(.steelBlue)
+            .margin(.bottom, .xLarge)
+
+        Text(markdown: "Limit the number of lines your text displays using the `lineLimit()` modifier:")
+
+        CodeBlock(.swift) {
+            """
+            Text(placeholderLength: 200)
+                .lineLimit(2)
+            """
+        }
+
+        Text(placeholderLength: 200)
+            .lineLimit(2)
     }
 }

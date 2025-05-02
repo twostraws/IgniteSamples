@@ -10,6 +10,11 @@ import Ignite
 
 struct ImageExamples: StaticPage {
     var title = "Images"
+    var description = """
+    Display local images and system icons with resizing, \
+    lazy loading, and accessibility support. Customize \
+    icons with different colors and sizes.
+    """
 
     // This page also demonstrates using a custom layout, as shown below.
     var layout = SuggestedArticleLayout()
@@ -69,7 +74,7 @@ struct ImageExamples: StaticPage {
 
         ForEach(Font.Style.allCases) { font in
             Text {
-                ForEach(icons) { icon in
+                InlineForEach(icons) { icon in
                     Image(systemName: icon)
                         .margin(.trailing, 20)
                 }
@@ -98,7 +103,7 @@ struct ImageExamples: StaticPage {
         let colors = [Color.green, .blue, .indigo, .slateGray, .gold, .orange, .tomato, .gray]
 
         Text {
-            ForEach(zip(icons, colors)) { icon, color in
+            InlineForEach(zip(icons, colors)) { icon, color in
                 Image(systemName: icon)
                     .foregroundStyle(color)
                     .margin(.trailing, 20)
