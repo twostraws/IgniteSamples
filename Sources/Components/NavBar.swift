@@ -51,9 +51,6 @@ struct NavBar: HTML {
                 Span("Ignite on GitHub")
                     .foregroundStyle(.white)
             }
-
-            searchForm
-                .navigationBarVisibility(.always)
         } logo: {
             Image("/images/logo.svg", description: "ExampleSite logo")
                 .frame(width: .custom("min(60vw, 300px)"), height: .percent(100%))
@@ -61,22 +58,5 @@ struct NavBar: HTML {
         .navigationItemAlignment(.trailing)
         .background(.firebrick)
         .position(.fixedTop)
-    }
-
-    private var searchForm: some NavigationItem {
-        SearchForm { result in
-            result.title
-                .foregroundStyle(.firebrick)
-                .font(.title4)
-            result.description
-            if let tags = result.tags {
-                tags
-                    .background(.firebrick)
-                    .foregroundStyle(.white)
-                    .padding(.horizontal, 5)
-                    .cornerRadius(3)
-            }
-        }
-        .frame(width: .percent(100%))
     }
 }

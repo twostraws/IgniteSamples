@@ -194,7 +194,7 @@ struct FormExamples: StaticPage {
         Text("Built-in Forms")
             .font(.title2)
 
-        Text(markdown: "Ignite includes specialized forms for common use cases like newsletter subscriptions and site search.")
+        Text(markdown: "Ignite includes specialized forms for common use cases like newsletter subscriptions.")
 
         Text("Newsletter subscriptions")
             .font(.title3)
@@ -215,57 +215,5 @@ struct FormExamples: StaticPage {
             .subscribeButtonLabel("Join our newsletter")
             .formStyle(.stacked)
             .margin(.bottom, .xLarge)
-
-        Text("Site search")
-            .font(.title3)
-
-        Text(markdown: "The `SearchForm` component provides instant, client-side search across your entire site:")
-
-        CodeBlock(.swift) {
-            """
-            SearchForm { result in
-                result.title
-                    .font(.title3)
-                    .foregroundStyle(.gold)
-                result.description
-            } noResultsView: {
-                Text("Sorry, we couldn't find any results for that search.")
-                    .foregroundStyle(.red)
-                    .horizontalAlignment(.center)
-            } resultsPageHeader: {
-                Text("Search the IgniteSamples")
-                    .horizontalAlignment(.center)
-            }
-            .searchPrompt("Search our site...")
-            .searchButtonLabel("Find")
-            .searchButtonStyle(.titleAndIcon)
-            """
-        }
-
-        SearchForm { result in
-            result.title
-                .font(.title3)
-                .foregroundStyle(.gold)
-            result.description
-        } noResultsView: {
-            Text("Sorry, we couldn't find any results for that search.")
-                .foregroundStyle(.red)
-                .horizontalAlignment(.center)
-        } resultsPageHeader: {
-            Text("Search the IgniteSamples")
-                .horizontalAlignment(.center)
-        }
-        .searchPrompt("Search our site...")
-        .searchButtonStyle(.titleAndIcon)
-        .searchButtonLabel("Find")
-        .margin(.bottom, .xLarge)
-
-        Text("Each page's search index is built automatically from its metadata:")
-
-        List {
-            Text(markdown: "A `StaticPage` is indexed using its `title`, `description`, and `URL`")
-            Text(markdown: "An `Article` is indexed using its `title`, `description`, `URL`, `tags`, and `date`")
-            Text(markdown: "Pages without a description are omitted from search results")
-        }
     }
 }
