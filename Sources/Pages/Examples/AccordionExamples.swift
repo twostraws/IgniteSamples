@@ -41,7 +41,6 @@ struct AccordionExamples: StaticPage {
                 }
             }
             .openMode(.individual)
-            .margin(.bottom, .xLarge)
             """
         }
 
