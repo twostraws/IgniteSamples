@@ -494,19 +494,19 @@ struct ModalExamples: StaticPage {
             }
             Row {
                 Text(markdown: "`noBackdrop`")
-                Text("Disables the backdrop, making the modal non-dismissible by clicking outside it.")
+                Text(markdown: "Disables the backdrop, making the modal non-dismissible by clicking outside it.")
             }
             Row {
                 Text(markdown: "`backdrop(dismissible: Bool)`")
-                Text("Enables the backdrop by default. If `dismissible` is set to `false`, the modal cannot be dismissed by clicking outside.")
+                Text(markdown: "Enables the backdrop by default. If `dismissible` is set to `false`, the modal cannot be dismissed by clicking outside.")
             }
             Row {
                 Text(markdown: "`keyboard(Bool)`")
-                Text("Allows the modal to be dismissed by pressing the ESC key when set to `true`. If `false`, this behavior is disabled. The default is `true`.")
+                Text(markdown: "Allows the modal to be dismissed by pressing the ESC key when set to `true`. If `false`, this behavior is disabled. The default is `true`.")
             }
             Row {
                 Text(markdown: "`focus(Bool)`")
-                Text("When `true`, the modal will autofocus on the modal when opened. The default is `true`.")
+                Text(markdown: "When `true`, the modal will autofocus on the modal when opened. The default is `true`.")
             }
         }
 

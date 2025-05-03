@@ -43,7 +43,17 @@ struct ContentExamples: StaticPage {
         Text(markdown: "[This article uses the default layout](/story/luna-and-arya-come-to-wwdc).")
 
         Text(markdown: "[And this article uses a custom layout](/story/sam-swift-saves-the-day).")
-            .padding(.bottom, .xLarge)
+
+        Alert {
+            Text(markdown: "**Important**: When adding article layouts to your `Site`, make sure to explicitly define the type of `articlePages` as `[any ArticlePage]`. Otherwise the compiler may infer the wrong type:")
+            CodeBlock(.swift) {
+                """
+                var articlePages: [any ArticlePage] = [MyBlogLayout()]
+                """
+            }
+        }
+        .role(.warning)
+        .margin(.bottom, .xLarge)
 
         Text("Listing articles")
             .font(.title2)
