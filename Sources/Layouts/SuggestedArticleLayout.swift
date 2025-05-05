@@ -11,7 +11,7 @@ import Ignite
 struct SuggestedArticleLayout: Layout {
     @Environment(\.articles) private var articles
 
-    var body: Document {
+    var body: some Document {
         Body {
             NavBar()
 

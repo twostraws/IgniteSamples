@@ -9,7 +9,7 @@ import Foundation
 import Ignite
 
 struct MainLayout: Layout {
-    var body: Document {
+    var body: some Document {
         Body {
             NavBar()
                 .padding(.bottom, 100)
