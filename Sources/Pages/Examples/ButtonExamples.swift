@@ -145,7 +145,7 @@ struct ButtonExamples: StaticPage {
         CodeBlock(.swift) {
             """
             ForEach(Role.standardRoles) { role in
-                ForEach(Button.Size.allCases) { size in
+                ForEach(ButtonSize.allCases) { size in
                     Text {
                         Button("\\(size.rawValue.capitalized) button with \\(role.rawValue) role")
                             .buttonSize(size)
@@ -157,7 +157,7 @@ struct ButtonExamples: StaticPage {
         }
 
         ForEach(Role.standardRoles) { role in
-            ForEach(Button.Size.allCases) { size in
+            ForEach(ButtonSize.allCases) { size in
                 Text {
                     let description = "\(size.rawValue.capitalized) button with \(role.rawValue) role"
                     Button(role == .close ? "" : description)

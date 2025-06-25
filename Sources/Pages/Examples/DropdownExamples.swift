@@ -70,7 +70,7 @@ struct DropdownExamples: StaticPage {
         }
 
         ForEach(Role.allCases) { role in
-            ForEach(Button.Size.allCases) { size in
+            ForEach(ButtonSize.allCases) { size in
                 Dropdown("\(size.rawValue.capitalized) \(role.rawValue) dropdown") {
                     Link("Example Link", target: "#")
                 }

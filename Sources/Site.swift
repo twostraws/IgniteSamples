@@ -17,13 +17,14 @@ struct IgniteWebsite {
 struct ExampleSite: Site {
     var name = "My Awesome Site"
     var titleSuffix = " – My Awesome Site"
-    var url = URL(static: "https://www.yoursite.com")
+    var url = URL(static: "https://www.example.com")
 
     var builtInIconsEnabled = true
     var syntaxHighlighterConfiguration: SyntaxHighlighterConfiguration = .init(languages: [.swift, .python, .ruby])
-    var feedConfiguration = FeedConfiguration(mode: .full, contentCount: 20, image: .init(url: "https://www.yoursite.com/images/icon32.png", width: 32, height: 32))
+    var feedConfiguration = FeedConfiguration(mode: .full, contentCount: 20, image: .init(url: "https://www.example.com/images/icon32.png", width: 32, height: 32))
     var robotsConfiguration = Robots()
     var author = "Paul Hudson"
+    var useDefaultBootstrapURLs: BootstrapOptions { .remoteBootstrap }
 
     var homePage = Home()
     var tagPage = Tags()

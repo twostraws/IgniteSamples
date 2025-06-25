@@ -1,5 +1,5 @@
 //
-// SuggestedArticlePage.swift
+// SuggestedArticleLayout.swift
 // IgniteSamples
 // https://www.github.com/twostraws/Ignite
 // See LICENSE for license information.
@@ -15,21 +15,22 @@ struct SuggestedArticleLayout: Layout {
         Body {
             NavBar()
 
-            Grid(alignment: .top) {
-                content
-                    .width(9)
-                    .padding(.vertical, 80)
+            Grid(columns: 12, alignment: .top) {
+                GridRow {
+                    content
+                        .gridCellColumns(9)
 
-                Section {
-                    Text("Read this next…")
-                        .font(.title3)
+                    Section {
+                        Text("Read this next…")
+                            .font(.title3)
 
-                    if let latest = articles.all.randomElement() {
-                        ArticlePreview(for: latest)
+                        if let latest = articles.all.randomElement() {
+                            ArticlePreview(for: latest)
+                        }
                     }
+                    .gridCellColumns(3)
+                    .position(.stickyTop)
                 }
-                .width(3)
-                .position(.stickyTop)
                 .padding(.top, 80)
             }
 

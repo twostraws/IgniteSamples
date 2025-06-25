@@ -25,13 +25,126 @@ struct GridExamples: StaticPage {
         """)
             .font(.lead)
 
-        Text(markdown: "To create a grid, use the `Grid` element. Your columns will be subdivided to make space for each item you've placed.")
+        Text(markdown: """
+        To create a grid, use the `Grid` element. Items placed inside a `GridRow` will be distributed evenly throughout the row, taking up one column each.
+        """)
 
         Text("For example, these pictures all take up one third of the available space:")
 
         CodeBlock(.swift) {
             """
             Grid {
+                GridRow {
+                    Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
+                        .resizable()
+
+                    Image("/images/photos/stack.jpg", description: "A door partly open.")
+                        .resizable()
+
+
+                    Image("/images/photos/wind.jpg", description: "A windy day.")
+                        .resizable()
+                }
+            }
+            """
+        }
+
+        Grid {
+            GridRow {
+                Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
+                    .resizable()
+
+                Image("/images/photos/stack.jpg", description: "A door partly open.")
+                    .resizable()
+
+                Image("/images/photos/wind.jpg", description: "A windy day.")
+                    .resizable()
+            }
+        }
+        .margin(.bottom, .xLarge)
+
+        Text(markdown: "Elements that aren't wrapped in a `GridRow` will span an entire row:")
+
+        CodeBlock(.swift) {
+            """
+            Grid {
+                Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
+                    .resizable()
+            }
+            """
+        }
+
+        Grid {
+            Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
+                .resizable()
+        }
+        .margin(.bottom, .xLarge)
+
+        Text(markdown: "The width of the grid is determined by the row with the most columns:")
+
+        CodeBlock(.swift) {
+            """
+            Grid {
+                GridRow {
+                    Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
+                        .resizable()
+
+                    Image("/images/photos/stack.jpg", description: "A door partly open.")
+                        .resizable()
+                }
+                
+                GridRow {
+                    Image("/images/photos/wind.jpg", description: "A windy day.")
+                        .resizable()
+                }
+            }
+            """
+        }
+
+        Grid {
+            GridRow {
+                Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
+                    .resizable()
+
+                Image("/images/photos/stack.jpg", description: "A door partly open.")
+                    .resizable()
+            }
+
+            GridRow {
+                Image("/images/photos/wind.jpg", description: "A windy day.")
+                    .resizable()
+            }
+        }
+        .margin(.bottom, .xLarge)
+
+        Text(markdown: """
+        By default, when space is restricted, your views will rearrange to take up an entire row. To control how grid items scale
+        at small screen sizes, use the `gridItemSizing()` modifier.
+        """)
+
+        Text("For example, these pictures all remain in the same row:")
+
+        CodeBlock(.swift) {
+            """
+            Grid {
+                GridRow {
+                    Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
+                        .resizable()
+
+                    Image("/images/photos/stack.jpg", description: "A door partly open.")
+                        .resizable()
+
+
+                    Image("/images/photos/wind.jpg", description: "A windy day.")
+                        .resizable()
+                }
+            }
+            .gridItemSizing(.adaptive(minimum: 0))
+            """
+        }
+
+        Grid {
+            GridRow {
                 Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
                     .resizable()
 
@@ -42,144 +155,64 @@ struct GridExamples: StaticPage {
                 Image("/images/photos/wind.jpg", description: "A windy day.")
                     .resizable()
             }
-            """
         }
-
-        Grid {
-            Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
-                .resizable()
-
-            Image("/images/photos/stack.jpg", description: "A door partly open.")
-                .resizable()
-
-            Image("/images/photos/wind.jpg", description: "A windy day.")
-                .resizable()
-        }
+        .gridItemSizing(.adaptive(minimum: 0))
         .margin(.bottom, .xLarge)
 
-        Text(markdown: "You can also explicitly set a width for each element using the `width()` modifier.")
-
-        Text("""
-        This modifier automatically causes your views to rearrange themselves when horizontal space is restricted.
-        For example, these pictures all take up one third of the available space when the browser window is wide, but all the space when the window is narrow:
-        """)
+        Text("Although 12 columns is the default, you can adjust it downwards if needed. For example, this uses a 3-column grid:")
 
         CodeBlock(.swift) {
             """
-            Grid {
+            Grid(columns: 3, alignment: .top) {
+                GridRow {
+                    Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
+                        .resizable()
+                        .gridCellColumns(2)
+
+                    Image("/images/photos/wind.jpg", description: "A windy day.")
+                        .resizable()
+                }
+            }
+            """
+        }
+
+        Grid(columns: 3, alignment: .top) {
+            GridRow {
                 Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
                     .resizable()
-                    .width(4)
-
-                Image("/images/photos/stack.jpg", description: "A door partly open.")
-                    .resizable()
-                    .width(4)
+                    .gridCellColumns(2)
 
                 Image("/images/photos/wind.jpg", description: "A windy day.")
                     .resizable()
-                    .width(4)
+            }
+        }
+        .margin(.bottom, .xLarge)
+
+        Text(markdown: "You can explicitly set a width for each element using the `gridCellColumns()` modifier:")
+
+        CodeBlock(.swift) {
+            """
+            Grid(columns: 2) {
+                Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
+                    .resizable()
+                    .gridCellColumns(1)
+
+                Image("/images/photos/wind.jpg", description: "A windy day.")
+                    .resizable()
+                    .gridCellColumns(1)
             }
             """
         }
 
-        Grid {
+        Grid(columns: 2) {
             Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
                 .resizable()
-                .width(4)
-
-            Image("/images/photos/stack.jpg", description: "A door partly open.")
-                .resizable()
-                .width(4)
+                .gridCellColumns(1)
 
             Image("/images/photos/wind.jpg", description: "A windy day.")
                 .resizable()
-                .width(4)
+                .gridCellColumns(1)
         }
         .margin(.bottom, .xLarge)
-
-        Text("Wrapping items")
-            .font(.title1)
-
-        Text("""
-        If you place more than 12 columns of items in a grid, they will wrap automatically. \
-        For example, this uses four pictures of width 4, causing one to wrap to the next line:
-        """)
-
-        CodeBlock(.swift) {
-            """
-            Grid(alignment: .leading) {
-                Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
-                    .resizable()
-                    .width(4)
-
-                Image("/images/photos/stack.jpg", description: "A door partly open.")
-                    .resizable()
-                    .width(4)
-
-                Image("/images/photos/rug.jpg", description: "A nice rug.")
-                    .resizable()
-                    .width(4)
-
-                Image("/images/photos/car.jpg", description: "The window of a car.")
-                    .resizable()
-                    .width(4)
-            }
-            """
-        }
-
-        Grid(alignment: .leading) {
-            Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
-                .resizable()
-                .width(4)
-
-            Image("/images/photos/stack.jpg", description: "A door partly open.")
-                .resizable()
-                .width(4)
-
-            Image("/images/photos/rug.jpg", description: "A nice rug.")
-                .resizable()
-                .width(4)
-
-            Image("/images/photos/car.jpg", description: "The window of a car.")
-                .resizable()
-                .width(4)
-        }
-        .margin(.bottom, .xLarge)
-
-        Text("Although 12 columns is the default, you can adjust it downwards if needed. For example, this uses a 2-column grid:")
-
-        CodeBlock(.swift) {
-            """
-            Grid {
-                Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
-                    .resizable()
-
-                Image("/images/photos/stack.jpg", description: "A door partly open.")
-                    .resizable()
-
-                Image("/images/photos/rug.jpg", description: "A nice rug.")
-                    .resizable()
-
-                Image("/images/photos/car.jpg", description: "The window of a car.")
-                    .resizable()
-            }
-            .columns(2)
-            """
-        }
-
-        Grid {
-            Image("/images/photos/shades.jpg", description: "A pair of sunglasses.")
-                .resizable()
-
-            Image("/images/photos/stack.jpg", description: "A door partly open.")
-                .resizable()
-
-            Image("/images/photos/rug.jpg", description: "A nice rug.")
-                .resizable()
-
-            Image("/images/photos/car.jpg", description: "The window of a car.")
-                .resizable()
-        }
-        .columns(2)
     }
 }

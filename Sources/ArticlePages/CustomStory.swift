@@ -18,12 +18,9 @@ struct CustomStory: ArticlePage {
         Text(article.title)
             .font(.title1)
 
-        if let tagLinks = article.tagLinks() {
-            HStack(spacing: .xSmall) {
-                ForEach(tagLinks) { link in
-                    link.font(.title3)
-                }
-            }
+        HStack(spacing: .xSmall) {
+            article.tagLinks()
+                .font(.title3)
         }
 
         Text(article.text)

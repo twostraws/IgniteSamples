@@ -94,8 +94,8 @@ struct ModalExamples: StaticPage {
                 .horizontalAlignment(.trailing)
 
                 Text("Dismiss me by clicking on the close button.")
-                    .horizontalAlignment(.center)
                     .font(.title3)
+                    .horizontalAlignment(.center)
                     .margin(.xLarge)
             }
             """
@@ -122,8 +122,8 @@ struct ModalExamples: StaticPage {
                 .horizontalAlignment(.trailing)
 
                 Text("Dismiss me by clicking on the close button.")
-                    .horizontalAlignment(.center)
                     .font(.title3)
+                    .horizontalAlignment(.center)
                     .margin(.xLarge)
             }
         }
@@ -156,8 +156,8 @@ struct ModalExamples: StaticPage {
 
             Modal(id: "\(xLargeModalId)") {
                 Text(markdown: "Modal with size `.xLarge`")
-                    .horizontalAlignment(.center)
                     .font(.title3)
+                    .horizontalAlignment(.center)
                     .margin(.xLarge)
             }
             .size(.xlarge)
@@ -171,8 +171,8 @@ struct ModalExamples: StaticPage {
                 .horizontalAlignment(.trailing)
 
                 Text(markdown: "Modal with size `.fullscreen`.")
-                    .horizontalAlignment(.center)
                     .font(.title3)
+                    .horizontalAlignment(.center)
                     .margin(.xLarge)
             }
             .size(.fullscreen)
@@ -212,16 +212,16 @@ struct ModalExamples: StaticPage {
 
             Modal(id: "\(smallModalId)") {
                 Text(markdown: "Modal with size `.small`")
-                    .horizontalAlignment(.center)
                     .font(.title3)
+                    .horizontalAlignment(.center)
                     .margin(.xLarge)
             }
             .size(.small)
 
             Modal(id: "\(xLargeModalId)") {
                 Text(markdown: "Modal with size `.xLarge`")
-                    .horizontalAlignment(.center)
                     .font(.title3)
+                    .horizontalAlignment(.center)
                     .margin(.xLarge)
             }
             .size(.xLarge)
@@ -235,8 +235,8 @@ struct ModalExamples: StaticPage {
                 .horizontalAlignment(.trailing)
 
                 Text(markdown: "Modal with size `.fullscreen`.")
-                    .horizontalAlignment(.center)
                     .font(.title3)
+                    .horizontalAlignment(.center)
                     .margin(.xLarge)
             }
             .size(.fullscreen)
@@ -260,8 +260,8 @@ struct ModalExamples: StaticPage {
             """
             Modal(id: "\(topModalId)") {
                 Text(markdown: "Modal with `Position.top`")
-                    .horizontalAlignment(.center)
                     .font(.title3)
+                    .horizontalAlignment(.center)
                     .margin(.xLarge)
             }
             .position(.top)
@@ -282,8 +282,8 @@ struct ModalExamples: StaticPage {
 
             Modal(id: topModalId) {
                 Text(markdown: "Modal with `Position.top`")
-                    .horizontalAlignment(.center)
                     .font(.title3)
+                    .horizontalAlignment(.center)
                     .margin(.xLarge)
             }
             .modalPosition(.top)

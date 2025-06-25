@@ -45,14 +45,13 @@ struct FormExamples: StaticPage {
         Form {
             TextField("Name", prompt: "Enter your name")
                 .type(.text)
-                .width(1)
+                .formControlWidth(6)
 
             Button("Submit")
                 .type(.submit)
                 .role(.primary)
-                .width(1)
+                .formControlWidth(6)
         }
-        .columns(2)
         .margin(.bottom, .xLarge)
 
         Text("Label styles")
