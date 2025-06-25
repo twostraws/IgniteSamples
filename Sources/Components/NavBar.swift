@@ -12,7 +12,7 @@ import Ignite
 struct NavBar: HTML {
     var body: some HTML {
         NavigationBar {
-            Dropdown {
+            Dropdown("Key concepts") {
                 Link("Grid Layout", target: GridExamples())
                 Link("Navigation", target: NavigationExamples())
                 Link("Content", target: ContentExamples())
@@ -20,12 +20,10 @@ struct NavBar: HTML {
                 Link("Forms", target: FormExamples())
                 Link("Styling", target: StylingExamples())
                 Link("Theming", target: ThemeExamples())
-            } title: {
-                Span("Key concepts")
-                    .foregroundStyle(.white)
             }
+            .labelColor(.white)
 
-            Dropdown {
+            Dropdown("Examples") {
                 Link("Accordions", target: AccordionExamples())
                 Link("Alerts", target: AlertExamples())
                 Link("Badges", target: BadgeExamples())
@@ -42,10 +40,8 @@ struct NavBar: HTML {
                 Link("Modals", target: ModalExamples())
                 Link("Quotes", target: QuoteExamples())
                 Link("Tables", target: TableExamples())
-            } title: {
-                Span("Examples")
-                    .foregroundStyle(.white)
             }
+            .labelColor(.white)
 
             Link(target: "https://github.com/twostraws/Ignite") {
                 Span("Ignite on GitHub")

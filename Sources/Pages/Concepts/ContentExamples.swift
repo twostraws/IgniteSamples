@@ -104,7 +104,7 @@ struct ContentExamples: StaticPage {
             """
             Grid(articles.all, alignment: .top) { item in
                 ArticlePreview(for: item)
-                    .width(3)
+                    .gridCellColumns(3)
                     .margin(.bottom)
             }
             """
@@ -112,7 +112,7 @@ struct ContentExamples: StaticPage {
 
         Grid(articles.all, alignment: .top) { item in
             ArticlePreview(for: item)
-                .width(3)
+                .gridCellColumns(3)
                 .margin(.bottom)
         }
         .margin(.bottom, .xLarge)

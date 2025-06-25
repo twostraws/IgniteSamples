@@ -99,7 +99,7 @@ struct BadgeExamples: StaticPage {
 
         CodeBlock(.swift) {
             """
-            ForEach(Badge.Style.allCases) { style in
+            ForEach(BadgeStyle.allCases) { style in
                 Text(markdown: "`\\(style)` style:")
                     .font(.title3)
 
@@ -117,7 +117,7 @@ struct BadgeExamples: StaticPage {
             """
         }
 
-        ForEach(Badge.Style.allCases) { style in
+        ForEach(BadgeStyle.allCases) { style in
             Text(markdown: "`\(style)` style:")
                 .font(.title3)
                 .margin(.top, .large)

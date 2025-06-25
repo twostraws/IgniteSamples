@@ -22,7 +22,7 @@ struct Story: ArticlePage {
 
         if let tags = article.tags {
             Section {
-                Text("Tagged with: \(tags.joined(separator: ", "))")
+                Text("Tagged with: \(tags.map(\.name).joined(separator: ", "))")
 
                 Text("\(article.estimatedWordCount) words; \(article.estimatedReadingMinutes) minutes to read.")
             }

@@ -206,29 +206,31 @@ struct ThemeExamples: StaticPage {
         Text(markdown: "Here's an example using `Material`:")
 
         Grid {
-            ZStack {
-                Image("/images/photos/dishwasher.jpg")
-                    .resizable()
-                Text("Adaptive Material")
-                    .font(.title3)
-                    .containerRelativeFrame()
-                    .background(.thinMaterial)
-                    .margin(.bottom, 0)
-            }
-            .clipped()
-            .cornerRadius(12)
+            GridRow {
+                ZStack {
+                    Image("/images/photos/dishwasher.jpg")
+                        .resizable()
+                    Text("Adaptive Material")
+                        .font(.title3)
+                        .containerRelativeFrame()
+                        .background(.thinMaterial)
+                        .margin(.bottom, 0)
+                }
+                .clipped()
+                .cornerRadius(12)
 
-            ZStack {
-                Image("/images/photos/dishwasher.jpg")
-                    .resizable()
-                Text("Always Dark Material")
-                    .font(.title3)
-                    .containerRelativeFrame()
-                    .background(.thinMaterial.colorScheme(.dark))
-                    .margin(.bottom, 0)
+                ZStack {
+                    Image("/images/photos/dishwasher.jpg")
+                        .resizable()
+                    Text("Always Dark Material")
+                        .font(.title3)
+                        .containerRelativeFrame()
+                        .background(.thinMaterial.colorScheme(.dark))
+                        .margin(.bottom, 0)
+                }
+                .clipped()
+                .cornerRadius(12)
             }
-            .clipped()
-            .cornerRadius(12)
         }
         .margin(.vertical, .large)
     }

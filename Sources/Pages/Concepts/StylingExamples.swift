@@ -25,28 +25,29 @@ struct StylingExamples: StaticPage {
             .class("Wom")
             .font(.lead)
 
-        Grid(alignment: .top) {
-            Section {
-                Text("Here's an image with a fixed width and 50% opacity:")
+        Grid(columns: 12, alignment: .top) {
+            GridRow {
+                Section {
+                    Text("Here's an image with a fixed width and 50% opacity:")
 
-                CodeBlock(.swift) {
+                    CodeBlock(.swift) {
                     """
                     Image("/images/photos/dishwasher.jpg", description: "A dishwasher, and not a dog.")
                         .resizable()
                         .frame(width: 300)
                         .opacity(0.5)
                     """
-                }
+                    }
 
-                Image("/images/photos/dishwasher.jpg", description: "A dishwasher, and not a dog.")
-                    .resizable()
-                    .frame(width: 300)
-                    .opacity(0.5)
-                    .margin(.bottom, .xLarge)
+                    Image("/images/photos/dishwasher.jpg", description: "A dishwasher, and not a dog.")
+                        .resizable()
+                        .frame(width: 300)
+                        .opacity(0.5)
+                        .margin(.bottom, .xLarge)
 
-                Text("The following heading has a background color, foreground style, and inner shadow:")
+                    Text("The following heading has a background color, foreground style, and inner shadow:")
 
-                CodeBlock(.swift) {
+                    CodeBlock(.swift) {
                     """
                     Text("Hello, world!")
                         .font(.title2)
@@ -55,19 +56,19 @@ struct StylingExamples: StaticPage {
                         .background(.indigo)
                         .innerShadow(.black, radius: 20)
                     """
-                }
+                    }
 
-                Text("Hello, world!")
-                    .font(.title2)
-                    .padding(20)
-                    .foregroundStyle(.white)
-                    .background(.indigo)
-                    .innerShadow(.black, radius: 20)
-                    .margin(.bottom, .xLarge)
+                    Text("Hello, world!")
+                        .font(.title2)
+                        .padding(20)
+                        .foregroundStyle(.white)
+                        .background(.indigo)
+                        .innerShadow(.black, radius: 20)
+                        .margin(.bottom, .xLarge)
 
-                Text("The next heading has a tooltip – hover over it to see what it says:")
+                    Text("The next heading has a tooltip – hover over it to see what it says:")
 
-                CodeBlock(.swift) {
+                    CodeBlock(.swift) {
                     """
                     Text {
                         Span("Hover over me")
@@ -75,41 +76,41 @@ struct StylingExamples: StaticPage {
                     }
                     .font(.title2)
                     """
-                }
+                    }
 
-                Text {
-                    Span("Hover over me")
-                        .hint(markdown: "Why, *hello* there!")
+                    Text {
+                        Span("Hover over me")
+                            .hint(markdown: "Why, *hello* there!")
+                    }
+                    .font(.title2)
                 }
-                .font(.title2)
-            }
-            .width(7)
-            .margin(.bottom, .xLarge)
+                .gridCellColumns(7)
 
-            Section {
-                CodeBlock(.swift) {
+                Section {
+                    CodeBlock(.swift) {
                     """
                     Section {
                         Text("This section is sticky. Try scrolling down!")
-
+                    
                         Image("/images/photos/washing.jpg", description: "A laundry basket.")
                             .resizable()
                     }
                     .position(.stickyTop)
                     .padding(.top, 80)
                     """
-                }
+                    }
 
-                Section {
-                    Text("This section is sticky. Try scrolling down!")
+                    Section {
+                        Text("This section is sticky. Try scrolling down!")
 
-                    Image("/images/photos/washing.jpg", description: "A laundry basket.")
-                        .resizable()
+                        Image("/images/photos/washing.jpg", description: "A laundry basket.")
+                            .resizable()
+                    }
                 }
+                .gridCellColumns(5)
+                .position(.stickyTop)
+                .padding(.top, 80)
             }
-            .width(5)
-            .position(.stickyTop)
-            .padding(.top, 80)
         }
 
         Spacer(size: 300)

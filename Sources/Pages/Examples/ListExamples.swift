@@ -171,8 +171,10 @@ struct ListExamples: StaticPage {
 
         List {
             "Group list item"
-            "Another group item"
-                .badge(Badge("1").role(.primary))
+            ListItem {
+                "Another group item"
+            }
+            .badge(Badge("1").role(.primary))
         }
         .listStyle(.group)
         .margin(.bottom, .medium)

@@ -86,7 +86,7 @@ struct CardExamples: StaticPage {
             """
         }
 
-        Grid {
+        Grid(columns: 2) {
             Card(imageName: "/images/photos/rug.jpg") {
                 Text(markdown: "Content below image: use `.top`")
             }
@@ -97,7 +97,6 @@ struct CardExamples: StaticPage {
             }
             .contentPosition(.bottom)
         }
-        .columns(2)
 
         Text("Overlaying text")
             .font(.title2)
@@ -140,7 +139,7 @@ struct CardExamples: StaticPage {
         """)
         .margin(.top, .large)
 
-        Grid(Card.ContentAlignment.allCases) { alignment in
+        Grid(CardContentAlignment.allCases, columns: 3) { alignment in
             Card(imageName: "/images/photos/dishwasher.jpg") {
                 let alignmentName = String(describing: alignment)
                 Text(markdown: "`.\(alignmentName)`")
@@ -152,8 +151,8 @@ struct CardExamples: StaticPage {
             }
             .contentPosition(.overlay(alignment: alignment))
             .imageOpacity(0.5)
+            .gridCellColumns(1)
         }
-        .columns(3)
         .margin(.top, .large)
 
         Text("Headers and footers")
@@ -222,7 +221,7 @@ struct CardExamples: StaticPage {
             """
         }
 
-        ForEach(Card.Style.allCases) { style in
+        ForEach(CardStyle.allCases) { style in
             if style != .default {
                 Text(markdown: "`\(style)` style")
                     .font(.title3)
