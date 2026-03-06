@@ -11,7 +11,7 @@ import Ignite
 struct ImageExamples: StaticPage {
     var title = "Images"
     var description = """
-    Display local images and system icons with resizing, \
+    Display local images, remote images and system icons with resizing, \
     lazy loading, and accessibility support. Customize \
     icons with different colors and sizes.
     """
@@ -24,7 +24,7 @@ struct ImageExamples: StaticPage {
             .font(.title1)
 
         Section {
-            Text(markdown: "Images can be either pictures from your **/Assets/images** folder, or one of the built-in icons.")
+            Text(markdown: "Images can be pictures from your local **/Assets/images** folder, remote images, or one of the built-in icons.")
                 .font(.lead)
 
             Text("Pictures are shown at their natural size by default; you'll usually want to add the `resizable()` modifier to make them scalable:")
@@ -119,5 +119,22 @@ struct ImageExamples: StaticPage {
             Text("In case you hadn't noticed, this page uses a custom theme that places some random content on the right-hand side.")
         }
         .role(.info)
+
+        Text("Remote images")
+            .font(.title2)
+            .margin(.top, .xLarge)
+        
+        Text(markdown: "You can also use images stored remotely. But there are some caveats.")
+        
+        CodeBlock(.swift) {
+            """
+            Image("https://picsum.photos/1280/960", description: "A random public domain image.")
+                .resizable()
+            """
+        }
+        
+        Image("https://picsum.photos/1280/960", description: "A random public domain image.")
+            .resizable()
+            .margin(.bottom, .large)
     }
 }
