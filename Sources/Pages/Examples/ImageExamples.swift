@@ -11,7 +11,7 @@ import Ignite
 struct ImageExamples: StaticPage {
     var title = "Images"
     var description = """
-    Display local images and system icons with resizing, \
+    Display local images, remote images and system icons with resizing, \
     lazy loading, and accessibility support. Customize \
     icons with different colors and sizes.
     """
@@ -24,7 +24,7 @@ struct ImageExamples: StaticPage {
             .font(.title1)
 
         Section {
-            Text(markdown: "Images can be either pictures from your **/Assets/images** folder, or one of the built-in icons.")
+            Text(markdown: "Images can be pictures from your local **/Assets/images** folder, remote images, or one of the built-in icons.")
                 .font(.lead)
 
             Text("Pictures are shown at their natural size by default; you'll usually want to add the `resizable()` modifier to make them scalable:")
@@ -119,5 +119,66 @@ struct ImageExamples: StaticPage {
             Text("In case you hadn't noticed, this page uses a custom theme that places some random content on the right-hand side.")
         }
         .role(.info)
+
+        Text("Remote images")
+            .font(.title2)
+            .margin(.top, .xLarge)
+        
+        Text(markdown: "You can also use images stored remotely. But there are some caveats mentioned below.")
+        
+        CodeBlock(.swift) {
+            """
+            Image("https://picsum.photos/1280/960", description: "A random public domain image.")
+                .resizable()
+            """
+        }
+        
+        Image("https://picsum.photos/1280/960", description: "A random public domain image.")
+            .resizable()
+            .margin(.bottom, .large)
+        
+        Text("""
+             When the images are loaded from a remote site, you may be benefiting from that site's bandwidth.
+             This is separate from copyright and intellectual property matters.
+             """)
+        
+        Alert {
+            Text("""
+                 The remote linking issue is known as hot-linking and it is sometimes frowned upon \
+                 by site owners. In any case it eats into their site's bandwidth budget.
+                 """)
+        }
+        .role(.info)
+        
+        Text("""
+             If your site thus receives way more treffic than the remote site, the extra downloads \
+             from the remote site might cause bandwidth/cost problems for the "smaller" site. \
+             This can often be avoided by making local copies of the required images, \
+             or at least aligning with the remote site's owner.
+             """)
+        
+        Text("""
+             There is a chance that the remote site technically blocks basic forms of hot-linking. \
+             The blocking of hot-linking may be a deliberate choice, but is sometimes mistaken \
+             for a security defense. \
+             In the latter case it can sometimes be technically circumvented by adding a tag to the HTML header \
+             by adapting the Ignite `MainLayout` struct:
+             """)
+        
+        CodeBlock(.swift) {
+            """
+            struct MyMainLayout: Layout {
+                var body: some Document {
+                    Head {
+                        MetaTag(name: "referrer", content: "no-referrer")
+                    }
+                    Body {
+                        content
+                        IgniteFooter()
+                    }
+                }
+            }
+            """
+        }
     }
 }
