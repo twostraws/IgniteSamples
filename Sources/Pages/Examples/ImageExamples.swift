@@ -124,7 +124,7 @@ struct ImageExamples: StaticPage {
             .font(.title2)
             .margin(.top, .xLarge)
         
-        Text(markdown: "You can also use images stored remotely. But there are some caveats mentioned below.")
+        Text(markdown: "You can also use images stored remotely, but please make sure you receive permission from the site owner first.")
         
         CodeBlock(.swift) {
             """
@@ -138,30 +138,9 @@ struct ImageExamples: StaticPage {
             .margin(.bottom, .large)
         
         Text("""
-             When the images are loaded from a remote site, you may be benefiting from that site's bandwidth.
-             This is separate from copyright and intellectual property matters.
-             """)
-        
-        Alert {
-            Text("""
-                 The remote linking issue is known as hot-linking and it is sometimes frowned upon \
-                 by site owners. In any case it eats into their site's bandwidth budget.
-                 """)
-        }
-        .role(.info)
-        
-        Text("""
-             If your site thus receives way more treffic than the remote site, the extra downloads \
-             from the remote site might cause bandwidth/cost problems for the "smaller" site. \
-             This can often be avoided by making local copies of the required images, \
-             or at least aligning with the remote site's owner.
-             """)
-        
-        Text("""
-             There is a chance that the remote site technically blocks basic forms of hot-linking. \
-             The blocking of hot-linking may be a deliberate choice, but is sometimes mistaken \
-             for a security defense. \
-             In the latter case it can sometimes be technically circumvented by adding a tag to the HTML header \
+             **Important:** Some sites block remote loading like this. If that's a deliberate choice \
+             you should respect that, but if you have spoken to the site owner and they are happy \
+             for you to do so, you can often circumvent the problem by adding a tag to the HTML header \
              by adapting the Ignite `MainLayout` struct:
              """)
         
