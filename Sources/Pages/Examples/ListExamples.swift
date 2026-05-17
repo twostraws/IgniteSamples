@@ -57,7 +57,7 @@ struct ListExamples: StaticPage {
             }
             .margin(.bottom, .xLarge)
 
-            Text(markdown: "Lists are unordered by default. Use the `listStyle()` modifier to change that:")
+            Text(markdown: "Lists are unordered by default. Use the `listMarkerStyle()` modifier to change that:")
 
             CodeBlock(.swift) {
                 """
@@ -66,7 +66,7 @@ struct ListExamples: StaticPage {
                     "This is the second one"
                     "And here's one more"
                 }
-                .listStyle(.ordered)
+                .listMarkerStyle(.ordered(.automatic))
                 """
             }
         }
@@ -79,7 +79,7 @@ struct ListExamples: StaticPage {
         .listMarkerStyle(.ordered(.automatic))
         .margin(.bottom, .xLarge)
 
-        Text("You can customize the bullet style by adjusting the list style. For example, here are Roman numerals:")
+        Text("You can customize the bullet style by adjusting the list marker style. For example, here are Roman numerals:")
 
         CodeBlock(.swift) {
             """
@@ -88,7 +88,7 @@ struct ListExamples: StaticPage {
                 "Vidi"
                 "Vici"
             }
-            .listStyle(.ordered(.lowerRoman))
+            .listMarkerStyle(.ordered(.lowerRoman))
             """
         }
 
