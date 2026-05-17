@@ -25,100 +25,55 @@ struct ListExamples: StaticPage {
 
             Text("A simple list can be made up just of hard-coded strings, like this:")
 
-            CodeBlock(.swift) {
-                """
+            #LiveExample(previewMargin: .xLarge) {
                 List {
                     "This is a list item"
                     "So is this"
                     "And this"
                 }
-                """
             }
-
-            List {
-                "This is a list item"
-                "So is this"
-                "And this"
-            }
-            .margin(.bottom, .xLarge)
 
             Text(markdown: "Alternatively, you can pass in an array like this:")
 
-            CodeBlock(.swift) {
-                """
+            #LiveExample(previewMargin: .xLarge) {
                 List(User.examples) { user in
                     user.name
                 }
-                """
             }
-
-            List(User.examples) { user in
-                user.name
-            }
-            .margin(.bottom, .xLarge)
 
             Text(markdown: "Lists are unordered by default. Use the `listMarkerStyle()` modifier to change that:")
 
-            CodeBlock(.swift) {
-                """
+            #LiveExample(previewMargin: .xLarge) {
                 List {
                     "This is the first list item"
                     "This is the second one"
                     "And here's one more"
                 }
                 .listMarkerStyle(.ordered(.automatic))
-                """
             }
         }
 
-        List {
-            "This is the first list item"
-            "This is the second one"
-            "And here's one more"
-        }
-        .listMarkerStyle(.ordered(.automatic))
-        .margin(.bottom, .xLarge)
-
         Text("You can customize the bullet style by adjusting the list marker style. For example, here are Roman numerals:")
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample(previewMargin: .xLarge) {
             List {
                 "Veni"
                 "Vidi"
                 "Vici"
             }
             .listMarkerStyle(.ordered(.lowerRoman))
-            """
         }
-
-        List {
-            "Veni"
-            "Vidi"
-            "Vici"
-        }
-        .listMarkerStyle(.ordered(.lowerRoman))
-        .margin(.bottom, .xLarge)
 
         Text("And here is a custom style using emoji:")
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample {
             List {
                 "The players gonna play"
                 "Haters gonna hate"
                 "Fakers gonna fake"
             }
             .listMarkerStyle(.custom("💃"))
-            """
         }
-
-        List {
-            "The players gonna play"
-            "Haters gonna hate"
-            "Fakers gonna fake"
-        }
-        .listMarkerStyle(.custom("💃"))
 
         Text("List Styles")
             .font(.title2)
@@ -126,73 +81,37 @@ struct ListExamples: StaticPage {
 
         Text(markdown: "Lists can be styled in different ways using the `listStyle()` modifier:")
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample(previewMargin: .medium) {
             List {
                 "Default list item"
                 "Another default item"
             }
-            """
         }
 
-        List {
-            "Default list item"
-            "Another default item"
-        }
-        .margin(.bottom, .medium)
-
-        CodeBlock(.swift) {
-            """
+        #LiveExample(previewMargin: .xLarge) {
             List {
                 "Plain list item"
                 "Another plain list item"
             }
             .listStyle(.plain)
-            """
         }
 
-        List {
-            "Plain list item"
-            "Another plain list item"
-        }
-        .listStyle(.plain)
-        .margin(.bottom, .xLarge)
-
-        CodeBlock(.swift) {
-            """
+        #LiveExample(previewMargin: .medium) {
             List {
                 "Group list item"
                 "Another group item"
                     .badge(Badge("1").role(.primary))
             }
             .listStyle(.group)
-            """
         }
 
-        List {
-            "Group list item"
-            "Another group item"
-                .badge(Badge("1").role(.primary))
-        }
-        .listStyle(.group)
-        .margin(.bottom, .medium)
-
-        CodeBlock(.swift) {
-            """
+        #LiveExample(previewMargin: .xLarge) {
             List {
                 "Horizontal group item"
                 "Another horizontal item"
             }
             .listStyle(.horizontalGroup)
-            """
         }
-
-        List {
-            "Horizontal group item"
-            "Another Horizontal item"
-        }
-        .listStyle(.horizontalGroup)
-        .margin(.bottom, .xLarge)
 
         Text("List Items")
             .font(.title2)
@@ -200,27 +119,16 @@ struct ListExamples: StaticPage {
 
         Text(markdown: "When using `List` with `listStyle(.group)`, you can add roles via `ListItem`:")
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample(previewMargin: .xLarge) {
             List {
                 ForEach(Role.standardRoles) { role in
-                    ListItem { 
-                        "A simple \\(role.rawValue) list group item" 
+                    ListItem {
+                        "A simple \(role.rawValue) list group item"
                     }
                     .role(role)
                 }
             }
             .listStyle(.group)
-            """
         }
-
-        List {
-            ForEach(Role.standardRoles) { role in
-                ListItem { "A simple \(role.rawValue) list group item" }
-                    .role(role)
-            }
-        }
-        .listStyle(.group)
-        .margin(.bottom, .xLarge)
     }
 }
