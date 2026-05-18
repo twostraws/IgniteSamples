@@ -41,6 +41,19 @@ struct ImageExamples: StaticPage {
 
             Text(markdown: "If you're working with large images, consider using the `lazy()` modifier to have them loaded lazily.")
 
+			Text(markdown: """
+				You can add image variations for things like higher density displays or dark mode with the `@2x` and `~dark` modifiers.
+				- `rug.jpg` - the base image
+				- `rug@2x.jpg` - the double sized image
+				- `rug~dark.jpg` - the version to use in dark mode
+				- `rug@2x~dark.jpg` - the double sized image for use in dark mode
+				""")
+
+			Alert {
+				Text(markdown: "The `~dark` image will only be used if the user's system is set to dark mode. If you manually switch to a dark mode Theme the base image will still be used. Likewise, the base image will be used if the user's system is in light mode regardless of what Theme is used.")
+			}
+			.role(.info)
+
             Text("Icons")
                 .font(.title2)
                 .margin(.top, .xLarge)
