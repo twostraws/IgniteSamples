@@ -25,31 +25,20 @@ struct ButtonExamples: StaticPage {
 
         Text("For example, here's a primary button that shows an alert when pressed:")
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample(previewMargin: .xLarge) {
             Text {
                 Button("Say Hello") {
                     ShowAlert(message: "Hello, world!")
                 }
                 .role(.primary)
             }
-            """
         }
-
-        Text {
-            Button("Say Hello") {
-                ShowAlert(message: "Hello, world!")
-            }
-            .role(.primary)
-        }
-        .margin(.bottom, .xLarge)
 
         Text("Button actions can contain multiple commands, all of which get compiled to JavaScript when your site is built.")
 
         Text("For example, this code shows two pieces of text, and buttons that toggle between them:")
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample {
             Text {
                 Button("Show First Text") {
                     ShowElement("FirstText")
@@ -74,33 +63,7 @@ struct ButtonExamples: StaticPage {
                 .font(.title3)
                 .id("SecondText")
                 .hidden()
-            """
         }
-
-        Text {
-            Button("Show First Text") {
-                ShowElement("FirstText")
-                HideElement("SecondText")
-            }
-            .role(.primary)
-        }
-
-        Text {
-            Button("Show Second Text") {
-                HideElement("FirstText")
-                ShowElement("SecondText")
-            }
-            .role(.secondary)
-        }
-
-        Text("This is the first text.")
-            .font(.title3)
-            .id("FirstText")
-
-        Text("This is the second text.")
-            .font(.title3)
-            .id("SecondText")
-            .hidden()
 
         Text(markdown: "All the same actions you can use with buttons can also be used with event handlers, such as `onClick()` or `onHover()`. For example:")
             .margin(.top, .xLarge)
@@ -122,18 +85,11 @@ struct ButtonExamples: StaticPage {
         Text(markdown: "If you want your button to act as a link somewhere else, it's better to use `Link` with `.linkStyle(.button)`, like this:")
             .margin(.top, .xLarge)
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample {
             Text {
                 Link("This is a link button", target: ContentExamples())
                     .linkStyle(.button)
             }
-            """
-        }
-
-        Text {
-            Link("This is a link button", target: ContentExamples())
-                .linkStyle(.button)
         }
 
         Text("Styling buttons")
@@ -142,27 +98,15 @@ struct ButtonExamples: StaticPage {
 
         Text(markdown: "As with other several other element types, buttons can have *roles* attached to them to customize how they look. There is also a `buttonSize()` modifier to adjust how big buttons are:")
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample {
             ForEach(Role.standardRoles) { role in
                 ForEach(Button.Size.allCases) { size in
                     Text {
-                        Button("\\(size.rawValue.capitalized) button with \\(role.rawValue) role")
+                        let description = "\(size.rawValue.capitalized) button with \(role.rawValue) role"
+                        Button(role == .close ? "" : description)
                             .buttonSize(size)
                             .role(role)
                     }
-                }
-            }
-            """
-        }
-
-        ForEach(Role.standardRoles) { role in
-            ForEach(Button.Size.allCases) { size in
-                Text {
-                    let description = "\(size.rawValue.capitalized) button with \(role.rawValue) role"
-                    Button(role == .close ? "" : description)
-                        .buttonSize(size)
-                        .role(role)
                 }
             }
         }

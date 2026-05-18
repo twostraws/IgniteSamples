@@ -25,8 +25,7 @@ struct AccordionExamples: StaticPage {
 
         Text("This creates a simple accordion:")
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample(previewMargin: .xLarge) {
             Accordion {
                 Item("First item") {
                     Text("This is the first accordion item.")
@@ -41,29 +40,11 @@ struct AccordionExamples: StaticPage {
                 }
             }
             .openMode(.individual)
-            """
         }
-
-        Accordion {
-            Item("First item") {
-                Text("This is the first accordion item.")
-            }
-
-            Item("Second item") {
-                Text("This is the second accordion item.")
-            }
-
-            Item("Third item") {
-                Text("This is the third accordion item.")
-            }
-        }
-        .openMode(.individual)
-        .margin(.bottom, .xLarge)
 
         Text("This accordion is set to allow multiple items to be open at a time:")
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample(previewMargin: .xLarge) {
             Accordion {
                 Item("First") {
                     Text("This is the first accordion item.")
@@ -78,29 +59,11 @@ struct AccordionExamples: StaticPage {
                 }
             }
             .openMode(.all)
-            """
         }
-
-        Accordion {
-            Item("First") {
-                Text("This is the first accordion item.")
-            }
-
-            Item("Second") {
-                Text("This is the second accordion item.")
-            }
-
-            Item("Third") {
-                Text("This is the third accordion item.")
-            }
-        }
-        .openMode(.all)
-        .margin(.bottom, .xLarge)
 
         Text("You can configure individual items to be open by default if you want:")
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample(previewMargin: .xLarge) {
             Accordion {
                 Item("First", startsOpen: true) {
                     Text("This item will start open by default.")
@@ -116,30 +79,11 @@ struct AccordionExamples: StaticPage {
             }
             .accordionStyle(.plain)
             .openMode(.individual)
-            """
         }
-
-        Accordion {
-            Item("First", startsOpen: true) {
-                Text("This item will start open by default.")
-            }
-
-            Item("Second") {
-                Text("This is the second accordion item.")
-            }
-
-            Item("Third") {
-                Text("This is the third accordion item.")
-            }
-        }
-        .openMode(.individual)
-        .accordionStyle(.plain)
-        .margin(.bottom, .xLarge)
 
         Text("And you can add more complex elements and styling to your accordion titles and contents if you want:")
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample {
             Accordion {
                 Item(startsOpen: true) {
                     Text {
@@ -166,34 +110,6 @@ struct AccordionExamples: StaticPage {
             .headerBackground(.mintCream, open: .seaGreen)
             .headerForegroundStyle(.darkGreen, open: .white)
             .borderColor(.lightSeaGreen)
-            """
         }
-
-        Accordion {
-            Item(startsOpen: true) {
-                Text {
-                    Image("/images/photos/chair.jpg", description: "This is a picture of a chair, and not a dog.")
-                        .resizable()
-                }
-
-                Text("This is the first accordion item.")
-            } header: {
-                Emphasis { "This title is italic" }
-                    .foregroundStyle(.black)
-            }
-
-            Item(Underline { "This title is underlined." }) {
-                Text("This is the second accordion item.")
-            }
-            .contentBackground(.aliceBlue)
-
-            Item(Strong { "This title is bold." }) {
-                Text("This is the third accordion item.")
-            }
-        }
-        .openMode(.individual)
-        .headerBackground(.mintCream, open: .seaGreen)
-        .headerForegroundStyle(.darkGreen, open: .white)
-        .borderColor(.lightSeaGreen)
     }
 }

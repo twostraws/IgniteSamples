@@ -28,8 +28,7 @@ struct CardExamples: StaticPage {
 
         Text("Here's an example card, with image, content, and a button going back to the homepage:")
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample {
             Card(imageName: "/images/photos/dishwasher.jpg") {
                 Text("Before putting your dishes into the dishwasher, make sure and give them a quick pre-clean.")
 
@@ -37,37 +36,19 @@ struct CardExamples: StaticPage {
                     .linkStyle(.button)
             }
             .frame(maxWidth: 500)
-            """
         }
-
-        Card(imageName: "/images/photos/dishwasher.jpg") {
-            Text("Before putting your dishes into the dishwasher, make sure and give them a quick pre-clean.")
-
-            Link("Back to the homepage", target: "/")
-                .linkStyle(.button)
-        }
-        .frame(maxWidth: 500)
 
         Text(markdown: "It's also possible to omit the `imageName` parameter and simply place a image in the content:")
             .margin(.top, .xLarge)
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample {
             Card {
                 Text("An image embedded")
                 Image(decorative: "/images/photos/rug.jpg")
                 Text("as part of the card")
             }
             .frame(maxWidth: 500)
-            """
         }
-
-        Card {
-            Text("An image embedded")
-            Image(decorative: "/images/photos/rug.jpg")
-            Text("as part of the card")
-        }
-        .frame(maxWidth: 500)
 
         Text("Content position")
             .font(.lead)
@@ -77,27 +58,20 @@ struct CardExamples: StaticPage {
         `.contentPosition()` with a value of `ContentPosition.top` or `ContentPosition.bottom`.
         """)
 
-        CodeBlock(.swift) {
-            """
-            Card(imageName: "/images/photos/rug.jpg") {
-                Text(markdown: "Content below image: `.top`")
-            }
-            .contentPosition(.top)
-            """
-        }
+        #LiveExample {
+            Grid {
+                Card(imageName: "/images/photos/rug.jpg") {
+                    Text(markdown: "Content below image: use `.top`")
+                }
+                .contentPosition(.top)
 
-        Grid {
-            Card(imageName: "/images/photos/rug.jpg") {
-                Text(markdown: "Content below image: use `.top`")
+                Card(imageName: "/images/photos/rug.jpg") {
+                    Text(markdown: "Content below image: use `.bottom`")
+                }
+                .contentPosition(.bottom)
             }
-            .contentPosition(.top)
-
-            Card(imageName: "/images/photos/rug.jpg") {
-                Text(markdown: "Content below image: use `.bottom`")
-            }
-            .contentPosition(.bottom)
+            .columns(2)
         }
-        .columns(2)
 
         Text("Overlaying text")
             .font(.title2)
@@ -108,8 +82,7 @@ struct CardExamples: StaticPage {
         `.contentPosition(.overlay)` and optionally also the `imageOpacity()` modifier.
         """)
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample {
             Card(imageName: "/images/photos/dishwasher.jpg") {
                 Text("Before putting your dishes into the dishwasher, make sure and give them a quick pre-clean.")
                     .foregroundStyle(.white)
@@ -117,22 +90,10 @@ struct CardExamples: StaticPage {
                 Link("Back to the homepage", target: "/")
                     .linkStyle(.button)
             }
-            .frame(maxWidth: 500)
             .contentPosition(.overlay)
             .imageOpacity(0.5)
-            """
+            .frame(maxWidth: 500)
         }
-
-        Card(imageName: "/images/photos/dishwasher.jpg") {
-            Text("Before putting your dishes into the dishwasher, make sure and give them a quick pre-clean.")
-                .foregroundStyle(.white)
-
-            Link("Back to the homepage", target: "/")
-                .linkStyle(.button)
-        }
-        .contentPosition(.overlay)
-        .imageOpacity(0.5)
-        .frame(maxWidth: 500)
 
         Text(markdown: """
         To control the position of the overlay you can specify an alignment using `.overlay(alignment:)`
@@ -165,8 +126,7 @@ struct CardExamples: StaticPage {
         This is in *addition* to any image you provide, or any titles used in the card body.
         """)
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample {
             Card {
                 Text("This is important!")
                     .font(.title3)
@@ -176,17 +136,6 @@ struct CardExamples: StaticPage {
             } footer: {
                 "Your footer goes here footer"
             }
-            """
-        }
-
-        Card {
-            Text("This is important!")
-                .font(.title3)
-            Text("This is card body text. This is card body text. This is card body text. This is card body text. This is card body text.")
-        } header: {
-            "Header Example"
-        } footer: {
-            "Your footer goes here footer"
         }
 
         Text("Card styles")
@@ -198,16 +147,16 @@ struct CardExamples: StaticPage {
         The `.default` style does nothing special, but both `.solid` and `.bordered` apply coloring based on role.
         """)
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample {
             ForEach(Card.Style.allCases) { style in
                 if style != .default {
-                    Text(markdown: "`\\(style)` style")
+                    Text(markdown: "`\(style)` style")
                         .font(.title3)
+                        .margin(.top, .xLarge)
 
                     ForEach(Role.allCases) { role in
                         Card {
-                            "This is a \\(style) card with the \\(role) role."
+                            "This is a \(style) card with the \(role) role."
                         } header: {
                             "Header"
                         }
@@ -215,28 +164,6 @@ struct CardExamples: StaticPage {
                         .cardStyle(style)
                         .margin(.bottom)
                     }
-
-                    Spacer(size: .xLarge)
-                }
-            }
-            """
-        }
-
-        ForEach(Card.Style.allCases) { style in
-            if style != .default {
-                Text(markdown: "`\(style)` style")
-                    .font(.title3)
-                    .margin(.top, .xLarge)
-
-                ForEach(Role.allCases) { role in
-                    Card {
-                        "This is a \(style) card with the \(role) role."
-                    } header: {
-                        "Header"
-                    }
-                    .role(role)
-                    .cardStyle(style)
-                    .margin(.bottom)
                 }
             }
         }

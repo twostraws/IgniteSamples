@@ -62,37 +62,21 @@ struct ContentExamples: StaticPage {
 
         Text("For example, we can write code to show a list of all articles right here on this page:")
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample {
             List {
                 ForEach(articles.all) { article in
                     Link(article)
                 }
             }
-            """
-        }
-
-        List {
-            ForEach(articles.all) { article in
-                Link(article)
-            }
         }
 
         Text(markdown: "Or we could show only articles that matches the type `story`:")
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample {
             List {
                 ForEach(articles.typed("story")) { article in
                     Link(article)
                 }
-            }
-            """
-        }
-
-        List {
-            ForEach(articles.typed("story")) { article in
-                Link(article)
             }
         }
 
@@ -100,22 +84,13 @@ struct ContentExamples: StaticPage {
 
         Text(markdown: "First, `ArticlePreview` can be used to make a preview for articles. This automatically includes the articles image, title, description, link, and tags, all in one:")
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample(previewMargin: .xLarge) {
             Grid(articles.all, alignment: .top) { item in
                 ArticlePreview(for: item)
                     .width(3)
                     .margin(.bottom)
             }
-            """
         }
-
-        Grid(articles.all, alignment: .top) { item in
-            ArticlePreview(for: item)
-                .width(3)
-                .margin(.bottom)
-        }
-        .margin(.bottom, .xLarge)
 
         Text("YAML front matter")
             .font(.title1)

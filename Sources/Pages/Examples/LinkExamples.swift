@@ -24,46 +24,27 @@ struct LinkExamples: StaticPage {
 
         Text("In the simplest case we can create a link with a string target:")
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample {
             Text {
                 Link("Go Home", target: "/")
             }
-            """
-        }
-
-        Text {
-            Link("Go Home", target: "/")
         }
 
         Text("Alternatively, you can use page types directly to get their path:")
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample {
             Text {
                 Link("Learn about carousels", target: CarouselExamples())
             }
-            """
-        }
-
-        Text {
-            Link("Learn about carousels", target: CarouselExamples())
         }
 
         Text(markdown: "Using a `.target(.blank)` modifier opens new tabs:")
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample {
             Text {
                 Link("Another tab of links", target: LinkExamples())
                     .target(.blank)
             }
-            """
-        }
-
-        Text {
-            Link("Another tab of links", target: LinkExamples())
-                .target(.blank)
         }
 
         Alert {
@@ -73,13 +54,12 @@ struct LinkExamples: StaticPage {
 
         Text(markdown: "Use `LinkGroup` when you need to make multiple `HTML` elements clickable as a single link:")
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample(previewMargin: .xLarge) {
             LinkGroup(target: "/") {
                 Section {
                     Text("Building Modern Websites")
                         .font(.title3)
-                    
+
                     Text("Learn how to create beautiful, responsive interfaces using Ignite's declarative syntax.")
                         .font(.lead)
                 }
@@ -88,23 +68,7 @@ struct LinkExamples: StaticPage {
                 .cornerRadius(5)
                 .frame(maxWidth: 500)
             }
-            """
         }
-
-        LinkGroup(target: "/") {
-            Section {
-                Text("Building Modern Websites")
-                    .font(.title3)
-
-                Text("Learn how to create beautiful, responsive interfaces using Ignite's declarative syntax.")
-                    .font(.lead)
-            }
-            .border(.lightGray)
-            .padding()
-            .cornerRadius(5)
-            .frame(maxWidth: 500)
-        }
-        .margin(.bottom, .xLarge)
 
         Text("Link styling")
             .font(.title2)
@@ -112,21 +76,12 @@ struct LinkExamples: StaticPage {
 
         Text("Links can have roles to control how they appear:")
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample {
             ForEach(Role.standardRoles) { role in
                 Text {
-                    Link("Link with \\(role.rawValue) role.", target: "#")
+                    Link("Link with \(role.rawValue) role.", target: "#")
                         .role(role)
                 }
-            }
-            """
-        }
-
-        ForEach(Role.standardRoles) { role in
-            Text {
-                Link("Link with \(role.rawValue) role.", target: "#")
-                    .role(role)
             }
         }
 
@@ -136,23 +91,13 @@ struct LinkExamples: StaticPage {
 
         Text(markdown: "Use `linkStyle(.button)` to style links as buttons:")
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample {
             ForEach(Role.standardRoles) { role in
                 Text {
-                    Link("Button-style link with \\(role.rawValue) role.", target: "#")
+                    Link("Button-style link with \(role.rawValue) role.", target: "#")
                         .linkStyle(.button)
                         .role(role)
                 }
-            }
-            """
-        }
-
-        ForEach(Role.standardRoles) { role in
-            Text {
-                Link("Button-style link with \(role.rawValue) role.", target: "#")
-                    .linkStyle(.button)
-                    .role(role)
             }
         }
     }

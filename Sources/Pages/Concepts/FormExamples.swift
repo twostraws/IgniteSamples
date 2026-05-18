@@ -26,8 +26,7 @@ struct FormExamples: StaticPage {
 
         Text(markdown: "The `Form` element lets you create custom forms with any combination of inputs, buttons, and `FormItem`:")
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample(previewMargin: .xLarge) {
             Form {
                 TextField("Name", prompt: "Enter your name")
                     .type(.text)
@@ -39,21 +38,7 @@ struct FormExamples: StaticPage {
                     .width(1)
             }
             .columns(2)
-            """
         }
-
-        Form {
-            TextField("Name", prompt: "Enter your name")
-                .type(.text)
-                .width(1)
-
-            Button("Submit")
-                .type(.submit)
-                .role(.primary)
-                .width(1)
-        }
-        .columns(2)
-        .margin(.bottom, .xLarge)
 
         Text("Label styles")
             .font(.title2)
@@ -66,8 +51,7 @@ struct FormExamples: StaticPage {
 
         Text(markdown: "Floating labels animate when focused, providing a modern and space-efficient interface.")
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample(previewMargin: .large) {
             Form {
                 TextField("Name", prompt: "Enter your name")
                     .type(.text)
@@ -77,19 +61,7 @@ struct FormExamples: StaticPage {
                     .role(.primary)
             }
             .labelStyle(.floating)
-            """
         }
-
-        Form {
-            TextField("Name", prompt: "Enter your name")
-                .type(.text)
-
-            Button("Submit")
-                .type(.submit)
-                .role(.primary)
-        }
-        .labelStyle(.floating)
-        .margin(.bottom, .large)
 
         Text("leading")
             .font(.title4)
@@ -97,8 +69,7 @@ struct FormExamples: StaticPage {
 
         Text(markdown: "Leading labels appear to the left of inputs, providing a traditional form layout.")
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample(previewMargin: .large) {
             Form {
                 TextField("Name", prompt: "Enter your name")
                     .type(.text)
@@ -108,19 +79,7 @@ struct FormExamples: StaticPage {
                     .role(.primary)
             }
             .labelStyle(.leading)
-            """
         }
-
-        Form {
-            TextField("Name", prompt: "Enter your name")
-                .type(.text)
-
-            Button("Submit")
-                .type(.submit)
-                .role(.primary)
-        }
-        .labelStyle(.leading)
-        .margin(.bottom, .large)
 
         Text("hidden")
             .font(.title4)
@@ -128,8 +87,7 @@ struct FormExamples: StaticPage {
 
         Text(markdown: "Hidden labels are accessible to screen readers but not visible, creating a clean interface.")
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample(previewMargin: .large) {
             Form {
                 TextField("Name", prompt: "Enter your name")
                     .type(.text)
@@ -139,27 +97,14 @@ struct FormExamples: StaticPage {
                     .role(.primary)
             }
             .labelStyle(.hidden)
-            """
         }
-
-        Form {
-            TextField("Name", prompt: "Enter your name")
-                .type(.text)
-
-            Button("Submit")
-                .type(.submit)
-                .role(.primary)
-        }
-        .labelStyle(.hidden)
-        .margin(.bottom, .large)
 
         Text("Control groups")
             .font(.title2)
 
         Text(markdown: "Use `ControlGroup` to combine related form elements into a single visual unit:")
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample(previewMargin: .xLarge) {
             Form {
                 ControlGroup("Username") {
                     Span("@")
@@ -170,26 +115,10 @@ struct FormExamples: StaticPage {
                     TextField("Password", prompt: "Enter your password")
                         .type(.password)
                     Button("Unlock", systemImage: "key-fill")
-                        .role(.primary)
+                    .role(.primary)
                 }
             }
-            """
         }
-
-        Form {
-            ControlGroup("Username") {
-                Span("@")
-                TextField("Username", prompt: "Choose a username")
-            }
-
-            ControlGroup("Password") {
-                TextField("Password", prompt: "Enter your password")
-                    .type(.password)
-                Button("Unlock", systemImage: "key-fill")
-                    .role(.primary)
-            }
-        }
-        .margin(.bottom, .xLarge)
 
         Text("Built-in Forms")
             .font(.title2)
@@ -201,19 +130,11 @@ struct FormExamples: StaticPage {
 
         Text(markdown: "The `SubscribeForm` makes it easy to collect email addresses for newsletters:")
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample(previewMargin: .xLarge) {
             SubscribeForm(.buttondown("yourusername"))
                 .emailFieldLabel("Your email address")
                 .subscribeButtonLabel("Join our newsletter")
                 .formStyle(.stacked)
-            """
         }
-
-        SubscribeForm(.buttondown("yourusername"))
-            .emailFieldLabel("Your email address")
-            .subscribeButtonLabel("Join our newsletter")
-            .formStyle(.stacked)
-            .margin(.bottom, .xLarge)
     }
 }

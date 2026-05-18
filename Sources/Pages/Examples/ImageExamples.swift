@@ -29,16 +29,10 @@ struct ImageExamples: StaticPage {
 
             Text("Pictures are shown at their natural size by default; you'll usually want to add the `resizable()` modifier to make them scalable:")
 
-            CodeBlock(.swift) {
-                """
+            #LiveExample(previewMargin: .large) {
                 Image("/images/photos/rug.jpg", description: "A rug. Not a dog, a rug.")
                     .resizable()
-                """
             }
-
-            Image("/images/photos/rug.jpg", description: "A rug. Not a dog, a rug.")
-                .resizable()
-                .margin(.bottom, .large)
 
             Alert {
                 Text(markdown: "Most images should be created with a `description` value provided, for screen readers.")
@@ -53,64 +47,38 @@ struct ImageExamples: StaticPage {
 
             Text(markdown: "You can also create images from icons. If they are inside `Text`, they will resize with the font:")
 
-            CodeBlock(.swift) {
-                """
+            #LiveExample {
                 let icons = ["airplane", "apple", "arrow-counterclockwise", "award", "balloon", "book", "brightness-high"]
 
                 ForEach(Font.Style.allCases) { font in
                     Text {
-                        for icon in icons {
+                        InlineForEach(icons) { icon in
                             Image(systemName: icon)
                                 .margin(.trailing, 20)
                         }
                     }
                     .font(font)
                 }
-                """
             }
         }
 
         let icons = ["airplane", "apple", "arrow-counterclockwise", "award", "balloon", "book", "brightness-high"]
 
-        ForEach(Font.Style.allCases) { font in
-            Text {
-                InlineForEach(icons) { icon in
-                    Image(systemName: icon)
-                        .margin(.trailing, 20)
-                }
-            }
-            .font(font)
-        }
-
         Text(markdown: "Use the `foregroundStyle()` modifier to recolor your icons, like this:")
             .margin(.top, .xLarge)
 
-            CodeBlock(.swift) {
-                """
-                let colors = [Color.green, .blue, .indigo, .slateGray, .gold, .orange, .tomato, .gray]
+        #LiveExample(previewMargin: .large) {
+            let colors = [Color.green, .blue, .indigo, .slateGray, .gold, .orange, .tomato, .gray]
 
-                Text {
-                    ForEach(zip(icons, colors)) { icon, color in
-                        Image(systemName: icon)
-                            .foregroundStyle(color)
-                            .margin(.trailing, 20)
-                    }
+            Text {
+                InlineForEach(zip(icons, colors)) { icon, color in
+                    Image(systemName: icon)
+                        .foregroundStyle(color)
+                        .margin(.trailing, 20)
                 }
-                .font(.title1)
-                """
             }
-
-        let colors = [Color.green, .blue, .indigo, .slateGray, .gold, .orange, .tomato, .gray]
-
-        Text {
-            InlineForEach(zip(icons, colors)) { icon, color in
-                Image(systemName: icon)
-                    .foregroundStyle(color)
-                    .margin(.trailing, 20)
-            }
+            .font(.title1)
         }
-        .font(.title1)
-        .margin(.bottom, .large)
 
         Text(markdown: "**Tip:** Make sure your site configuration options enables the built-in icons.")
             .margin(.bottom, .xLarge)
@@ -126,16 +94,10 @@ struct ImageExamples: StaticPage {
         
         Text(markdown: "You can also use images stored remotely, but please make sure you receive permission from the site owner first.")
         
-        CodeBlock(.swift) {
-            """
+        #LiveExample(previewMargin: .large) {
             Image("https://picsum.photos/1280/960", description: "A random public domain image.")
                 .resizable()
-            """
         }
-        
-        Image("https://picsum.photos/1280/960", description: "A random public domain image.")
-            .resizable()
-            .margin(.bottom, .large)
         
         Text("""
              **Important:** Some sites block remote loading like this. If that's a deliberate choice \

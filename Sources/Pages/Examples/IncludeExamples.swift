@@ -25,13 +25,9 @@ struct IncludeExamples: StaticPage {
 
         Text(markdown: "For example, the HTML below was imported from **Includes/important.html**")
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample {
             Include("important.html")
-            """
         }
-
-        Include("important.html")
 
         Text("Loading arbitrary data")
             .font(.title2)
@@ -49,22 +45,12 @@ struct IncludeExamples: StaticPage {
 
         Text("For example, this project contains some JSON in Resources/quotes.json, so we can display its contents using the below:")
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample {
             if let quotes = decode("quotes.json", as: [String].self) {
                 ForEach(quotes) { quote in
                     Quote {
                         quote
                     }
-                }
-            }
-            """
-        }
-
-        if let quotes = decode("quotes.json", as: [String].self) {
-            ForEach(quotes) { quote in
-                Quote {
-                    quote
                 }
             }
         }

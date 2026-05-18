@@ -25,35 +25,20 @@ struct QuoteExamples: StaticPage {
 
         Text("This is a plain quote:")
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample(previewMargin: .xLarge) {
             Quote {
                 Text("It is a truth universally acknowledged that all good Swift projects must be in need of result builders.")
             }
-            """
         }
-
-        Quote {
-            Text("It is a truth universally acknowledged that all good Swift projects must be in need of result builders.")
-        }
-        .margin(.bottom, .xLarge)
 
         Text("And this is a quote with a caption provided:")
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample {
             Quote {
                 Text("Programming is an art. Don't spend all your time sharpening your pencil when you should be drawing.")
             } caption: {
                 "Paul Hudson"
             }
-            """
-        }
-
-        Quote {
-            Text("Programming is an art. Don't spend all your time sharpening your pencil when you should be drawing.")
-        } caption: {
-            "Paul Hudson"
         }
     }
 }

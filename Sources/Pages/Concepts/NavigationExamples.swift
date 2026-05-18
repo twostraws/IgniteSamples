@@ -25,26 +25,15 @@ struct NavigationExamples: StaticPage {
 
         Text("A simple navigation bar has a title and some links, like this:")
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample(previewMargin: .large) {
             NavigationBar(logo: "My Awesome Site") {
                 Link("Accordions", target: AccordionExamples())
                 Link("Carousels", target: CarouselExamples())
                 Link("Tables", target: TableExamples())
             }
-            .background(.black)
             .navigationBarStyle(.dark)
-            """
+            .background(.black)
         }
-
-        NavigationBar(logo: "My Awesome Site") {
-            Link("Accordions", target: AccordionExamples())
-            Link("Carousels", target: CarouselExamples())
-            Link("Tables", target: TableExamples())
-        }
-        .navigationBarStyle(.dark)
-        .margin(.bottom, .large)
-        .background(.black)
 
         Text("All navigation bars automatically adapt to a mobile-friendly layout when horizontal space is restricted. Try it out here!")
 
@@ -56,8 +45,7 @@ struct NavigationExamples: StaticPage {
 
         Text(markdown: "You can also place `Dropdown` elements in there, like this:")
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample(previewMargin: .xLarge) {
             NavigationBar(logo: "My Awesome Site") {
                 Link("Accordions", target: AccordionExamples())
                 Link("Carousels", target: CarouselExamples())
@@ -71,28 +59,11 @@ struct NavigationExamples: StaticPage {
             }
             .navigationBarStyle(.light)
             .background(.antiqueWhite)
-            """
         }
-
-        NavigationBar(logo: "My Awesome Site") {
-            Link("Accordions", target: AccordionExamples())
-            Link("Carousels", target: CarouselExamples())
-            Link("Tables", target: TableExamples())
-
-            Dropdown("More") {
-                Link("Cards", target: CardExamples())
-                Link("Images", target: ImageExamples())
-                Link("Lists", target: ListExamples())
-            }
-        }
-        .navigationBarStyle(.light)
-        .background(.antiqueWhite)
-        .margin(.bottom, .xLarge)
 
         Text(markdown: "Use modifiers like `navigationItemAlignment()`, `navigationMenuIcon()`, and `navigationMenuStyle()` to customize the appearance of the navigation bar:")
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample(previewMargin: .xLarge) {
             NavigationBar(logo: "My Awesome Site") {
                 Link("Accordions", target: AccordionExamples())
                 Link("Carousels", target: CarouselExamples())
@@ -102,24 +73,11 @@ struct NavigationExamples: StaticPage {
             .navigationMenuIcon(.ellipsis)
             .navigationMenuStyle(.plain)
             .background(.steelBlue)
-            """
         }
-
-        NavigationBar(logo: "My Awesome Site") {
-            Link("Accordions", target: AccordionExamples())
-            Link("Carousels", target: CarouselExamples())
-            Link("Tables", target: TableExamples())
-        }
-        .navigationItemAlignment(.leading)
-        .navigationMenuIcon(.ellipsis)
-        .navigationMenuStyle(.plain)
-        .background(.steelBlue)
-        .margin(.bottom, .xLarge)
 
         Text(markdown: "Show buttons, forms, and other controls at all screen sizes using `navigationBarVisibility()`. These items will remain visible even when the navigation menu is collapsed:")
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample(previewMargin: .xLarge) {
             NavigationBar(logo: "My Awesome Site") {
                 Link("Accordions", target: AccordionExamples())
                 Link("Carousels", target: CarouselExamples())
@@ -133,31 +91,14 @@ struct NavigationExamples: StaticPage {
             }
             .navigationBarStyle(.dark)
             .background(.paleVioletRed)
-            """
         }
-
-        NavigationBar(logo: "My Awesome Site") {
-            Link("Accordions", target: AccordionExamples())
-            Link("Carousels", target: CarouselExamples())
-            Link("Tables", target: TableExamples())
-
-            Link("GitHub", target: "https://github.com/twostraws/Ignite")
-                .target(.newWindow)
-                .linkStyle(.button)
-                .role(.danger)
-                .navigationBarVisibility(.always)
-        }
-        .navigationBarStyle(.dark)
-        .background(.paleVioletRed)
-        .margin(.bottom, .xLarge)
 
         Text(markdown: """
         And finally, use the `position()` modifier to adjust where the bar is this placed. \
         This page has a firebrick red bar fixed at the top, and a steel blue bar fixed at the bottom.
         """)
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample {
             NavigationBar(logo: "My Awesome Site") {
                 Link("Accordions", target: AccordionExamples())
                 Link("Carousels", target: CarouselExamples())
@@ -166,17 +107,7 @@ struct NavigationExamples: StaticPage {
             .navigationBarStyle(.dark)
             .position(.fixedBottom)
             .background(.steelBlue)
-            """
         }
-
-        NavigationBar(logo: "My Awesome Site") {
-            Link("Accordions", target: AccordionExamples())
-            Link("Carousels", target: CarouselExamples())
-            Link("Tables", target: TableExamples())
-        }
-        .navigationBarStyle(.dark)
-        .position(.fixedBottom)
-        .background(.steelBlue)
 
         Text("Just remember: when you used fixed bars, it's really important to add some padding to your body so your content doesn't stay under a fixed bar.")
     }

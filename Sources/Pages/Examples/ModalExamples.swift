@@ -33,35 +33,13 @@ struct ModalExamples: StaticPage {
         Text(markdown: "Here is simple modal:")
             .margin(.top, .large)
 
-        let showModalId = "showModalId"
+        #LiveExample(previewMargin: .large) {
+            let showModalId = "showModalId"
 
-        CodeBlock(.swift) {
-            """
             Button("Show simple Modal") {
-                ShowModal(id: "\(showModalId)")
+                ShowModal(id: showModalId)
             }
             .role(.primary)
-
-            Modal(id: "\(showModalId)") {
-                Text("Dismiss me by clicking on the backdrop.")
-                    .horizontalAlignment(.center)
-                    .font(.title3)
-                    .margin(.xLarge)
-            }
-            """
-        }
-
-        Section {
-            Card {
-                Section {
-                    Button("Show simple Modal") {
-                        ShowModal(id: showModalId)
-                    }
-                    .role(.primary)
-                }
-                .margin(.vertical, .medium)
-            }
-            .role(.light)
 
             Modal(id: showModalId) {
                 Text("Dismiss me by clicking on the backdrop.")
@@ -70,7 +48,6 @@ struct ModalExamples: StaticPage {
                     .margin(.xLarge)
             }
         }
-        .padding(.top, .large)
 
         Text("Dismissing Modals")
             .font(.title2)
@@ -81,27 +58,9 @@ struct ModalExamples: StaticPage {
         Text(markdown: "This modal can be dismissed through a cose button in the top right corner:")
             .margin(.top, .medium)
 
-        let dismissModalId = "dismissModalId"
+        #LiveExample(previewMargin: .large) {
+            let dismissModalId = "dismissModalId"
 
-        CodeBlock(.swift) {
-            """
-            Modal(id: "\(dismissModalId)") {
-                Section {
-                    Button().role(.close).onClick {
-                        DismissModal(id: "\(dismissModalId)")
-                    }
-                }
-                .horizontalAlignment(.trailing)
-
-                Text("Dismiss me by clicking on the close button.")
-                    .horizontalAlignment(.center)
-                    .font(.title3)
-                    .margin(.xLarge)
-            }
-            """
-        }
-
-        Section {
             Card {
                 Section {
                     Button("Show Modal with a Close Button") {
@@ -127,7 +86,6 @@ struct ModalExamples: StaticPage {
                     .margin(.xLarge)
             }
         }
-        .padding(.top, .large)
 
         // MARK: - Modal Size
 
@@ -140,46 +98,11 @@ struct ModalExamples: StaticPage {
         Text(markdown: "Here are a few examples:")
             .margin(.top, .medium)
 
-        let smallModalId = "smallModalId"
-        let xLargeModalId = "xLargeModalId"
-        let fullscreenModalId = "fullscreenModalId"
+        #LiveExample(previewMargin: .large) {
+            let smallModalId = "smallModalId"
+            let xLargeModalId = "xLargeModalId"
+            let fullscreenModalId = "fullscreenModalId"
 
-        CodeBlock(.swift) {
-            """
-            Modal(id: "\(smallModalId)") {
-                Text(markdown: "Modal with size `.small`")
-                    .horizontalAlignment(.center)
-                    .font(.title3)
-                    .margin(.xLarge)
-            }
-            .size(.small)
-
-            Modal(id: "\(xLargeModalId)") {
-                Text(markdown: "Modal with size `.xLarge`")
-                    .horizontalAlignment(.center)
-                    .font(.title3)
-                    .margin(.xLarge)
-            }
-            .size(.xlarge)
-
-            Modal(id: "\(fullscreenModalId)") {
-                Section {
-                    Button().role(.close).onClick {
-                        DismissModal(id: "\(fullscreenModalId)")
-                    }
-                }
-                .horizontalAlignment(.trailing)
-
-                Text(markdown: "Modal with size `.fullscreen`.")
-                    .horizontalAlignment(.center)
-                    .font(.title3)
-                    .margin(.xLarge)
-            }
-            .size(.fullscreen)
-            """
-        }
-
-        Section {
             Card {
                 Section {
                     Grid {
@@ -210,7 +133,7 @@ struct ModalExamples: StaticPage {
             }
             .role(.light)
 
-            Modal(id: "\(smallModalId)") {
+            Modal(id: smallModalId) {
                 Text(markdown: "Modal with size `.small`")
                     .horizontalAlignment(.center)
                     .font(.title3)
@@ -218,7 +141,7 @@ struct ModalExamples: StaticPage {
             }
             .size(.small)
 
-            Modal(id: "\(xLargeModalId)") {
+            Modal(id: xLargeModalId) {
                 Text(markdown: "Modal with size `.xLarge`")
                     .horizontalAlignment(.center)
                     .font(.title3)
@@ -226,10 +149,10 @@ struct ModalExamples: StaticPage {
             }
             .size(.xLarge)
 
-            Modal(id: "\(fullscreenModalId)") {
+            Modal(id: fullscreenModalId) {
                 Section {
                     Button().role(.close).onClick {
-                        DismissModal(id: "\(fullscreenModalId)")
+                        DismissModal(id: fullscreenModalId)
                     }
                 }
                 .horizontalAlignment(.trailing)
@@ -241,7 +164,6 @@ struct ModalExamples: StaticPage {
             }
             .size(.fullscreen)
         }
-        .padding(.top, .large)
 
         // MARK: - Modal Position
 
@@ -254,21 +176,9 @@ struct ModalExamples: StaticPage {
         Text(markdown: "Here is a modal with `Position.top`:")
             .margin(.top, .medium)
 
-        let topModalId = "topModalId"
+        #LiveExample(previewMargin: .large) {
+            let topModalId = "topModalId"
 
-        CodeBlock(.swift) {
-            """
-            Modal(id: "\(topModalId)") {
-                Text(markdown: "Modal with `Position.top`")
-                    .horizontalAlignment(.center)
-                    .font(.title3)
-                    .margin(.xLarge)
-            }
-            .position(.top)
-            """
-        }
-
-        Section {
             Card {
                 Section {
                     Button("Show Modal at the top") {
@@ -288,7 +198,6 @@ struct ModalExamples: StaticPage {
             }
             .modalPosition(.top)
         }
-        .padding(.top, .large)
 
         Text("Headers and Footers")
             .font(.title2)
@@ -299,59 +208,11 @@ struct ModalExamples: StaticPage {
         Text(markdown: "Here is how they look like:")
             .margin(.top, .medium)
 
-        let headerModalId = "headerModalId"
-        let footerModalId = "footerModalId"
-        let headerAndFooterModalId = "headerAndFooterModalId"
+        #LiveExample(previewMargin: .large) {
+            let headerModalId = "headerModalId"
+            let footerModalId = "footerModalId"
+            let headerAndFooterModalId = "headerAndFooterModalId"
 
-        CodeBlock(.swift) {
-            """
-            Modal(id: "\(headerModalId)") {
-                Text("Body")
-            } header: {
-                Text("Header").font(.title5)
-
-                Button().role(.close).onClick{
-                    DismissModal(id: "\(headerModalId)")
-                }
-            }
-
-            Modal(id: "\(footerModalId)") {
-                Text("Body")
-            } footer: {
-                Button("Close") {
-                    DismissModal(id: "\(footerModalId)")
-                }
-                .role(.secondary)
-
-                Button("Go") {
-                    // Do something
-                }
-                .role(.primary)
-            }
-
-            Modal(id: "\(headerAndFooterModalId)") {
-                Text("Body")
-            } header: {
-                Text("Header").font(.title5)
-
-                Button().role(.close).onClick{
-                    DismissModal(id: "\(headerAndFooterModalId)")
-                }
-            } footer: {
-                Button("Close") {
-                    DismissModal(id: "\(headerAndFooterModalId)")
-                }
-                .role(.secondary)
-
-                Button("Go") {
-                    // Do something
-                }
-                .role(.primary)
-            }
-            """
-        }
-
-        Section {
             Card {
                 Section {
                     Grid {
@@ -381,12 +242,6 @@ struct ModalExamples: StaticPage {
                 .margin(.vertical, .medium)
             }
             .role(.light)
-
-            Alert {
-                Text(markdown: "Note how the content in the header is inlined and placed on the leading edge. However, a button with the role `close` is moved to the trailing edge. Content in the footer on the other hand is placed on the trailing edge.")
-            }
-            .role(.info)
-            .margin(.top, .large)
 
             Modal(id: headerModalId) {
                 Text("Body")
@@ -432,7 +287,12 @@ struct ModalExamples: StaticPage {
                 .role(.primary)
             }
         }
-        .padding(.top, .large)
+
+        Alert {
+            Text(markdown: "Note how the content in the header is inlined and placed on the leading edge. However, a button with the role `close` is moved to the trailing edge. Content in the footer on the other hand is placed on the trailing edge.")
+        }
+        .role(.info)
+        .margin(.top, .large)
 
         Text("Scrollable Content")
             .font(.title2)
@@ -443,22 +303,9 @@ struct ModalExamples: StaticPage {
         Text(markdown: "Here is a Modal with a long text:")
             .margin(.top, .medium)
 
-        let modal7 = "modal7"
+        #LiveExample {
+            let modal7 = "modal7"
 
-        CodeBlock(.swift) {
-            """
-            Modal(id: "\(modal7)" {
-                Text(placeholderLength: 1000)
-            } header: {
-                Text("Long text")
-                    .font(.title5)
-            }
-            .size(.large)
-            .scrollableContent(true)
-            """
-        }
-
-        Section {
             Card {
                 Section {
                     Button("Show Modal with Scrollable Content") {
@@ -513,12 +360,10 @@ struct ModalExamples: StaticPage {
         Text(markdown: "A modal which can not be dismissed by clicking on the backdrop can be configured like this:")
             .margin(.top, .xLarge)
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample {
             Button("Show Modal") {
-                ShowModal(id: "showModalId", option [.backdrop(dismissable: false)])
+                ShowModal(id: "showModalId", options: [.backdrop(dismissible: false)])
             }
-            """
         }
     }
 }

@@ -24,8 +24,7 @@ struct DropdownExamples: StaticPage {
         Text("Dropdowns are buttons with links inside, and optionally also text and dividers to break things up.")
             .font(.lead)
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample {
             Dropdown("Click Me") {
                 Link("Accordions", target: AccordionExamples())
                 Link("Carousels", target: CarouselExamples())
@@ -34,17 +33,7 @@ struct DropdownExamples: StaticPage {
                 Link("Go back home", target: "/")
             }
             .role(.primary)
-            """
         }
-
-        Dropdown("Click Me") {
-            Link("Accordions", target: AccordionExamples())
-            Link("Carousels", target: CarouselExamples())
-            Divider()
-            Text("Or you can just…")
-            Link("Go back home", target: "/")
-        }
-        .role(.primary)
 
         Text("Styling dropdowns")
             .font(.title2)
@@ -52,11 +41,10 @@ struct DropdownExamples: StaticPage {
 
         Text("Like other buttons, dropdowns can have roles and sizes:")
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample {
             ForEach(Role.allCases) { role in
                 ForEach(Button.Size.allCases) { size in
-                    Dropdown("\\(size.rawValue.capitalized) \\(role.rawValue) dropdown") {
+                    Dropdown("\(size.rawValue.capitalized) \(role.rawValue) dropdown") {
                         Link("Example Link", target: "#")
                     }
                     .dropdownSize(size)
@@ -66,20 +54,6 @@ struct DropdownExamples: StaticPage {
 
                 Spacer(size: .medium)
             }
-            """
-        }
-
-        ForEach(Role.allCases) { role in
-            ForEach(Button.Size.allCases) { size in
-                Dropdown("\(size.rawValue.capitalized) \(role.rawValue) dropdown") {
-                    Link("Example Link", target: "#")
-                }
-                .dropdownSize(size)
-                .role(role)
-                .margin(.bottom, .xSmall)
-            }
-
-            Spacer(size: .medium)
         }
 
         Text(markdown: "Dropdowns in `NavigationBar`")

@@ -33,38 +33,24 @@ struct CodeExamples: StaticPage {
 
             Text("For example, here's some Swift code:")
 
-            CodeBlock(.swift) {
-                """
+            #LiveExample(previewMargin: .xLarge) {
                 CodeBlock(.swift) {
-                    \"""
+                    """
                     struct ContentView: View {
                         var body: some View {
                             Text("Hello, Swift!")
                         }
                     }
-                    \"""
+                    """
                 }
-                """
             }
-
-            CodeBlock(.swift) {
-                """
-                struct ContentView: View {
-                    var body: some View {
-                        Text("Hello, Swift!")
-                    }
-                }
-                """
-            }
-            .margin(.bottom, .xLarge)
         }
 
         Text("Here's some Python:")
 
-        CodeBlock(.python) {
-            """
+        #LiveExample(previewMargin: .xLarge) {
             CodeBlock(.python) {
-                \"""
+                """
                 def find_primes_up_to_100():
                     primes = []
                     for possible_prime in range(2, 101):
@@ -76,56 +62,24 @@ struct CodeExamples: StaticPage {
                         if is_prime:
                             primes.append(possible_prime)
                     return primes
-                \"""
+                """
             }
-            """
         }
-
-        CodeBlock(.python) {
-            """
-            def find_primes_up_to_100():
-                primes = []
-                for possible_prime in range(2, 101):
-                    is_prime = True
-                    for num in range(2, int(possible_prime ** 0.5) + 1):
-                        if possible_prime % num == 0:
-                            is_prime = False
-                            break
-                    if is_prime:
-                        primes.append(possible_prime)
-                return primes
-            """
-        }
-        .margin(.bottom, .xLarge)
 
         Text("And here's some Ruby for good luck:")
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample(previewMargin: .xLarge) {
             CodeBlock(.ruby) {
-                \"""
+                """
                 def print_mean_average(numbers)
                   sum = numbers.sum
                   count = numbers.length
                   mean = count > 0 ? (sum.to_f / count) : 0
                   puts "The mean average is: #{mean}"
                 end
-                \"""
+                """
             }
-            """
         }
-
-        CodeBlock(.ruby) {
-            """
-            def print_mean_average(numbers)
-              sum = numbers.sum
-              count = numbers.length
-              mean = count > 0 ? (sum.to_f / count) : 0
-              puts "The mean average is: #{mean}"
-            end
-            """
-        }
-        .margin(.bottom, .xLarge)
 
         Alert {
             Text(markdown: "**Important:** When using syntax highlighting in articles, your site's `syntaxHighlighterConfiguration` must include those languages.")
@@ -134,35 +88,19 @@ struct CodeExamples: StaticPage {
 
         Text(markdown: "Use the `highlightedLines()` and `lineNumberVisibility()` modifiers to style your code blocks:")
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample(previewMargin: .xLarge) {
             CodeBlock(.swift) {
-                \"""
+                """
                 struct User {
                     let name: String
                     let age: Int
                     let email: String
                     let isActive: Bool
                 }
-                \"""
+                """
             }
             .highlightedLines(2, 4)
-            .lineNumberVisibility(.visible) 
-            """
+            .lineNumberVisibility(.visible)
         }
-
-        CodeBlock(.swift) {
-            """
-            struct User {
-                let name: String
-                let age: Int
-                let email: String
-                let isActive: Bool
-            }
-            """
-        }
-        .highlightedLines(2, 4)
-        .lineNumberVisibility(.visible)
-        .margin(.bottom, .xLarge)
     }
 }

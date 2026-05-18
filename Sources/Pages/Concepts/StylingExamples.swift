@@ -29,66 +29,39 @@ struct StylingExamples: StaticPage {
             Section {
                 Text("Here's an image with a fixed width and 50% opacity:")
 
-                CodeBlock(.swift) {
-                    """
+                #LiveExample(previewMargin: .xLarge) {
                     Image("/images/photos/dishwasher.jpg", description: "A dishwasher, and not a dog.")
                         .resizable()
                         .frame(width: 300)
                         .opacity(0.5)
-                    """
                 }
-
-                Image("/images/photos/dishwasher.jpg", description: "A dishwasher, and not a dog.")
-                    .resizable()
-                    .frame(width: 300)
-                    .opacity(0.5)
-                    .margin(.bottom, .xLarge)
 
                 Text("The following heading has a background color, foreground style, and inner shadow:")
 
-                CodeBlock(.swift) {
-                    """
+                #LiveExample(previewMargin: .xLarge) {
                     Text("Hello, world!")
                         .font(.title2)
                         .padding(20)
                         .foregroundStyle(.white)
                         .background(.indigo)
                         .innerShadow(.black, radius: 20)
-                    """
                 }
-
-                Text("Hello, world!")
-                    .font(.title2)
-                    .padding(20)
-                    .foregroundStyle(.white)
-                    .background(.indigo)
-                    .innerShadow(.black, radius: 20)
-                    .margin(.bottom, .xLarge)
 
                 Text("The next heading has a tooltip – hover over it to see what it says:")
 
-                CodeBlock(.swift) {
-                    """
+                #LiveExample {
                     Text {
                         Span("Hover over me")
                             .hint(markdown: "Why, *hello* there!")
                     }
                     .font(.title2)
-                    """
                 }
-
-                Text {
-                    Span("Hover over me")
-                        .hint(markdown: "Why, *hello* there!")
-                }
-                .font(.title2)
             }
             .width(7)
             .margin(.bottom, .xLarge)
 
             Section {
-                CodeBlock(.swift) {
-                    """
+                #LiveExample {
                     Section {
                         Text("This section is sticky. Try scrolling down!")
 
@@ -97,14 +70,6 @@ struct StylingExamples: StaticPage {
                     }
                     .position(.stickyTop)
                     .padding(.top, 80)
-                    """
-                }
-
-                Section {
-                    Text("This section is sticky. Try scrolling down!")
-
-                    Image("/images/photos/washing.jpg", description: "A laundry basket.")
-                        .resizable()
                 }
             }
             .width(5)
@@ -120,14 +85,9 @@ struct StylingExamples: StaticPage {
 
         Text("The section on the right started in its original location, but when it reached the top it stuck there until you scrolled past the end of its section, at which point it scrolled again.")
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample(previewMargin: .xLarge) {
             Text(markdown: "Get this in your own content using `.position(.stickyTop)`.")
-            """
         }
-
-        Text(markdown: "Get this in your own content using `.position(.stickyTop)`.")
-            .margin(.bottom, .xLarge)
 
         Text("A note about margin and padding")
             .font(.title2)
@@ -139,41 +99,25 @@ struct StylingExamples: StaticPage {
 
         Text("To see the difference in action, the heading below has no padding and 100 pixels of margins on all sides:")
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample {
             Text("Zero padding, lots of margin")
                 .padding(.none)
                 .margin(100)
                 .background(.purple)
                 .foregroundStyle(.white)
-            """
         }
-
-        Text("Zero padding, lots of margin")
-            .padding(.none)
-            .margin(100)
-            .background(.purple)
-            .foregroundStyle(.white)
 
         Text("Notice how it's set away from surrounding context, but the purple background fits tightly around it.")
 
         Text("In comparison, the heading below has 100 pixels of padding on all sides and no margins:")
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample {
             Text("Lots of padding, zero margin")
                 .padding(100)
                 .margin(.none)
                 .background(.purple)
                 .foregroundStyle(.white)
-            """
         }
-
-        Text("Lots of padding, zero margin")
-            .padding(100)
-            .margin(.none)
-            .background(.purple)
-            .foregroundStyle(.white)
 
         Text(markdown: "This time the heading has lots of purple space around it – the heading has had extra space added *inside it*, which is colored. However, it runs edge to edge otherwise; this text sits directly below it.")
 

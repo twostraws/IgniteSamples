@@ -25,39 +25,22 @@ struct AlertExamples: StaticPage {
 
         Text("A simple alert is created like this:")
 
-        CodeBlock(.swift) {
-            """
+        #LiveExample(previewMargin: .xLarge) {
             Alert {
                 Text("Something went really wrong.")
             }
             .role(.danger)
-            """
         }
-
-        Alert {
-            Text("Something went really wrong.")
-        }
-        .role(.danger)
-        .margin(.bottom, .xLarge)
 
         Text("Each role applies different styling to the alert, as you can see in this example:")
 
-        CodeBlock(.swift) {
-            """
-            ForEach(Role.semanticRoles) { role in
+        #LiveExample {
+            ForEach(Role.standardRoles) { role in
                 Alert {
-                    Text("This alert has the \\(role.rawValue) role.")
+                    Text("This alert has the \(role.rawValue) role.")
                 }
                 .role(role)
             }
-            """
-        }
-
-        ForEach(Role.standardRoles) { role in
-            Alert {
-                Text("This alert has the \(role.rawValue) role.")
-            }
-            .role(role)
         }
     }
 }
